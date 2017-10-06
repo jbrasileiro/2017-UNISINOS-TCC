@@ -1,0 +1,112 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+\usepackage{graphicx,url}
+
+%\usepackage[brazil]{babel}   
+\usepackage[utf8]{inputenc}  
+
+     
+\sloppy
+
+\title{Maturidade no processo de desenvolvimento de software\\ Qualidade de código contínua }
+
+\author{João Carlos  Brasileiro Stefenon de Almeida\inst{1}}
+
+
+\address{
+	Universidade do Vale do Rio dos Sinos
+  (UNISINOS)\\
+  São Leopoldo -- RS -- Brazil  
+\email{jcbrasileiro@hotmail.com}
+}
+
+\begin{document} 
+
+\maketitle
+
+\begin{abstract}
+  This meta-paper describes the style to be used in articles and short papers
+  for SBC conferences. For papers in English, you should add just an abstract
+  while for the papers in Portuguese, we also ask for an abstract in
+  Portuguese (``resumo''). In both cases, abstracts should not have more than
+  10 lines and must be in the first page of the paper.
+\end{abstract}
+     
+\begin{resumo} 
+  Este meta-artigo descreve o estilo a ser usado na confecção de artigos e
+  resumos de artigos para publicação nos anais das conferências organizadas
+  pela SBC. É solicitada a escrita de resumo e abstract apenas para os artigos
+  escritos em português. Artigos em inglês deverão apresentar apenas abstract.
+  Nos dois casos, o autor deve tomar cuidado para que o resumo (e o abstract)
+  não ultrapassem 10 linhas cada, sendo que ambos devem estar na primeira
+  página do artigo.
+\end{resumo}
+
+
+
+\part{INTRODUÇÃO}
+Uma das mudança mais impactantes no processo de desenvolvimento de software das duas ultimas décadas, foi a concepção e absorção das metodologias ágeis de software, seja SCRUM, XP ou outra, todas foram criadas a partir da filosofia AGILE \cite{MANISFESTOAGILE}, surgido a partir do esforço de várias pessoas que lidavam com o processo de software na década de 1990, visando uma abordagem mais efetiva e eficiente para o desenvolvimento de software.
+Apesar dos conceitos já existirem a quase 20 anos, ainda o conceito e a importância, 
+ 
+1º e 2º parágrafo: apresentação do tema dentro de um contexto.
+-- Qualidade do código 
+
+3º parágrafo: delimitação do tema, apresentado através do problema de pesquisa do seu TCC.
+
+4º parágrafo: apresente possíveis respostas para o problema de pesquisa levantado, ou seja, as hipóteses.
+
+5º parágrafo: em poucas palavras, fale sobre o objetivo geral do trabalho e também dos específicos. Eles são ingredientes fundamentais para o trabalho.
+
+6º parágrafo: apresente a relevância do seu trabalho acadêmico, identificando a importância dele para a sociedade ou comunidade científica. Isso é o que chamamos de justificativa.
+
+7º parágrafo: descreva, em poucas palavras, qual metodologia foi utilizada. Foi pesquisa bibliográfica ou de campo? Você deve especificar o procedimento de forma concisa.
+
+8º parágrafo: apresente a estrutura do trabalho, ou seja, como ele está dividido em capítulos. Lembre-se de falar, resumidamente, sobre o que se trata cada capitulo.
+
+
+
+\part{REVISÃO BIBLIOGRÁFICA} \label{sec:revisaobibliografica}
+\section{\textit{Object-oriented programming (OOP)}} \label{sec:oop}
+\section{\textit{Clean Code}} \label{sec:cleancode}
+\subsection{\textit{Object-Oriented Design Principles (OODP)}} \label{sec:oopd}
+\subsection{\textit{General responsibility assignment software principles (GRASP)}} \label{sec:grasp}
+
+\begin{itemize}
+	\item Controller
+	\item Creator
+	\item Indirection
+	\item Information Expert
+	\item High Cohesion
+	\item Low Coupling
+	\item Polymorphism
+	\item Protected Variations
+	\item Pure Fabrication
+\end{itemize}
+
+\subsection{\textit{S.O.L.I.D principles}} \label{sec:solid}
+\begin{itemize}
+	\item Single responsibility principle
+	\item Open closed principle
+	\item Liskov substitution principle
+	\item Interface segregation principle
+	\item Dependency Inversion principle
+\end{itemize}
+
+\section{\textsl{Test-driven development (TDD)}} \label{sec:tdd}
+Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: first the developer writes an (initially failing) automated test case that defines a desired improvement or new function, then produces the minimum amount of code to pass that test, and finally refactors the new code to acceptable standards.
+
+The process can be defined as such:
+
+    Write a failing unit test
+    Make the unit test pass
+    Refactor
+
+Repeat this process for every feature, as is necessary.
+
+\section{Trabalhos Relacionados} \label{sec:trabalhosrelacionados}
+
+\bibliographystyle{sbc}
+\bibliography{TCC-UNISINOS-ADS}
+
+\end{document}
