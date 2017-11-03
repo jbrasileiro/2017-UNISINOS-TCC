@@ -46,15 +46,26 @@
 
 
 \part{INTRODUÇÃO}
-Uma das mudança mais impactantes no processo de desenvolvimento de software das duas ultimas décadas, foi a concepção e absorção das metodologias ágeis de software, seja SCRUM, XP ou outra, todas foram criadas a partir da filosofia AGILE \cite{MANISFESTOAGILE}, surgido a partir do esforço de várias pessoas que lidavam com o processo de software na década de 1990, visando uma abordagem mais efetiva e eficiente para o desenvolvimento de software.
-Apesar dos conceitos já existirem a quase 20 anos, ainda o conceito e a importância, 
+
+ Uma das mudanças mais impactantes no processo de desenvolvimento de software das ultimas décadas, foi a concepção e absorção das metodologias ágeis de software, seja SCRUM, Extreme Programming (XP), Test Driven Development (TDD), Lean
+Software Development, Kanban, etc, todas foram criadas a partir da filosofia AGILE \cite{MANISFESTOAGILE}, surgido a partir do esforço de várias pessoas que lidavam com o processo de software na década de 1990, com o objetivo de definir uma abordagem mais efetiva e eficiente para o desenvolvimento de software. Apesar dos conceitos já existirem a quase 20 anos, a importância e a implementação dessas ideias ainda são muito pouco exploradas no Brasil, segundo Coleman Parkes Research \cite{COLEMANPARKES_AGILE_2017} ; durante uma pesquisa; entrevistou cerca de 1.770 executivos de tecnologia da informação em 21 países, incluindo 76 brasileiros, mostra que somente 6\% das empresas têm utilizado fortemente, “transformando toda a organização para abranger os princípios de agilidade”.
+
+ A partir dessa nova filosofia, a importância da qualidade no desenvolvimento criou novos pontos de vistas, aumentando significativamente também tanto na concepção, quanto no decorrer das outras fases, incluindo durante o desenvolvimento, e não mais apenas no final com um simples objetivo de execução. Um das mudanças foi a inclusão e a utilização do conceito de \textbf{MPV}, sigla de \textit{Minimum Viable Product}, que significa produto mínimo viável - conceito popularizado por Eric Ries \cite{ERICRIES_THELEAN} - que trouxe a importância de entregar e garantir de modo incremental, funcionalidades importantes para o cliente/negocio, ressaltando não apenas garantir um software útil, mas também visando a maleabilidade do negocio, as possibilidades de mudanças, seja de prioridades de funções, ou mesmo do próprio objetivo fim. A adoção desses pequenos entregáveis , gerou e exigiu; finalmente; uma maturidade no desenvolvimento, criando, por exemplo, a necessidade de artefatos que evidenciassem e garantissem desdo inicio dois grande aspectos: (1) Qualidade e (2) Garantia que cada entregável operasse corretamente.
+
+ 
+ 
+ 
+ -
  
 1º e 2º parágrafo: apresentação do tema dentro de um contexto.
--- Qualidade do código 
+-- Qualidade do código / garantia
 
 3º parágrafo: delimitação do tema, apresentado através do problema de pesquisa do seu TCC.
-
+-- Código ruim e "Ice cream" problem
+ 
 4º parágrafo: apresente possíveis respostas para o problema de pesquisa levantado, ou seja, as hipóteses.
+Aplicação das principios OO e CLEAN CODE.
+Segregação das testes unitarios e testes de integração.
 
 5º parágrafo: em poucas palavras, fale sobre o objetivo geral do trabalho e também dos específicos. Eles são ingredientes fundamentais para o trabalho.
 
@@ -66,11 +77,20 @@ Apesar dos conceitos já existirem a quase 20 anos, ainda o conceito e a import�
 
 
 
+
 \part{REVISÃO BIBLIOGRÁFICA} \label{sec:revisaobibliografica}
-\section{\textit{Object-oriented programming (OOP)}} \label{sec:oop}
+
 \section{\textit{Clean Code}} \label{sec:cleancode}
-\subsection{\textit{Object-Oriented Design Principles (OODP)}} \label{sec:oopd}
-\subsection{\textit{General responsibility assignment software principles (GRASP)}} \label{sec:grasp}
+
+Learning to write clean code is hard work. It requires more than just the knowledge of
+principles and patterns. You must sweat over it. You must practice it yourself, and watch
+yourself fail. You must watch others practice it and fail. You must see them stumble and
+retrace their steps. You must see them agonize over decisions and see the price they pay for
+making those decisions the wrong way.
+
+\section{\textit{Object-Oriented Design Principles (OODP)}} \label{sec:oopd}
+
+\subsection{\textit{General Responsibility Assignment Software Principles (GRASP)}} \label{sec:grasp}
 
 \begin{itemize}
 	\item Controller
@@ -93,6 +113,13 @@ Apesar dos conceitos já existirem a quase 20 anos, ainda o conceito e a import�
 	\item Dependency Inversion principle
 \end{itemize}
 
+\subsection{\textit{Law of Demeter principles}} \label{sec:law_of_demeter}
+\subsection{\textit{Don't Repeat Yourself (DRY)}} \label{sec:law_of_demeter}
+\subsection{\textit{Favor Composition over Inheritance.}} \label{sec:law_of_demeter}
+\subsection{\textit{Keep it Simple, Stupid. (KISS)}} \label{sec:law_of_demeter}
+
+
+
 \section{\textsl{Test-driven development (TDD)}} \label{sec:tdd}
 Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: first the developer writes an (initially failing) automated test case that defines a desired improvement or new function, then produces the minimum amount of code to pass that test, and finally refactors the new code to acceptable standards.
 
@@ -104,7 +131,7 @@ The process can be defined as such:
 
 Repeat this process for every feature, as is necessary.
 
-\section{Trabalhos Relacionados} \label{sec:trabalhosrelacionados}
+\part{Trabalhos Relacionados} \label{sec:trabalhosrelacionados}
 
 \bibliographystyle{sbc}
 \bibliography{TCC-UNISINOS-ADS}
