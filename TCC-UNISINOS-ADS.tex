@@ -3,21 +3,20 @@
 \usepackage{sbc-template}
 \usepackage{graphicx,url}
 
-%\usepackage[brazil]{babel}   
-\usepackage[utf8]{inputenc}  
-
-     
+%\usepackage[brazil]{babel}  
+\usepackage[utf8]{inputenc} 
+   
 \sloppy
 
 \title{Maturidade no processo de desenvolvimento de software\\ Qualidade de código contínua }
 
-\author{João Carlos  Brasileiro Stefenon de Almeida\inst{1}}
+\author{João Carlos Brasileiro Stefenon de Almeida\inst{1}}
 
 
 \address{
 	Universidade do Vale do Rio dos Sinos
-  (UNISINOS)\\
-  São Leopoldo -- RS -- Brazil  
+ (UNISINOS)\\
+ São Leopoldo -- RS -- Brazil 
 \email{jcbrasileiro@hotmail.com}
 }
 
@@ -29,7 +28,7 @@
 \begin{abstract}
 [WIP]
 \end{abstract}
-     
+   
 \begin{resumo} 
 [WIP]
 \end{resumo}
@@ -46,14 +45,20 @@
  A partir dessa nova abordagem de gerenciar software, a importância da qualidade evoluiu e alcançou novos pontos de vistas, aumentando significativamente tanto na concepção, quanto no decorrer das outras fases, incluindo durante o desenvolvimento, e não mais apenas no final com um simples objetivo de execução do software. Um das grandes mudanças foi a inclusão e a utilização do conceito de \textbf{MPV}, sigla de \textit{Minimum Viable Product}, que significa Produto Mínimo Viável – conceito popularizado por Eric Ries \cite{ERICRIES_THELEAN} - trazendo a importância de entregar e assegurar o sistema de modo incremental, incluindo progressivamente funcionalidades importantes para o cliente, ou o negócio, ressaltando não apenas garantir um software útil, mas também visando minimizar a maleabilidade do ecossistema do negócio, seja as possibilidades de mudanças, tanto de prioridades de funções, técnicas ou mesmo do próprio objetivo fim. A adoção desses pequenos entregáveis, gerou e exigi um aumento na maturidade no desenvolvimento, criando a necessidade de gerar artefatos que evidenciassem e garantissem, desdo inicio, dois grandes aspectos: (i) Qualidade e (ii) a garantia que cada entregáveis operasse corretamente.
 
  Max Kanat-Alexander \cite{CODE_SIMPLICITY} resume sinteticamente uma interpretação da importância da qualidade do código/design: 
- 
+
+\begin{quote}
  \emph{"É mais importante reduzir o esforço de manutenção do que reduzir o esforço de implementação"}.
- 
+\end{quote} 
+
+
  Também reforça as consequências de ignorar o fato de existir um futuro, e cair no erro de criamos coisas que "apenas funcionam no presente", a partir disso menciona uma regra importante para a qualidade: 
- 
+
+\begin{quote}
  \emph{"O nível de qualidade do seu projeto deve ser proporcional ao tempo do futuro em que seu sistema continuará a ajudar as pessoas"}.
-	
-	Steve McConnell \cite{CODE_COMPLETE_2} deixa claro a ideia de qualidade de um código limpo, não é uma parte opicional no desenvolvimento, reforçando a importancia dos aspectos (capacidade de extensão, código testavel, fácil comprensão, alta coesão, desacoplamento, entre outros).
+\end{quote} 
+
+
+	Steve McConnell \cite{CODE_COMPLETE_2} deixa claro a ideia de qualidade de um código limpo, sendo uma parte principal, e não uma parte opicional no desenvolvimento, reforçando a importancia dos aspectos de um código bem feito (capacidade de extensão, código testavel, fácil comprensão, alta coesão, desacoplamento, entre outros).
 	 
 
 %3º parágrafo: delimitação do tema, apresentado através do problema de pesquisa do seu TCC.
@@ -102,37 +107,71 @@ Código Limpo com a finalidade de se obter um sistema robusto com poucos erros e
  () \cite{TR_QC_TECHNICAL_DEBT} fala sobre a dívida técnica, se referir a qualquer projeto de sistema, arquitetura, desenvolvimento dentro da base de código, é uma solução de curto prazo para qualquer trabalho específico, que é aplicado antes da solução completa ou adequada para
 qualquer trabalho, como dizendo que não é uma solução a longo prazo para qualquer trabalho específico. É uma espécie de solução que é encaminhado pelos não especialistas para o conclusão ou entrega do produto, mas é atraídos pelos especialistas que podem comprometer a qualidade do produto.
 
-  (iii) \cite{TR_CLEAN_CODE_METRICA} um mapeamento entre um conjunto de métricas de código-fonte, com o objetivo de facilitar a detecção de trechos de código com potencial de melhorias, apresenta uma maneira de interpretar as métricas.
+ (iii) \cite{TR_CLEAN_CODE_METRICA} um mapeamento entre um conjunto de métricas de código-fonte, com o objetivo de facilitar a detecção de trechos de código com potencial de melhorias, apresenta uma maneira de interpretar as métricas.
 
-  (iv) \cite{CODE_READABILITY_TESTING_STUDY} demonstra
+ (iv) \cite{CODE_READABILITY_TESTING_STUDY} demonstra
 como o teste de legibilidade do código melhora a capacidade dos programadores
 para escrever código legível, e identificar correções. Apresenta uma comparação de tecnicas e conclui com resultados positivos, relatando que as técnicas valem seu tempo investido e articula como os testes podem alterar positivamente seus hábitos de programação.
-  
-  (v) \cite{CODE_SMELLS_REFLECT_IMPORTANT_MAINTAINABILITY_ASPECTS} esse artigo apresenta uma importante analisa sobre "code smell", sendo apresentado um relatório sobre um estudo empírico que investiga a extensão que os "code smell" refletem e afetam a capacidade de manutenção.
+ 
+ (v) \cite{CODE_SMELLS_REFLECT_IMPORTANT_MAINTAINABILITY_ASPECTS} esse artigo apresenta uma importante analisa sobre "code smell", sendo apresentado um relatório sobre um estudo empírico que investiga a extensão que os "code smell" refletem e afetam a capacidade de manutenção.
 
 \part{REVISÃO BIBLIOGRAFICA} \label{sec:revisaobibliografica}
 
 \section{\textit{Clean Code}} \label{sec:cleancode}
-[WIP]
 
-Learning to write clean code is hard work. It requires more than just the knowledge of
-principles and patterns. You must sweat over it. You must practice it yourself, and watch
-yourself fail. You must watch others practice it and fail. You must see them stumble and
-retrace their steps. You must see them agonize over decisions and see the price they pay for
-making those decisions the wrong way.
+"Clean code" \cite{ROBERT_MARTIN_CLEAN_CODE} é um conceito subjetivo, que de modo muito generico, significa código bem feito, incluindo saber transformar um "código ruim" em um "código bom", ou o conhecimento da diferença entre ambos, assim como escrever um "código bom". Robert C. Martin \cite{ROBERT_MARTIN_CLEAN_CODE} debate os conceitos do que é "certo" e o que é "errado" na codificação. Destacando pontos impotantes para alcançar o nível de qualidade como principios, padrões, e boas práticas, passando por estudos de casos de diversos tipos e complexidades, uma base de conhecimento que descreve e explicar o racícinio usado durante a leitura, a escrita e durante a aplicação do "clean code", como a utilização de nomes significativos, escritas de funções pequenas e com objetivos claros, The Stepdown Rule \footnote{The Stepdown Rule \cite{ROBERT_MARTIN_CLEAN_CODE}, um código deve ser escrito de modo "TOPDOWN", aonde o programa fosse um conjunto des parágrafos "TO-DO", cada um descrevendo o nível atual de abstração e referenciando subseqüentemente outro parágrafos "TO-DO" no próximo nível de abstração abaixo.}, formatação de código, importancia de um sistema testavel \footnote{Um sistema que é testado de forma abrangente e passa todos os seus testes o tempo todo é um sistema testável. Essa é uma declaração óbvia, mas importante. Sistemas que não são testáveis
+não são verificáveis. Provavelmente, um sistema que não pode ser verificado nunca deve ser implantado}, entre outros pontos. 
+
+Também destaca o esforço necessario para absorver o conhecimento, e conhecer o "clean code" \cite{ROBERT_MARTIN_CLEAN_CODE}:
+
+\begin{quotation}
+\textit{"Aprender a escrever um código limpo é um trabalho árduo. Exige mais do que apenas o conhecimento de princípios e padrões. Você deve suar sobre ele. Você deve praticá-lo você mesmo, e assistir você falha. Você deve observar os outros praticando e falhar. Você deve vê-los tropeçar e siga seus passos. Você deve vê-los agonizantes sobre as decisões e ver o preço que pagam fazendo essas decisões do jeito errado." }
+\end{quotation}
 
 \section{\textit{Object-Oriented Design Principles (OODP)}} \label{sec:oopd}
-[WIP]
+ 
+ Os principios de design orientado a objeto, tem como objetivo ajudar os desenvolvedores a eliminar "design smell" \footnote{"Desing smell"\ \cite{ROBERT_MARTIN_AGILE_SW_DEV_PPP} é um sintoma, algo mensuravel, subjetivamente se não objetivamanete, que normalmente, é o resultado de uma ou mais violações aos principios.} e construir melhores soluções para o atual problema/"feature".
 
 \subsection{\textit{S.O.L.I.D principles}} \label{sec:solid}
+
+ Conceitos apresentendo iniciamente em 2002 \cite{ROBERT_MARTIN_AGILE_SW_DEV_PPP}, como parte do processo "agile design":
+ 
+ \begin{quote}
+\textit{" É a aplicação contínua de princípios, padrões e práticas para melhorar a estrutura e a legibilidade do software. É a dedicação de permanecer o design do sistema tão simples, limpa e expressiva quanto possivel a todo hora. "}
+ \end{quote}
+
+ Posteriormente, em 2004, estes cinco princípios tornou conhecido pelo acrônimo "SOLID", após Michael Feathers reorganizar as sequencia dos itens. 
+
 \begin{itemize}
-	\item Single responsibility principle
-	\item Open closed principle
-	\item Liskov substitution principle
-	\item Interface segregation principle
-	\item Dependency Inversion principle
+	\item \textbf{SRP} - Single responsibility principle
+	\item \textbf{OCP} - Open closed principle
+	\item \textbf{LSP} - Liskov substitution principle
+	\item \textbf{ISP} - Interface segregation principle
+	\item \textbf{DIP} - Dependency Inversion principle
 \end{itemize}
-[WIP]
+
+\subsubsection{SRP - Single responsibility principle}
+\begin{quote}
+	\textit{"A classe deve ter apenas uma responsabilidade."}	
+\end{quote}
+\subsubsection{OCP - Open closed principle}
+\begin{quote}
+	\textit{"Entidades de software (classes, modulos, fuções..) devem estar abertas para extensão, mas fechadas para modificação."}	
+\end{quote}
+\subsubsection{LSP - Liskov substitution principle}
+\begin{quote}
+	\textit{"Subtipos \footnote{Também conhecidas como "Classes derivadas".} devem ser substituíveis por suas classes base."}\footnote{Barbara Liskov escreveu em seu primeiro artigo em 1988, \textit{"What is wanted here is something like the following substitution property: If for each object $ o_1 $ of type S there is an object $ o_2 $ of type T such that for allprograms Pdefined in terms of T, the behavior of P is unchanged when $ o_1 $ is substituted for $ o_2 $ then S is a subtype of T."} }	
+\end{quote}
+\subsubsection{ISP - Interface segregation principle}
+\begin{quote}
+	\textit{"Muitas interfaces específicas são melhores do que uma interface com propósito generico."}	
+\end{quote}
+\subsubsection{DIP - Dependency Inversion principle}
+\begin{quote}
+	\textit{A - Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações.}
+	
+	\textit{B -  Abstrações não devem depender de detalhes. Detalhes devem depender de abstrações.}	
+\end{quote}
 
 \subsection{\textit{General Responsibility Assignment Software Principles (GRASP)}} \label{sec:grasp}
 [WIP]
@@ -150,7 +189,12 @@ making those decisions the wrong way.
 [WIP]
 
 \subsection{\textit{Favor Composition over Inheritance.}} \label{sec:favor_composition}
-[WIP]
+\begin{quote}
+\textit{"Uma relação "HAS-A" pode ser melhor do que "IS-A"."}\cite{HEADFIRST_DESIGN_PATTERN}
+\end{quote}
+
+Criar sistemas usando a composição permite muito mais flexibilidade, permite uma maior facilidade na implementação, permite que você altere o comportamento em tempo de execução, desde que o objeto que você está compondo implementa a interface de comportamento correta. 
+
 
 \subsection{\textit{Law of Demeter principles}} \label{sec:law_of_demeter}
 [WIP]
@@ -171,7 +215,7 @@ The process can be defined as such:
 	\item Make the unit test pass
 	\item Refactor
 \end{enumerate}
-    
+  
 
 Repeat this process for every feature, as is necessary.
 
@@ -185,3 +229,4 @@ Repeat this process for every feature, as is necessary.
 \bibliography{TCC-UNISINOS-ADS}
 
 \end{document}
+	
