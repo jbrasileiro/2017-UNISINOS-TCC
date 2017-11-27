@@ -204,26 +204,52 @@ Criar sistemas usando a composição permite muito mais flexibilidade, permite u
 
 \subsection{\textit{Law of Demeter principles}} \label{sec:law_of_demeter}
 [WIP]
+A lei de Demeter foi desenvolvida em 1988 por Karl Lieberherr e Ian Holland, da Northeastem Univerity, com uma idéia extremamente simples: organizar e reduzir dependências entre classes.
+
+Na classe C, para todos os métodos M definidos em C, todos os objetos com o qual M se comunica deve ser:
+
+    Argumento de M
+    Um membro de C
+
+Objetos criados por M, por métodos que M invoca ou objetos de escopo global na classe são considerados argumentos de M.
+
+Esta lei tem dois propósitos primários:
+
+    Simplificar modificações;
+    Simplificar a complexidade da programação.
+
 
 \subsection{\textit{Don't Repeat Yourself (DRY)}} \label{sec:dey}
 [WIP]
 
+O princípio DRY ("não se repita") busca reduzir a duplicação de código e os problemas de manutenção resultantes, mas quando é mal aplicado aumenta o acoplamento e atrapalha a leitura do código. Conheça a opinião de vários especialistas sobre o princípio, suas aplicações e armadilhas.
+
+DRY é uma abreviação para o inglês Don't Repeat Yourself, "Não se Repita". É o primeiro princípio do desenvolvimento de software mencionado por Andy Hunt e Dave Thomas no clássico livro O Programador Pragmático: de aprendiz a mestre. O princípio declara que:
+% https://www.infoq.com/br/news/2012/07/DRY-acoplamento-duplicacao
+
+\begin{quote}
+\textit{Cada parte do conhecimento deve ter uma representação única, não ambígua e definitva dentro do sistema.}
+\end{quote}
+
+
 \subsection{\textit{Keep it Simple, Stupid. (KISS)}} \label{sec:kiss}
 [WIP]
+O princípio KISS – de “Keep It Simple, Stupid” – tem como principio manter a simplicidade e descartar a complexidade, no contexto de desenvolvimento de software o "descartar a complexidade" seria algo como quebrar aquele script complexo em “n” partes simples e de resolução única, ou seja, cada parte se limitaria a resolver somente uma única tarefa do problema principal.
+
 
 \section{\textsl{Test-driven development (TDD)}} \label{sec:tdd}
 [WIP]
-Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: first the developer writes an (initially failing) automated test case that defines a desired improvement or new function, then produces the minimum amount of code to pass that test, and finally refactors the new code to acceptable standards.
-
-The process can be defined as such:
-\begin{enumerate}
-	\item Write a failing unit test
-	\item Make the unit test pass
-	\item Refactor
-\end{enumerate}
-  
-
-Repeat this process for every feature, as is necessary.
+%Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: first the developer writes an (initially failing) automated test case that defines a desired improvement or new function, then produces the minimum amount of code to pass that test, and finally refactors the new code to acceptable standards.
+%
+%The process can be defined as such:
+%\begin{enumerate}
+%	\item Write a failing unit test
+%	\item Make the unit test pass
+%	\item Refactor
+%\end{enumerate}
+%  
+%
+%Repeat this process for every feature, as is necessary.
 
 \part{Trabalhos Relacionados} \label{sec:trabalhosrelacionados}
 
