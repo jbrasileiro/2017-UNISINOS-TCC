@@ -1,0 +1,1578 @@
+%-
+% Exemplo LaTeX de monografia UNISINOS
+%
+% Elaborado com base nas orientaÃ§Ãµes dadas no documento
+% ``GUIA PARA ELABORAÃ‡ÃƒO DE TRABALHOS ACADÃŠMICOS''
+% disponÃ­vel no site da biblioteca da Unisinos.
+% http://www.unisinos.br/biblioteca
+%
+% Os elementos textuais abaixo sÃ£o apresentados na ordem em que devem
+% aparecer no documento.  Repare que nem todos sÃ£o obrigatÃ³rios - isso
+% Ã© devidamente indicado em cada caso.
+%
+% ComentÃ¡rios abaixo colocados entre aspas (`` '') foram
+% extraÃ­dos diretamente do documento da biblioteca.
+%
+% Este documento Ã© de domÃ­nio pÃºblico.
+%
+
+%=======================================================================
+% DeclaraÃ§Ãµes iniciais identificando a classe de documento e
+% selecionando alguns pacotes adicionais.
+%
+% As opÃ§Ãµes disponÃ­veis (separe-as com vÃ­rgulas, sem espaÃ§o) sÃ£o:
+% - twoside: Formata o documento para impressÃ£o frente-e-verso
+%   (o default Ã© somente-frente)
+% - english,brazilian,french,german,etc.: idiomas usados no documento.
+%   Deve ser colocado por Ãºltimo o idioma principal.
+%=======================================================================
+\documentclass[twoside,english,brazilian]{UNISINOSmonografia}
+	%\usepackage[utf8]{inputenc} % charset do texto (utf8, latin1, etc.)
+	\usepackage[T1]{fontenc} % encoding da fonte (afeta a sep. de sÃ­labas)
+	\usepackage{graphicx} % comandos para grÃ¡ficos e inclusÃ£o de figuras
+	\usepackage{bibentry} % para inserir refs. bib. no meio do texto
+	%\usepackage[brazil]{babel}
+	%\usepackage[latin1]{inputenc}
+	\usepackage[authoryear,round,longnamesfirst]{natbib}
+	\usepackage{lmodern}
+	\usepackage{array} % Adicionado JJ
+	\usepackage{booktabs} % Adicionado JJ tabela personalizada
+	\usepackage [table]{xcolor} % Adicionado JJ tabela personalizada
+	\usepackage{url}
+	\usepackage{makeidx}
+	\pagestyle{plain}
+	
+
+%=======================================================================
+% Escolha do sistema para geraÃ§Ã£o de referÃªncias bibliogrÃ¡ficas.
+%
+% O default Ã© usar o estilo unisinos.bst.  Comente a definiÃ§Ã£o abaixo
+% e descomente a linha seguinte para usar o estilo do ABNTeX (Ã©
+% necessÃ¡rio ter esse pacote instalado).
+%
+% A vantagem do unisinos.bst Ã© que ele permite o uso de um arquivo .bib
+% seguindo as orientaÃ§Ãµes tradicionais do BibTeX (veja essas orientaÃ§Ãµes
+% em http://ctan.tug.org/tex-archive/biblio/bibtex/contrib/doc/btxdoc.pdf).
+% Entretanto, o estilo nÃ£o suporta algumas citaÃ§Ãµes mais exÃ³ticas como
+% apud.  Para isso, use o ABNTeX, mas esteja ciente de que muitas de
+% suas referÃªncias serÃ£o incompatÃ­veis com os estilos tradicionais do
+% BibTeX como plain, alpha, ieeetr, entre outros.
+%=======================================================================
+\unisinosbst
+%\usepackage[alf]{abntcite}
+
+%=======================================================================
+% Dados gerais sobre o trabalho.
+%=======================================================================
+\autor{Brasileiro Stefenon de Almeida}{João Carlos}
+\titulo{Análise do impacto sobre o processo de teste com \textit{Cloud Computing}}
+%\subtitulo{VersÃ£o \LaTeX}
+\orientador[Prof.]{Krug}{Magrid}
+
+\unidade{Unidade Acadêmica de Graduação}
+\curso{Graduação de Análise e desenvolvimento de Sistema}
+\nivel{Nível Graduação}
+\natureza{%
+Dissertação apresentada como requisito parcial para a obtenção
+do título de graduado pelo graduação em Análise e desenvolvimento de sistemas
+ da Universidade do Vale do Rio dos Sinos --- UNISINOS
+}
+\local{São Leopoldo}
+\ano{2011}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% dados da ficha catalogrÃ¡fica
+%%%%%%%%%%%%%%%%%%%%%%%%%%% (obrigatÃ³ria somente para dissertaÃ§Ãµes e teses)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%\cip{DissertaÃ§Ã£o (mestrado)}{004.732}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%\bibliotecario{BibliotecÃ¡ria responsÃ¡vel: Fulana da Silva}{12/3456}
+
+% cada palavra-chave deve ser fornecida duas vezes, uma em portuguÃªs e
+% outra no idioma estrangeiro (na verdade, em tantos idiomas quantos se
+% desejar).
+\palavrachave{brazilian}{UNISINOS}
+\palavrachave{brazilian}{ABNT}
+\palavrachave{brazilian}{\LaTeX}
+\palavrachave{brazilian}{Formatação de documentos}
+\palavrachave{english}{UNISINOS}
+\palavrachave{english}{ABNT}
+\palavrachave{english}{\LaTeX}
+\palavrachave{english}{Document typesetting}
+%
+%=======================================================================
+% Início do documento.
+%=======================================================================
+\begin{document}
+\capa
+\folhaderosto
+%\folhadeaprovacao % nÃ£o deve ser incluÃ­da nos TCCs
+
+%=======================================================================
+% DedicatÃ³ria (opcional).
+%
+% O texto Ã© normalmente colocado na parte de baixo da pÃ¡gina, alinhado
+% Ã  direita.  Mas a formataÃ§Ã£o Ã© basicamente livre.  SÃ³ nÃ£o se escreve
+% a palavra 'dedicatÃ³ria'.
+%=======================================================================
+\begin{dedicatoria}
+Aos nossos pais.\\[4ex] % quebra a linha dando um espaÃ§amento maior
+\begin{itshape} % faz o texto ficar em itÃ¡lico
+If I have seen farther than others,\\
+it is because I stood on the shoulders of giants.\\
+\end{itshape}
+--- \textsc{Sir Isaac Newton} % \textsc Ã© o "small caps"
+\end{dedicatoria}
+
+%=======================================================================
+% Agradecimentos (opcional).
+%=======================================================================
+\begin{agradecimentos}
+Obrigado!
+\end{agradecimentos}
+
+%=======================================================================
+% EpÃ­grafe (opcional).
+%
+% ``[...] o autor apresenta uma citaÃ§Ã£o, seguida de indicaÃ§Ã£o de autoria,
+% relacionada com a matÃ©ria tratada no corpo do trabalho. Podem, tambÃ©m,
+% constar epÃ­grafes nas folhas de aberturas das seÃ§Ãµes primÃ¡rias.''
+%=======================================================================
+\begin{epigrafe}
+``\textit{NinguÃ©m abre um livro sem que aprenda alguma coisa}''.\\
+(AnÃ´nimo)
+\end{epigrafe}
+
+%=======================================================================
+% Resumo em PortuguÃªs.
+%
+% A recomendaÃ§Ã£o Ã© para 150 a 500 palavras.
+%=======================================================================
+\begin{abstract}
+	Um dos principais objetivos do processo de desenvolvimento de software sempre foi a otimização na utilização dos recursos disponíveis,
+	procurando sempre aumentar a eficiência e diminuir os custos envolvidos.
+	Com as atuais tecnologias este objetivo vem sendo  alcançado, e com isso, facilitando o processo de gerência, e possibilitando implementar 
+	uma infraestrutura capaz de compartilhar recursos através da internet. Criando assim novos cenários, e novos modelos para
+	 gerenciar a tecnologia da informação (TI), e com isso , novas características, limitações e principalmente novos desafios a serem enfrentados.
+	Este artigo tem o objetivo de identificar qualidades, desafios e apresentar um ponto de vista do processo de testes com essas novas tecnologias, apresentando também  possíveis tipos de técnicas e estratégia que possivelmente podem ser utilizadas para conduzir o processo de teste e cobrir essas novas características.
+\end{abstract}
+
+%=======================================================================
+% Resumo em lÃ­ngua estrangeira (obrigatÃ³rio somente para teses e
+% dissertaÃ§Ãµes).
+%
+% O idioma usado aqui deve necessariamente aparecer nos parÃ¢metros do
+% \documentclass, no inÃ­cio do documento.
+%=======================================================================
+\begin{otherlanguage}{english}
+\begin{abstract}
+Since a long time ago, even in the begin of the software development process, the need of an effective sharing of resource and components always was a main goal. It has been the focus of an optimized process, minimizing the cost effort and facilitating the activities to the management.
+Now with ours actual technologies, it can be possible and easily achieve this goal, implementing an infrastructure that can generate new sceneries in the Information Technology, and bring new big challenges and changes in the development process.  
+This article has the main focus on identifying the qualities, challenges and show a point of view from test Process with these new technologies, and how possibly we can handle from now on, and how we possibly can conduct the Test process to cover these new features that comes with it.
+\end{abstract}
+\end{otherlanguage}
+%=======================================================================
+% Lista de Figuras (opcional).
+%=======================================================================
+%\listoffigures
+%
+%=======================================================================
+% Lista de Tabelas (opcional).
+%=======================================================================
+%\listoftables
+%
+%=======================================================================
+% Lista de Abreviaturas (opcional).
+%
+% Deve ser passada como parÃ¢metro a maior das abreviaturas utilizadas.
+%=======================================================================
+%\begin{listadeabreviaturas}{seg., segs.}
+%\item[ampl.] ampliado, -a
+%\item[atual.] atualizado, -a
+%\item[coord.] coordenador
+%\item[N.~T.] Novo Testamento
+%\item[seg., segs.] seguinte, -s
+%\end{listadeabreviaturas}
+%
+%=======================================================================
+% Lista de Siglas (opcional).
+%
+% Deve ser passada como parÃ¢metro a maior das siglas utilizadas.
+%=======================================================================
+%%\begin{listadesiglas}{FAPERGS}
+%\item[ABNT] AssociaÃ§Ã£o Brasileira de Normas TÃ©cnicas
+%\item[CAPES] CoordenaÃ§Ã£o de AperfeiÃ§oamento de Pessoal de NÃ­vel Superior
+%\item[FAPERGS] FundaÃ§Ã£o de Amparo Ã  Pesquisa do Estado do Rio Grande do Sul
+%\end{listadesiglas}
+%
+%=======================================================================
+% Lista de SÃ­mbolos (opcional).
+%
+% Deve ser passado o maior (mais largo) dos sÃ­mbolos utilizados.
+%=======================================================================
+%\begin{listadesimbolos}{Ca}
+%\item[\textsuperscript{o}C] Graus Celsius
+%\item[Al] AlumÃ­nio
+%\item[Ca] CÃ¡lcio
+%\end{listadesimbolos}
+%
+%=======================================================================
+% Sumário
+%=======================================================================
+\tableofcontents
+	%==============================================================================
+	%
+	%                         					TCC
+	% 				               	Capitulo 1 - Introdução
+	%
+	%==============================================================================
+	\chapter{Introdução}
+	A computação em nuvens ainda é um conceito novo na área de Teconologia da Informação (TI), \citet{CloudComputingAA} afirma que este conceito traz alguns desafios, em particular ao processo de teste de software.
+	Portanto, não se conhece claramente como esse novo conceito irá afetar os processos da TI e qual o impacto nos padrões e modelos utilizados até hoje.
+	\citet{MichaelMiller} menciona que o uso da computação em nuvens traz uma série de vantagens, facilidades no acesso, e principalmente o compartilhamento de recursos, que vem de encontro direto as atuais necessidades  crescentes do mercado, mas também traz algumas outras características importantes como a velocidade de adaptação, uma maior agilidade de entrega e mesmo no processo de descontinuação dos sistemas e sua infraestrutura.
+	\newline
+	O gerente de Novas Tecnologias Aplicadas da IBM Brasil, \citet{Cezar2011} afirma que \textit{Cloud Computing}, ou computação em nuvem, é uma verdadeira transformação na maneira de se gerenciar e entregar a Tecnologia da Informação. Esse ambiente vai transformar a área de TI em serviço, não só para quem consome, mas como também para quem fornece. Tudo será negociado em forma de serviço.
+	Baseado nessas variáveis, este novo modo de gerenciar a Tecnologia da informação, embora esteja em um estágio inicial de maturidade, certamente terá uma clara evolução e os chamados ``\textit{Cloud Model}`` (Modelos em Nuvem) ganharão uma grande parte das instalações no decorrer do tempo, e estará presente em muitas estratégias de negócio das empresas. Conforme é possível visualizar com a seguinte pesquisa realizada:
+	\begin{quote}
+	\textit{``
+	Atualmente, 18\% das médias e grandes empresas brasileiras usam alguma aplicação de \textit{Cloud computing}, sendo que a grande maioria delas utiliza e-mail e ferramenta de publicidade. Essa parcela deve saltar para entre 30\% e 35\% em 2013, de acordo com projeção da IDC. Segundo a consultoria, o aumento da demanda resultará em um crescimento anual de 60\% do mercado de computação em nuvem no Brasil nos próximos anos.
+	``}
+	\newline
+	\cite{IDCAndersonFigueiredo}
+	\end{quote}
+	
+	Com a utilização e implementação deste novo tipo de estrutura, aonde tornará possível se conectar facilmente com demais tipos de arquiteturas, sistemas ou outros ambientes, tanto as tradicionais quanto as estruturas antigas nas quais são mantidos sistemas legados, normalmente os mais críticos e complexos. Essas facilidades, acabam impactando a forma aonde o processo de teste atua. \cite{} afirma que a utilização dos modelos nas nuvens nada do que anteriormente era realizado terá mudança, o que era testado continuará a ser testado, porém, incluirá uma nova perspectiva, novas características para o processo de teste de software. O teste incorporado em ''\textit{Cloud Models}'', possui muitos riscos envolvidos na integração, na utilização em paralelos dos recursos, a exigência de muitos padrões de serviço, ou acordos de Níveis de Serviço - ANS \footnote{Tradução do inglês \textit{Service Level Agreement - SLA}} para este tipo de infraestrutura, novos quantificadores para avaliar atributos, e o aumento do grau de importância dos requisitos não funcionais. São estes novos atributos torna o Teste em Nuvens diferente do processo de teste tradicional.
+	Uma das principais consequências é a característica que esse conjunto de serviços apresenta: recursos virtuais utilizáveis e acessíveis, a capacidade e a dinâmica de como podem ser reconfigurados para se ajustarem de cenário a cenário, ou para uma carga variável de requisições, e a otimização e o compartilhamento do uso dos recursos. 
+	Na qual desenvolve a oportunidade de explorar os recursos através dos modelos \textit{pay-per-use}, e apresentam as garantias oferecidas através de acordos de nível de serviço.
+
+	%==============================================================================
+	%
+	%                         					TCC
+	% 					         Metodologia do Trabalho de Conclusão
+	%
+	%==============================================================================
+	\chapter{Objetivos do trabalho}
+	\section{Metodologia do Trabalho}
+	O presente trabalho utiliza o método de Pesquisa-ação, segundo \citet{Thiollent}  é uma pesquisa social com base empírica que é concebida e realizada em estreita associação com uma ação ou com a resolução  de um problema coletivo, sendo uma forma de experimentação.
+	\newline
+	Este trabalho tem como objetivo principal entender os impactos do \textit{Cloud Computing}, identificar as principais características e os riscos envolvidos, e então analisar a situação atual da maturidade do processo de teste, com base nestes conhecimentos, projetar uma nova estratégia para cobertura de teste, as possíveis ações a serem tomadas, técnicas a serem utilizadas, e o planejamento para que seja possível cobrir os novos riscos.
+	\newline
+	\newline
+	Serão abordados e aprofundados os conceitos de \textit{Cloud Computing} em sua parte inicial, entendendo um pouco melhor sua estrutura, principais conceitos envolvidos, identificar alguns benefícios e principalmente os riscos que esta tecnologia poderá, e irá trazer consigo. 
+	\newline
+	Em sua segunda parte, será entender e apresentar conceitos sobre a maturidade do processo de teste, mostrando alguns dos modelos de processo de teste, e então, identificar suas características principais, benefícios da utilização de um modelo de maturidade.
+	\newline
+	Será abordada, em sua terceira parte, uma nova estratégia para o processo de teste, a fim de cobrir os riscos identificados anteriormente, mostrando as principais necessidades, técnicas, projetar possíveis dados e artefatos necessários para quantificar a qualidade do software/serviços.
+	\newline
+	Em sua penúltima etapa, será realizado uma tentativa  de aplicação prática desta nova estratégia, coletando dados, métricas e valores quantificáveis para monitoramento, identificar a viabilidade, e então apresentar os resultados finais. 
+	\newline
+	Na ultima etapa será realizado a conclusão do trabalho, apresentando todas as considerações, dificuldades, as etapas necessárias para conclusão e por fim o resultado da proposta.
+	
+	\section{Cronograma}
+	
+	O trabalho terá como base as datas conforme mostra a FIGURA ~\ref{fig:Cronograma}.
+	
+	\begin{figure}[h]
+		\centering
+			\includegraphics[width=1.0\textwidth,natwidth=910,natheight=842]{./Images/Cronograma.jpg}
+		\caption{Cronograma do trabalho de conclusão}
+		\label{fig:Cronograma}
+	\end{figure}
+	
+	%==============================================================================
+	%
+	%                         					TCC
+	% 					Capitulo 2 - O que é Computação em nuvens (Cloud Computing)
+	%
+	%==============================================================================
+	\chapter{O que é Computação em nuvens (\textit{Cloud Computing})} 
+	\section{Conceito de \textit{Cloud Computing}}
+	O NIST, \emph{National Institute of Standards and Technology}, apresenta o seguinte conceito:
+	\begin{quote}
+	\textit{``
+	Computação em nuvem é um modelo que possibilita acesso, de modo conveniente e sob demanda, a um conjunto de recursos computacionais configuráveis (por exemplo, redes, servidores, armazenamento, aplicações e serviços) que podem ser rapidamente adquiridos e liberados com mínimo esforço gerencial ou interação com o provedor de serviços``}.
+	\newline
+	 \cite{NIST}
+	\newline
+	\newline
+	\end{quote}
+	Segundo \citet{MISCERIC} este novo tipo de estrutura vem com o foco de viabilizar um dos grandes objetivos da TI, apresentando um novo modo de aumentar a capacidade, ou mesmo criar novas capacidades temporariamente a partir de uma necessidade pontual sem precisar estar investindo em uma nova infra-estrutura, treinamentos ou licenças para aquicisão de software.
+	\textit{Cloud} tem uma referência a computação baseada na internet, utilizando compartilhamento de recursos e software como um serviço por demanda, o que significa uma grande redução de esforço e custo no gerenciamento, e envolve o que é chamado de serviços \textit{On-Demand} (OD), para o português, serviços por demanda, e qualquer serviço por contrato, ou ''\textit{Pay-Per-use}''.
+	%==============================================================================
+	%
+	%                         					TCC
+	% 					Capitulo 2.1 - Modelos de Serviços
+	%
+	%==============================================================================
+	\section{Modelos de Serviços}
+	
+	Quando falamos de \textit{Cloud Computing} devemos ter em mente que podemos escolher entres três desses modelos, e que cada um representa uma estratégia distinta.
+	\begin{itemize}
+		\item Software as a Service (SaaS) - Software como serviço ,
+		\item Platform as a Service (PaaS) - Plataforma como Serviço ,
+		\item Infrastructure as a Service (IaaS) - Infraestrutura como Serviço.
+	\end{itemize}
+	É possível visualizar na TABELA ~\ref{CloudModeltable} em negrito, basicamente o que é possível gerenciar nesses diferentes tipos de modelos. 
+	
+	\begin{table}[htbp]
+	  \centering
+	  \caption{Tabela de Gerenciamento dos modelos de \textit{Cloud Computing}}
+	    \begin{tabular}{rrr}
+	    \toprule
+	     \cellcolor[gray]{0.8}IaaS & \cellcolor[gray]{0.8}PaaS  & \cellcolor[gray]{0.8}SaaS \\
+	    \midrule
+	    Aplicações & Aplicações & \cellcolor[gray]{0.8}Aplicações \\
+	    Intermediárias & \cellcolor[gray]{0.8}Intermediárias & \cellcolor[gray]{0.8}Intermediárias \\
+	    Framework de aplicação & \cellcolor[gray]{0.8}Framework de aplicação & \cellcolor[gray]{0.8}Framework de aplicação \\
+	    Sistema Operacional & \cellcolor[gray]{0.8}Sistema Operacional & \cellcolor[gray]{0.8}Sistema Operacional \\
+	    \cellcolor[gray]{0.8}Virtualização & \cellcolor[gray]{0.8}Virtualização & \cellcolor[gray]{0.8}Virtualização \\
+	    \cellcolor[gray]{0.8}Hardware & \cellcolor[gray]{0.8}Hardware & \cellcolor[gray]{0.8}Hardware \\
+	    \cellcolor[gray]{0.8}Conectividade & \cellcolor[gray]{0.8}Conectividade & \cellcolor[gray]{0.8}Conectividade \\
+	    \cellcolor[gray]{0.8}Data Center & \cellcolor[gray]{0.8}Data Center & \cellcolor[gray]{0.8}Data Center \\
+	    \bottomrule
+	    \end{tabular}%
+	  \label{CloudModeltable}%
+	\end{table}%
+	
+	%==============================================================================
+	%
+	%                         					TCC
+	% 					SubSessão - Software como serviço (SaaS)
+	%
+	%==============================================================================
+	
+	
+	\subsection{Software como serviço (SaaS)}
+	\begin{quote}
+	\textit{Software As A Service (SaaS), é uma solução de software oferecida como um 
+	serviço, que é acessado pelos usuários através da Internet, sem a necessidade de implantar e 
+	manter uma premissa em infra-estrutura de TI.}
+	\newline
+	\cite{THINKSTRATEGIES}.
+	\newline
+	\end{quote}
+	Este modelo de serviço é definido como a entrega baseada numa aplicações de software completa, que são executados em um infra-estrutura gerenciada pelo fornecedor, sendo acessadas através da Internet, \citet{OpenCrowd}.
+	Um exemplo simples, uma empresa que contrata um aplicativo de e-mail para os seus funcionários. Este aplicativo não pode ser modificado, e seus usuários não podem ser alterados, com exceção de algumas possíveis configurações locais para cada usuário ou personalizações que serão permitidas pelo provedor. A aplicação será hospedada no provedor de infraestrutura em nuvem e o usuário não terá nenhum controle sobre esta estrutura.
+	\newline
+	\newline
+	
+	
+	%==============================================================================
+	%
+	%                         					TCC
+	% 					SubSessão - Plataforma como Serviço (PaaS)
+	%
+	%==============================================================================
+	
+	\subsection{Plataforma como Serviço (PaaS)}
+	Segundo \citet{zoho} Plataforma como Serviço (PaaS) é a entrega de uma plataforma através da web, na qual, permite criar aplicações e sistemas de forma rápida, sem o custo e a complexidade do processo de aquisição, sendo ao comprar, construir  e/ou gerenciar os softwares e hardwares relacionados, o que oferece todas as facilidades necessárias para manter um ciclo desenvolvimento completo, e a entrega de aplicações realizada inteiramente através da internet.
+	Neste cenário, o contratante estará adquirindo um serviço que permite hospedar e desenvolver seus próprios aplicativos em uma plataforma que fornece ferramentas e um ambiente de desenvolvimento, assim sendo possível desenvolver uma solução.
+	Neste modelo, o fornecedor oferece o uso de sua plataforma, que por sua vez, está alojado em sua infra-estrutura, aonde não será possível para o usuário ter controle sobre a plataforma ou infra-estrutura, mas somente terá sobre suas aplicações. 
+	\newline
+	\newline
+	%==============================================================================
+	%
+	%                         					TCC
+	% 					SubSessão - Infraestrutura como Serviço (IaaS)
+	%
+	%==============================================================================
+	\subsection{Infraestrutura como Serviço (IaaS)}
+	\citet{NIST} define para IaaS como a capacidade de fornecer ao consumidor a prestação
+	de processamento, armazenamento, redes e outros recursos fundamentais onde o
+	consumidor deve ser capaz de implementar e executar software arbitrário, que pode incluir sistemas 
+	operacionais e aplicações.
+	O consumidor não administra ou controla o serviço de infra-estrutura,
+	mas tem controle sobre os sistemas operacionais, armazenamento, aplicativos implementados, e
+	possivelmente, controles limitados sobre os componentes definidos da rede (por exemplo, firewalls do host).
+	Neste modelo, o usuário estará contratando apenas a infra-estrutura tecnológica (poder de processamento, armazenamento e/ou comunicações).
+	\newline
+	\newline
+	A FIGURA~\ref{fig:IaaSxPaaSxSaaS} de \citet{CloudComputingClearDefined} mostra como entender de uma melhor maneira cada serviço em uma palavra.
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=.5\textwidth,natwidth=1110,natheight=1042]{./Images/ImgIaaSxPaaSxSaaS.jpg}
+			\caption{Descrição para cada tipo de serviço}
+			\label{fig:IaaSxPaaSxSaaS}	
+	\end{figure}
+	\newline
+	\newline
+	%==============================================================================
+	%
+	%                         					TCC
+	% 					SubSessão - X como Serviço (XaaS)
+	%
+	%==============================================================================
+	
+	\subsection{X como Serviço (XaaS)}
+	Segundo \citet{BradNisbet}  XaaS vem da tipologia, da essência do significado de \textit{Cloud Computing}, diz ser um termo dito para os inúmeros tipos de serviços,  \textit{Anything as a Service},  seriam a solução criada a partir da flexibilidade dos serviços pela internet, isso inclui uma completo serviço, e não apenas um produto, e com base na melhoria continua, e também no total aproveitamento.
+	O XaaS (anything as a service: SaaS,IaaS,PaaS) poderá reduzir a gigante infraestrutura (mão de obra, máquinas, salas, equipamentos...).
+	O XaaS disponibiliza o software e a infraestrutura na nuvem, assim quanto mais a empresa precisa mais são disponibilizados recursos, em contra partida mais será cobrado, e quanto menos precisa, menos será cobrado, assim como nas contas de luz e água.
+
+	
+	Também sendo uma referência aos crescente números de serviços que são entregues através da internet, ao invés de providenciados localmente. Há uma lista de diferentes modelos de Serviço de computação em nuvem oferecidos no mercado da TI, \citet{RobinBloor} exemplifica alguns serviços:
+	
+	\begin{itemize}
+	\item Communications as a Service (CaaS) - Serviço de Comunicação
+	\item Network as a Service (NaaS) - Serviço de Rede 
+	\item Monitoring as a Service (MaaS) - Serviço de Monitoramento 
+	\item Storage as a Service (SaaS) - Serviço de armazenamento
+	\item Backup as a Service (BaaS) - Serviço de cópias de segurança
+	\item Database as a Service (DaaS) - Serviço de banco de dados
+	\item Information as a Service (IaaS) - Serviço de informação
+	\item Process as a Service (PRaaS) - Serviço de processamento
+	\item Integration as a Service (InaaS) - Serviço de integração
+	\item BPM as a Service - Serviço de gerenciamento de processos de negócio 
+	\item Security as a Service (SaaS) -  Serviço de segurança
+	\item Management/governance as a Service - Serviço de gerenciamento e governança
+	\item Testing as a Service (TaaS) -  Serviço de testes
+	\end{itemize}
+	
+	Um usuário pode adotar um ou mais destas estratégias de acordo com suas necessidades. A decisão poderá ser baseado por onde concentrar seus maiores esforços: nas aplicações, plataformas e / ou infra-estrutura tecnológica, e quais os itens que irá agregar maior valor ao seu negócio.
+	\newline
+	\newline
+	
+	%\newpage
+	%\section{Entendendo as diferenças entre os principais Modelos}
+	%\begin{figure}[h]
+	%	\centering  
+	%		\includegraphics[width=1.0\textwidth,natwidth=910,natheight=842]{./Images/Img01MudancaParadigma.png}
+	%	\caption{Cloud Computing - Mudanças de Paradigma}
+	%	\label{fig:Img01MudancaParadigma}
+	%\end{figure}
+	%
+	%\begin{figure}[h]
+	%	\centering
+	%		\includegraphics[width=1.0\textwidth,natwidth=910,natheight=842]{./Images/Img02Caracteristicas.png}
+	%	\caption{Cloud Computing - Principais Características}
+	%	\label{fig:Img02Caracteristicas}
+	%\end{figure}
+	%
+	%\begin{figure}[h]
+	%	\centering
+	%		\includegraphics[width=1.0\textwidth,natwidth=910,natheight=842]{./Images/Img03Vantagens.png}
+	%	\caption{Cloud Computing - Vantagens dos serviços}
+	%	\label{fig:Img03Vantagens}
+	%\end{figure}
+	%
+	%\begin{figure}[h]
+	%	\centering
+	%		\includegraphics[width=1.0\textwidth,natwidth=910,natheight=842]{./Images/Img04PalavrasChave.png}
+	%	\caption{Cloud Computing - Conceitos chaves}
+	%	\label{fig:Img04PalavrasChave}
+	%\end{figure}
+	%
+	%\begin{figure}[h]
+	%	\centering
+	%		\includegraphics[width=1.0\textwidth,natwidth=910,natheight=842]{./Images/Img05DesvantagensRiscos.png}
+	%	\caption{Cloud Computing - Principais Riscos e Desvantagens}
+	%	\label{fig:Img05DesvantagensRiscos}
+	%\end{figure}
+	%
+	%\begin{figure}[h]
+	%	\centering
+	%		\includegraphics[width=1.0\textwidth,natwidth=910,natheight=842]{./Images/Img06NaoUsar.png}
+	%	\caption{Cloud Computing - Pior Caso de Utilização}
+	%	\label{fig:Img06NaoUsar}
+	%\end{figure}
+	
+	
+	
+	%==============================================================================
+	%
+	%                         					TCC
+	% 					Sessão - Modelos de Implementação
+	%
+	%==============================================================================
+	\section{Modelos de Implementação}
+	Segundo \citet{NIST}, o modelo de \textit{Cloud Computing} possui quatro modelos básicos de implementação:
+	\begin{itemize}
+	\item \textit{Public Cloud} - Nuvem Pública
+	\item \textit{Private Cloud} - Nuvem Particular
+	\item \textit{Hybrid Cloud} - Nuvem Hibrida
+	\item \textit{Community Cloud} - Nuvem Comunitária
+	\end{itemize}
+	
+	%==============================================================================
+	%##############################################################################
+	%###############################  	 TCC    ###################################
+	%######################## 	Item - Public Cloud    ############################
+	%##############################################################################
+	%==============================================================================
+	\subsection{\textit{Public Cloud - Nuvem Pública}}
+	A infraestrutura compartilhada por várias empresas/clientes, na qual é disponibilizada ao público em geral, característica que podemos ver na FIGURA ~\ref{fig:ExemploPublicCloud}, e sendo acessível a qualquer usuário que tenha a localização.
+	\newline
+	\begin{figure}[h]
+			\centering
+			\includegraphics[width=.5\textwidth,natwidth=610,natheight=642]{./Images/Ex01Public-Cloud.png}
+			\caption{Exemplo de uma Nuvem Pública}
+			\label{fig:ExemploPublicCloud}	
+	\end{figure}
+	%==============================================================================
+	%##############################################################################
+	%###############################  	 TCC    ###################################
+	%#######################  	Item - Private Cloud    ###########################
+	%##############################################################################
+	%==============================================================================
+	\subsection{\textit{Private Cloud} - Nuvem Particular}
+	A imagem da FIGURA ~\ref{fig:ExemploPrivateCloud} mostra como a infraestrutura é utilizada exclusivamente para uma empresa/cliente, aonde o mesmo administra os recursos disponíveis, localmente ou remotamente. 
+	\newline
+	\begin{figure}[h]
+				\centering
+				\includegraphics[width=.5\textwidth]{./Images/Ex03Private-Cloud.png}
+				\caption{Exemplo de uma Nuvem Particular}
+				\label{fig:ExemploPrivateCloud}
+	\end{figure}
+				
+	%==============================================================================
+	%##############################################################################
+	%###############################  	 TCC    ###################################
+	%#######################  	Item - Hybrid Cloud     ###########################
+	%##############################################################################
+	%==============================================================================	
+	\subsection{\textit{Hybrid Cloud} - Nuvem Hibrida}
+	A infraestrutura é composta por mais de uma Nuvem (Particular, Comunitária, ou Pública).
+	
+	
+	%==============================================================================
+	%##############################################################################
+	%###############################  	 TCC    ###################################
+	%######################  	Item - Community Cloud    ###########################
+	%##############################################################################
+	%==============================================================================
+	
+	%Source - http://howcrmworks.com/wp-content/uploads/2010/08/Cloud-Deployment-Models.png
+	%\begin{figure}[h]
+	%	\centering
+	%	\subfloat[Touro]{
+	%		\includegraphics[width=.5\textwidth]{./Images/Ex03Private-Cloud.png}
+	%		\caption{Exemplo de uma Nuvem Particular}
+	%		\label{fig:ExemploPrivateCloud}
+	%	}
+	%	\hspace{1cm}
+	%	\subfloat[Segunda]{
+	%		\includegraphics[width=.5\textwidth,natwidth=610,natheight=642]{./Images/Ex01Public-Cloud.png}
+	%		\caption{Exemplo de uma Nuvem Pública}
+	%		\label{fig:ExemploPublicCloud}	
+	%		}
+	%		\hspace{
+	%		\subfloat[Terceira]{
+	%			\includegraphics[width=.5\textwidth]{./Images/Ex02Community-Cloud.png}
+	%			\caption{Exemplo de uma Nuvem Comunitária}
+	%			\label{fig:ExemploCommunityCloud}
+	%		}
+	%		\caption{Exemplo de uma Nuvem Comunitária}
+	%		\label{Cmodel}
+	%\end{figure}
+	
+	
+	\subsection{\textit{Community Cloud} - Nuvem Comunitária}
+	A Infraestrutura é compartilhada por diversas organizações,ilustrada na FIGURA ~\ref{fig:ExemploCommunityCloud}, formando assim um grupo composto %de nuvem pública ou híbrida
+ para formar uma comunidade com características em comuns, ou mesmo compartilhando interesses, como por exemplo: a missão da organização, um requisitos de segurança, políticas organizacional, entre outros.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.5\textwidth]{./Images/Ex02Community-Cloud.png}
+		\caption{Exemplo de uma Nuvem Comunitária}
+		\label{fig:ExemploCommunityCloud}
+	\end{figure}
+	
+	
+	
+	%==============================================================================
+	%
+	%                         					TCC
+	% 					Capitulo 2.2 - Gestão da Tecnologia com Computação em Nuvens
+	%
+	%==============================================================================
+	\section{Gestão da Tecnologia com Computação em Nuvens}
+	Sem dúvidas a Computação nas nuvens realmente aparece fortemente para revolucionar a infraestrutura da TI, com características que estimulam cada vez mais o número de usuários que estão migrando seus hábitos tecnológicos, estruturas e dados de desktops para as nuvens, contam então, com aplicações web para trabalhar, armazenar e acessar informações, documentos, fotos e e-mail.
+	Com essas novas fronteiras, há novos riscos, reconhecendo ainda que a falta de maturidade no uso dessa nova tecnologia gera uma grande incerteza entre os benefícios e riscos, sendo assim, responsável pela lentidão do mercado em absorver esta nova estratégia.
+	\newline
+	De acordo com levantamento da \citet{ISACASurvey}, medidor dos Riscos X Benefícios na Tecnologia da informação, EMEA\footnote{\textit{Europe, the Middle East and Africa}}, em relação ao  futuro da computação em nuvem:
+	\begin{quotation}
+%new	*  9,4\% dos entrevistados (8,9\% no Reino Unido) planeja utilizar a computação em nuvem para serviços de TI com objetivos com nível crítico.
+%new	\newline
+%new	* 8,8\% (9,6\% do Reino Unido) só irão utilizar os serviços em nuvens para serviços de TI com objetivos de baixo risco e não-críticos.
+%new	\newline
+%new	* 35,6\% (31,8\% do Reino Unido) não planeja utilizar os serviços em nuvens para quaisquer serviços de TI.
+%new	\newline
+%new	* 17,9\% (23,6\%) não formalizaram seus planos.
+%new	\newline
+%new	* 28,2\% (26,1\%) não tinham conhecimento de quaisquer planos para computação em nuvens.
+%new	\newline
+	\end{quotation}
+	
+	\begin{quotation}
+	Constatou ainda que quase dois terços (63\% das organizações), afirmaram que estão dispostas a correr riscos relacionados aos negócios de TI na antecipação do retorno de investimento\footnote{Tradução de \textit{ROI - Return on investment}} para o negócio (64,3\% Reino Unido), e 12,1\% correriam grandes riscos para maximizar o retorno de investimento.
+	Quando perguntado sobre como integrar o gerenciamento de risco com a estratégia global da organização para gestão de risco:
+	\newline
+	* 4,8\% admitiram fazer sem uma abordagem formal para gestão de negócios de risco (3,2\% do Reino Unido).
+	\newline
+	* 22,2\% disseram não integrar efetivamente o gerenciamento de risco com a sua abordagem global à gestão de riscos (22\% do Reino Unido).
+	\newline
+	* 24\% disseram que são muito eficazes na gestão de risco (20\% do Reino Unido).
+	\newline
+	* 48,7\% relataram ter sido pouco eficaz (54\% do Reino Unido).
+	\newline	
+	\emph{\textbf{\citet{ISACASurvey}}}
+	\newline
+	\newline
+	
+	\end{quotation}
+	
+	%==============================================================================
+	%
+	%                         					TCC
+	% 					         Capitulo 2.3 - Os novos Riscos
+	%
+	%==============================================================================
+	\section{Os Novos Riscos Envolvidos}
+	Com o aumento de usuários que estão migrando para esta nova estrutura e armazenado na web seus dados, hospedando processo de desenvolvimento de sistemas, serviços de e-mail, entre outros, acaba criando uma melhor maneira de acessar todas as informações, porém há alguns grandes e importantes riscos que acompanham esta nova tecnologia.
+	\citet{JRANDJR} afirmam que juntamente com suas novas caracterizas e benefícios, é necessário avaliar e determinar uma avaliação dos riscos com relação aos principais pontos como a integridades dos dados, confiabilidade, privacidade, processos legais, processo de recuperação pôs desastres e auditorias.
+	Um dos grandes problemas encontrados residem no próprio objetivo dessa estrutura, o acesso dos seus dados através da internet, ou de uma rede remota, ou principalmente, servidores que são acessados via internet, nestes cenários, informações confidenciais pertinentes ao negócio ou dados privados estão à mercê de crackers, ou mesmo interrupções na rede e demais ameaças de segurança que possa existir.
+	\newline  
+	%==============================================================================
+	%##############################################################################
+	%#################################    TCC   ###################################
+	% ###################            LISTA DE RISCOS        #######################
+	%##############################################################################
+	%==============================================================================
+	\citet{ENISA} apresenta uma lista dos riscos em potenciais:
+	\begin{description}
+	%==============================================================================
+	%##############################################################################
+	%###############################  	 TCC    ###############################
+	%#######################  	Item - Governaça     ##########################
+	%##############################################################################
+	%==============================================================================	
+		\item[Perda de Governança]:
+		\newline
+	No uso de \textit{Cloud} como infra-estrutura, o cliente, necessariamente, cede controle para o provedor do serviço em inúmeras questões que possam afetar a segurança, e ao mesmo tempo, as SLA`s podem não oferecer um compromisso, ou alcançar níveis desejado na prestação de tais serviços por parte do provedor, deixando uma lacuna na segurança.
+
+	%==============================================================================
+	%##############################################################################
+	%###############################  	 TCC    ###############################
+	%#######################  	Item - LOCKIN        ##########################
+	%##############################################################################
+	%==============================================================================
+		\item[\textit{Lock-In}]:
+		\newline
+		Ainda há pouco para oferecer em termos de ferramentas, procedimentos ou formatos de dados padrão ou serviços de interfaces que poderiam garantir a portabilidade da aplicação, dados ou serviço. E isso pode dificultar a transição do cliente ao migrar de um fornecedor para outro, ou migrar dados e serviços de volta, localmente, em um ambiente de TI. Possuindo uma dependência de um provedor em particular para prestação de serviços, especialmente para a portabilidade de dados.
+		\newpage
+		\citet{CloudLockInA,CloudLockInB} consideram três tipos de problemas com \textit{LOCK-IN}:
+			\begin{enumerate}
+				\item Plataforma
+				\newline
+				Os provedores podem levantar os serviços em certas plataformas de virtualização (Ex: VMware e Xen.). Assim permitindo utilizar recursos a partir de uma administração centralizada, sem a necessidade de administrar qualquer software/hardware.  
+A migração de um provedor que utiliza, por exemplo, Xen para outro provedor que utiliza VMware é muito problemático, devido às plataformas de virtualização serem diferentes.
+				\item Dados
+				\newline
+				Usando uma solução em nuvem, os dados estão completamente nas nuvens , porém ao decidir migrar para um outro provedor deverá analisar e projetar, se poderá recuperar todos os dados, manipulando e transferindo completamente os dados de volta? E neste caso verificando, se possui garantia que poderá de fato faze-lo? As leis aonde este dados estão contidos lhe permite tal ação? É necessário lembrar que os dados estarão no banco de dados do fornecedor e você deve estar completamente seguro que você continua dono destes dados.  
+				\item Ferramentas
+				\newline
+				Provedores oferecem tipos diferentes de ferramentas. É necessário evitar este tipo de \textit{lock-in}, aonde preciso ter certeza que haja um monitoramento de ferramentas que são compatíveis com os dois tipos diferentes de infra-estrutura; física e virtual.
+			\end{enumerate}
+			
+	%==============================================================================
+	%##############################################################################
+	%###############################  	 TCC    ###############################
+	%##################  	Item - Isolamento de Falhas       #####################
+	%##############################################################################
+	%==============================================================================
+		\item[Isolamento de falhas]:
+		\newline
+Recursos compartilhados são características que definem a computação em nuvem. Esta categoria de risco abrange as falhas dos mecanismos de memória, de armazenamento, roteamento e demais componentes.
+
+	%==============================================================================
+	%##############################################################################
+	%###############################  	 TCC    ###############################
+	%###################  	Item - NÃO-CONFORMIDADE		 ######################
+	%##############################################################################
+	%============================================================================== 
+		\item[Risco de Não-Conformidade]:
+		\newline
+		Investimento em obter a certificação (ISO, padrões da indústria) pode ser posta em risco pela migração para a nuvem:
+	\begin{itemize}
+		\item Se o provedor não pode fornecer provas da sua própria conformidade com os requisitos relevantes
+		\item Se o provedor não permite auditoria por parte do cliente em nuvem .
+	\end{itemize}
+	Em certos casos, isso também significa que o uso de uma infra-estrutura de nuvem pública implica que certos tipos de
+	SLA's não pode ser alcançado.	 
+
+	%==============================================================================
+	%##############################################################################
+	%###############################  	 TCC    ###############################
+	%###################  	Item - Segurança		 ######################
+	%##############################################################################
+	%============================================================================== 
+		\item[Segurança]:
+		\newline
+		É possivel encontrar várias vulnerabilidades:
+		\begin{itemize}
+			\item  
+			\item
+		\end{itemize}
+
+	\end{description}
+
+	%==============================================================================
+	%##############################################################################
+	%#################################    TCC   ###################################
+	% ####################  Capitulo 3 - Teste Estruturado  #######################
+	%##############################################################################
+	%==============================================================================
+	\chapter{Teste Estruturado}
+	\section{Característica do Teste Estruturado}
+	Os benefícios e as preocupações de uma solução de \textit{Cloud Computing}, torna-se muito importante durante o processo de teste, saber definir quais os testes mais apropriados, e como é possível maximizar o potencial desse investimento, é crucial para garantir a qualidade do serviço.
+	\citet{ISTQBBOOKVII} afirma que a importância do Processo de teste de software e os impactos referentes à qualidade de Software não podem ser subestimados ou esquecidos, e assim deixando-o como um processo a parte do projeto, isso porque há inúmeros aspectos que o teste apresenta e identifica para poder cobrir riscos como: as variações de hardware ou plataforma que podem ser envolvidos, ou os números de possibilidades de cenários a serem testados tendendo a uma quantidade muito alta, e principalmente ainda não é possível projetar ou identificar as ações ao utilizar o software ou as possíveis inconsistências que poderão acontecer.
+	Há muitas possibilidades e diversas estratégias de testes possíveis, \cite{kaner2011lessons} afirma que a estratégia de teste é um conjunto de decisões que podem ser escolhidas, e que cada procedimento leva a um alternativa diferente, resumindo, uma boa estratégia de teste possui uma história convincente que explica, e ao mesmo tempo, justifica claramente como deverá ser executado os testes. 
+	A evolução do Teste criou uma variedade de novos conceitos, nomenclaturas, entre outras características que são aceitáveis para todos, \citet{TMAPBOOK}, pois hoje em uma empresa de \textit{Software}, podemos ver em etapas aonde são discutidos requisitos ou arquitetura, há um grande entendimento sobre teste unitário, testes de aceitação, teste de sistema ou teste de desempenho, e todos conseguem entender tais termos.
+	Com os padrões e modelos de Maturidade para o Desenvolvimento de Software, algumas das vantagens para o processo de teste é a possibilidade de compartilhamento da capacidade, o entendimento desta área para as demais, viabilizando uma melhor e mais clara comunicação.
+	
+	\section{Princípios e Principais conceitos em teste de Software}
+	Segundo \citet{ISTQB} um processo de teste essencialmente é construindo com base nas seguintes atividades: 
+	\begin{itemize}
+		\item Planejando e controle
+		\item Análise e Design
+		\item Implementação e execução   
+		\item Avaliação de critérios de saída e relatórios   
+		\item Atividades de fechamento de teste
+	\end{itemize}
+	
+	Estas atividades podem ser implementadas consecutivamente ou alguns podem ser executados em paralelo, por exemplo, análise e design  poderiam ser implementados em paralelo com Implementação e execução.
+	%####################################################################################
+	%####   !!!!!!! Analisar - ISTQB
+	%####################################################################################
+	%####################################################################################
+	%####################################################################################
+	
+	Segundo \citet{ISTQB}, existem muitos modos diferentes e métodos disponíveis para melhorar software e sistemas, estes métodos tem como objetivo melhorar o processo (e consequentemente os artefatos entregáveis) através de algumas diretrizes e áreas de melhoria.  O Processo de Teste freqüentemente responde por uma parte principal dos custos total do projeto,  porém, a atenção e importância são bastante limitadas em relação ao processo de desenvolvimento. 
+	Gerenciar um projeto de teste, estimativas de esforço, alocação correta do time e tarefas de teste contínuas, com uma equipe time de teste é algo desafiador, mas há várias fontes de inspiração, idéias, e bastante informações para apoio para tal trabalho. Vários padrões podem ser aplicados para que o teste se torne algo efetivo, \citet{ISTQBBOOKVII} afirma que padrões podem variar de acordo com o segmento do mercado, importância e o risco da segurança ou mesmo políticas externas.
+	É possível, muitas vezes, identificar padrões como um fardo burocrático,  porém com eles é possível identificar e eliminar muitas das pressuposições das tarefas.
+	Também é necessário lembrar, \citet{kaner2011lessons}, nenhum dos modelos pode capturar toda a complexidade do processo de software, restrições e premissas têm de ser feitas para o processo, portanto, não existe um modelo único que possa ser utilizado em todas as situações. Logo, nenhum modelo é completo, um modelo pode funcionar bem para um conjunto de características de uma forma melhor, mas pode ser completamente fora do contexto para outros tipos de problemas.
+	É importante selecionar e adaptar as normas e padrões de forma adequada, certificando-se de entender o contexto e a origem dos padrões que você está considerando, bem como a correta aplicação da norma.
+	
+
+
+	%####################################################################################
+	%####   ISO's
+	%####################################################################################
+	Importantes organizações internacionais de normalização como ISO e IEEE divulgam normas de interesse para processo de teste.
+	Podemos listas as normas relacionadas à	ISO - \textit{International Organization for Standardization}:
+	\begin{itemize}
+		\item ISO 9126 - Cobre aspectos de qualidade de produto da engenharia de software. Consiste em quatro normas e relatórios técnicos. \citet{ISO91261} aborda um modelo de qualidade, incluindo definição de características e subcaracterísticas que podem ser aplicadas a qualquer produto de software.
+\citet{ISO91262} abrange métricas de qualidade externa, como métricas realizadas durante o teste dinâmico(\textit{Dynamic Testing}\footnote{\textit{Dynamic Testing} - Teste que envolve a execução do software, de um componente ou de um sistema}).
+
+	%####################################################################################
+	%####   Significado de Teste Dinâmico - ISTQB
+	%####################################################################################
+	%dynamic Testing:  Testing that involves the execution of the software of a component or system. 
+	 \citet{ISO91263} abrange métricas de qualidade internas, como métricas realizadas durante o teste estático(\textit{Static Testing}\footnote{\textit{Static Testing} - Teste de um componente ou sistema em um nível de especificação ou implementação sem a execução do \textit{software}, Ex: Revisão, Análise Estática.}). \citet{ISO91264} define métricas para a avaliação das características de qualidade em uso.
+	%####################################################################################
+	%####   Significado de Teste Estático - ISTQB
+	%####################################################################################
+	%static Testing:  Testing of a component or system at specification or implementation level 
+	%without execution of that software, e.g. reviews or static analysis.
+
+
+		\item \citet{ISO12207} -  Cobre o processo de ciclo de vida do \textit{software}. 
+		\item \cite{ISO15504} - Cobre a avaliação do processo e também é conhecida como \textit{SPACE}. É similar ao CMM (\textit{Capability Maturity Model}) e ao CMMI (\textit{Capability Maturity Model Integration}).
+	\end{itemize}
+
+
+	%####################################################################################
+	%####   IEEE
+	%####################################################################################
+	e podemos identificar e listar as normas apresentadas pelo IEEE - \textit{Institute of Electrical and Electronics Engineers}:
+\begin{itemize}
+		\item \citet{IEE610},  é o glossário do \textit{IIEEE standard computer dictionary}, contendo todo o conjunto de definições  e conceitos das normas.
+		\item \citet{IEE829} é a norma para documentação de teste de software.
+		\item \citet{IEE1028} é a norma para revisão de software.
+		\item \citet{IEE1044} é o guia para classificação de inconformidades de software.
+\end{itemize}
+Baseado nas idéias em comum de \citet{kaner2011lessons,SQAPraticeBook,ProgramaticST} uma premissa importante para melhoria de processo é a entender que a qualidade de um sistema/software é altamente influenciada pela qualidade do processo de desenvolvimento.  A Melhoria da qualidade no mercado, reduz a necessidade por recursos para mantém o software e também disponibiliza mais tempo por criar mais soluções, e com melhor qualidade \citet{Pronus}.   
+Melhorias de processo são relacionadas ao processo de desenvolvimento de software mas também para processo de Teste, e aprendendo com próprios erros, torna-se possível melhorar os processos das quais a organizações utiliza para  desenvolver e testar o \textit{software}.
+
+%%%==============================================================================
+%%%##############################################################################
+%%%#################################    TCC   ###################################
+%%%###############  Capitulo 4 - Modelos de processo de teste  ##################
+%%%##############################################################################
+%%%==============================================================================
+\section{Modelos de processo de teste}
+%%Test  improvement  models  such  as  the  Test  Maturity  Model  (TMM),  Systematic  Test  and  Evaluation %%Process  (STEP),  Critical  Testing  Processes  (CTP)  and  Test  Process  Improvement  (TPI)  were %%developed to cover this aspect. TPI and TMM provide a degree of cross-organization metrics that can be  %%used  for  "benchmark"  comparisons.  There  are  many  improvement  models  available  in  industry  %%today.  In  addition  to  those  covered  in  this  section,  Test  Organization  Maturity  (TOM),  Test %%Improvement  Model  (TIM)  and  Software  Quality  Rank  (SQR)  should  also  be  considered.  There  are %%also a large number of regional models that are in use today. Testing professionals should research all %%available models to determine the best fit for their situation. 
+%%%##############################################################################
+%%The  IT  industry  has  started  to  work  with  test  process  improvement  models  as  it  seeks  to  %%reach  a higher  level  of  maturity  and  professionalism.  Industry  standard  models  are  helping  to  %%develop  cross-organization  metrics  and  measures  that  can  be  used  for  comparison.  The  staged  %%models,  like  TMMi and  CMMI  provide  standards  for  comparison  across  different  companies  and  %%organizations.  The continuous  models  allow  an  organization  to  address  its  highest  priority  %%issues  with  more  freedom  in the order of implementation. Out of the need for process improvement in %%the testing industry, several standards  have  materialized.  These  include  STEP,  TMMi,  TPI  and  CTP. 
+%%%##############################################################################
+
+A industria de TI começou a avaliar o uso dos modelos de melhoria de teste visando alcançar um nível maior de maturidade e profissionalismo, \cite{Softex}. Modelos e padrões da indústria estão cada vez mais ajudando o desenvolvimento dos resultados cruzados de métricas e medições das organizações, para que seja
+ possível realizar uma comparação.
+Dessa necessidade de melhoria de processos na indústria de testes, vários padrões e modelos surgiram, exemplos incluem: STEP, TMMi, TPI e CTP.
+Modelos em estágio como CMMI e TMMI apresenta padrões para apresentar métricas afim de realizar para comparações de resultados entre diferentes organizações e empresas. Os modelo continuos, permitem a 
+ organização endereçar seus problemas de maior prioridade com maior flexibilidade e liberdade na implementação.
+
+Modelos de processo lhe permite ter um ponto de partida para as melhorias, medindo os processos da organização com o modelo. O modelo também  pode ser visto como uma framework para melhoria dos processos baseando-se no resultado de uma avaliação. 
+A avaliação de processos leva a uma determinação capacidade do Processo, o que motiva
+a melhoria, e também é possível utilizar posteriormente uma nova avaliação de processos  para medir o efeito da melhoria.
+Há vários modelos de maturidade Teste e de Melhoria do Processo de Teste reconhecidos no mercado - \cite{ISTQB,ISTQBBOOKVII}:
+\begin{itemize}
+	\item	Systematic Test and Evaluation Process (STEP)
+	\item	Test  Maturity  Model  (TMM),  
+	\item	Test  Process  Improvement  (TPI) 
+	\item	Practical Software Testing
+	\item	Critical Testing Processes  
+	\item	Test Maturity Model (TMM)
+	\item	Test Maturity Model integration (TMMi)
+	\item	Melhoria de Processo de Teste - MPT.BR
+	\item	Testability Suport Model (TSM)  
+	\item	Test Organization Maturity (TOMtm) 
+	\item	Testing Assessement Program (TAP) 
+	\item	Testing Improvement Model (TIM) 
+\end{itemize}
+
+%[Burnstein03]: Ilene Burnstein, "Practical Software Testing", Springer, 2003, ISBN 0-387-95131-8 
+%[Black03]: Rex Black, "Critical Testing Processes", Addison-Wesley, 2003, ISBN 0-201-74868-1 
+
+Os modelos apresentados nesta seção serão utilizados para mostrar e proporcionar uma visão representativa do modo como funcionam os modelos e o que está incluído dentro deles.
+	%==============================================================================
+	%##############################################################################
+	%#################################    TCC   ###################################
+	%#########################  Capitulo 10.1 - MPS.BR  ############################
+	%##############################################################################
+	%==============================================================================
+	
+\subsection{MPT.BR - Melhoria do Processo de Teste}
+O MPT é modelo brasileiro voltado para a melhoria das áreas de teste de software de empresas de qualquer porte. Sendo um modelo para Melhoria do Processo de Teste criado para apoiar as organizações de software através dos elementos essenciais para o desenvolvimento do processo de teste inserida no processo de desenvolvimento de software, \cite{MPTBR}.
+Há duas entidades trabalhando em conjunto no desenvolvimento deste modelo:
+\begin{itemize}
+    \item ALATS - Associação Latino Americana de Teste de Software
+   	\item RIOSOFT - Sociedade Núcleo de Apoio à Produção e a Exportação de Software
+\end{itemize}
+
+Segundo \cite{ALATS,RIOSOFT} este modelo é baseado nas melhores práticas do teste de software e promove a integração das atividades de engenharia  software, otimizando os processos de teste para alcançar os resultados desejados através da entrega de produtos com qualidade. Sendo passível de ser adotado pela áreas de teste de software para identificar e melhorar seu nível de maturidade, sem afetar seus processos anteriormente implementados.
+O objetivo principal será garantir que áreas de teste de software de tamanho reduzido possam ser avaliadas e estimuladas a alcançarem níveis maiores de maturidade.
+
+Podemos citar os principais objetivos deste modelo:
+\begin{itemize}
+    \item Aumentar a qualidade dos produtos de software através da otimização e melhoria contínua dos processos de teste.
+    \item Fornecer visibilidade relativa a maturidade do processo de teste de uma organização para o mercado de software.
+    \item Fomentar a melhoria contínua dos processos de teste no âmbito do desenvolvimento de software.
+\end{itemize}
+
+
+Os critérios usados pelas entidades na estruturação do modelo foram:
+\begin{itemize}
+    \item Definir critérios que garantam a qualidade do processo de teste de software
+    \item Não criar nada novo, mas usar como base um modelo de melhoria do processo de desenvolvimento de software já existente no mercado no caso o MPS.BR, ou CMMI, FIGURA ~\ref{BaseDoMPT}.
+    \item Poder ser usado por áreas de teste de software de empresas pequenas, médias e grandes
+    \item Permitir a evolução das áreas de testes atingindo níveis mais altos de maturidade e, conseqüentemente, níveis mais altos de qualidade
+\end{itemize}
+
+	\begin{figure}[h]
+		\centering
+\includegraphics[width=.9\textwidth,natwidth=1010,natheight=1042]{./Images/BaseDoMPT.png}
+		\caption{Base de conhecimento para a criação do Modelo}
+		\label{BaseDoMPT}
+	\end{figure}
+
+
+\subsubsection{Estrutura do modelo MPT} 
+
+Embora exista uma alta coesão entre o CMMI e o MPS.BR os seus níveis não necessariamente se correspondem, como mostra a TABELA ~\ref{tab:MPTxMPSxCMMI}:
+%%	%==============================================================================
+%%	%#########################  Tabela de Comparacao MPT X MPS X CMMI  ############
+%%	%==============================================================================
+%%%    MPT: Nível 1 - MPS: Sem correspondência - CMMI: Sem correspondência
+%%%    MPT: Nível 2 - MPS: Nível G - CMMI: Sem correspondência
+%%%    MPT: Nível 3 - MPS: Nível F - CMMI: Level 2
+%%%    MPT: Nível 4 - MPS: Nível E - CMMI: Sem correspondência
+%%%    MPT: Nível 5 - MPS: Nível D - CMMI: Sem correspondência
+%%%    MPT: Nível 6 - MPS: Nível C - CMMI: Level 3
+%%%    MPT: Nível 7 - MPS: Nível A - CMMI: Level 4, 5
+
+\begin{table}[htbp]
+  \centering
+  \caption{MPT x MPS x CMMI}
+    \begin{tabular}{crr}
+    \toprule
+    \textit{\textbf{MPT}} & \multicolumn{1}{c}{\textit{\textbf{MPS}}} & \multicolumn{1}{c}{\textit{\textbf{CMMI}}} \\
+    \midrule
+    Nível 1 & Sem correspondência & Sem correspondência \\
+    Nível 2 & \multicolumn{1}{c}{Nível G } & \multicolumn{1}{c}{Level 2} \\
+    Nível 3 & \multicolumn{1}{c}{Nível F} & Sem correspondência \\
+    Nível 4 & \multicolumn{1}{c}{Nível E} & Sem correspondência \\
+    Nível 5 & \multicolumn{1}{c}{Nível D} & Sem correspondência \\
+    Nível 6 & \multicolumn{1}{c}{Nível C} & \multicolumn{1}{c}{Level 3} \\
+    Nível 7 & \multicolumn{1}{c}{Nível A} & \multicolumn{1}{c}{Level 4,5} \\
+    \bottomrule
+    \end{tabular}%
+  \label{tab:MPTxMPSxCMMI}%
+\end{table}%
+
+
+Podemos ver na TABELA ~\ref{tab:PraticasMPT} todos níveis de maturidade definidos no modelo:
+%%	%==============================================================================
+%%	%#########################  Tabela de Niveis  ############
+%%	%==============================================================================
+%%%    Nível 1 Gerência de Projetos de Teste - GPT
+%%%    Nível 2 Gerência de Requisitos de Teste - GRT
+%%%    Nível 3 Aquisição - AQU (opcional)
+%%%    				Gerência de Configuração - GCO
+%%%    				Garantia da Qualidade - GQA
+%%%    				Medição - MED
+%%%    Nível 4 Gerência de Recursos Humanos - GRH
+%%%    				Gerência de Reutilização - GRU (opcional)
+%%%    Nível 5 Desenvolvimento de Requisitos - DRE
+%%%    				Integração do Produto - ITP
+%%%    				Validação - VAL (opcional)
+%%%    				Verificação
+%%%    Nível 6 Análise de Decisão e Resolução - ADR
+%%%    				Desenvolvimento para Reutilização - DRU (opcional)
+%%%    				Gerência de Riscos - GRI
+%%%    Nível 7 Análise de Causas e Resolução de Problemas
+
+%%Figura%%\begin{table}[htbp]
+%%Figura%%  \centering
+%%Figura%%  \caption{Tabela com as práticas de cada nível do modelo}
+%%Figura%%    \begin{tabular}{ll}
+%%Figura%%    \toprule
+%%Figura%%    Nível  & Práticas Específicas \\
+%%Figura%%    \midrule
+%%Figura%%    Nível 1 & Gerência de Projetos de Teste - GPT \\
+%%Figura%%    Nível 2 & Gerência de Requisitos de Teste - GRT \\
+%%Figura%%    Nível 3 & Aquisição - AQU (opcional) \\
+%%Figura%%          & Gerência de Configuração - GCO \\
+%%Figura%%          & Garantia da Qualidade - GQA \\
+%%Figura%%          & Medição - MED \\
+%%Figura%%    Nível 4 & Gerência de Recursos Humanos - GRH \\
+%%Figura%%          & Gerência de Reutilização - GRU (opcional) \\
+%%Figura%%    Nível 5 & Desenvolvimento de Requisitos - DRE \\
+%%Figura%%          & Integração do Produto - ITP \\
+%%Figura%%          & Validação - VAL (opcional) \\
+%%Figura%%          & Verificação \\
+%%Figura%%    Nível 6 & Análise de Decisão e Resolução - ADR \\
+%%Figura%%          & Desenvolvimento para Reutilização - DRU (opcional) \\
+%%Figura%%          & Gerência de Riscos - GRI \\
+%%Figura%%    Nível 7 & Análise de Causas e Resolução de Problemas \\
+%%Figura%%    \bottomrule
+%%Figura%%    \end{tabular}%
+%%Figura%%  \label{tab:PraticasMPT}%
+%%Figura%%\end{table}%
+
+
+
+\subsubsection{Níveis de maturidade e as áreas de processo do modelo MPT}
+
+Atualmente é apresentado dois níveis de maturidade:
+\begin{enumerate}
+	\item \textbf{Parcialmente gerenciado} - este nível representa o primeiro patamar de maturidade de uma
+organização. Ele contém o mínimo que uma organização precisa para demonstrar que a
+disciplina de teste é aplicada nos projetos, e também que ocorre de forma planejada
+e controlada.
+	\item \textbf{Gerenciado} - neste segundo nível a aplicação do processo de teste na organização possui
+maior visibilidade. O escopo do projeto passa a ser controlado pelo processo de gestão de
+mudanças, padrões são definidos e os processos são monitorados e controlados.
+\end{enumerate}
+
+Cada nível de maturidade é composto por um conjunto de áreas de processo, e cada área de processo é um conjunto de práticas relacionadas, e quando implementadas deve satisfazer um determinado objetivo.
+Cada nível de maturidade também é associado a um conjunto de práticas genéricas que devem ser implementadas a cada área de processo dentro do nível de maturidade.
+
+Para uma organização atender a um determinado nível de maturidade, ela deve demonstrar
+através de uma avaliação que o processo de teste aplicado em seus projetos atende a todas as áreas de
+processo e que todos os níveis anteriores de maturidade também continuam sendo atendidos.
+
+\subsubsection{Áreas de processo do modelo MPT.Br}
+A organização das áreas de processo do MPT.Br é exibida na TABELA ~\ref{tab:AreasProcessosMPT}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Organização das áreas de processo do MPT.Br}
+    \begin{tabular}{lll}
+    \toprule
+    Nível de Maturidade & Áreas de Processo  & Práticas Genéricas \\
+    \midrule
+Nível 1 & GPT - Gerência de Projetos de Teste  & PG1 a PG6 \\ 
+      	& (Práticas Específicas GPT1 a GPT20)      &  \\
+    		& PET - Projeto e Execução de Teste  &  \\
+      	& (Práticas Específicas PET1 a PET4)      &  \\
+      	&       &  \\
+Nível 2 & GRT - Gerência de Requisitos de Teste  & PG7 a PG9 \\
+      	& (Práticas Específicas GRT1 a GRT5)      &  \\
+      	& GPT - Gerência de Projetos de Teste  &  \\
+      	& (Práticas Específicas GPT21 a GPT25)     &  \\
+      	& PET - Projeto e Execução de Teste  &  \\
+      	& (Prática Específica PET5)      &  \\
+    \bottomrule
+    \end{tabular}%
+  \label{tab:AreasProcessosMPT}%
+\end{table}%
+
+%%%%
+%%%%\begin{itemize}
+%%%%\item Lista de Práticas genéricas:
+%%%%					\subitem PG1 - Atingir os resultados definidos 
+%%%%          \subitem PG2 - Estabelecer uma política organizacional 
+%%%%          \subitem PG3 - Planejar a execução do processo 
+%%%%          \subitem PG4 - Identificar e disponibilizar recursos 
+%%%%          \subitem PG5 - Definir responsabilidade e autoridade 
+%%%%          \subitem PG6 - Prover treinamento 
+%%%%          \subitem PG7 - Controlar produtos de trabalho (a partir do Nível 2) 
+%%%%          \subitem PG8 - Monitorar e controlar o processo (a partir do Nível 2) 
+%%%%          \subitem PG9 - Fornecer  visibilidade  do  processo  para  a  gerência  superior  (a  partir  do Nível 2) 
+%%%%\end{itemize}
+%%%%
+%%%%
+%%%%Lista de Práticas 
+%%%%         GPT1 - Realizar análise de risco do produto 
+%%%%         GPT2 - Estabelecer objetivos do teste 
+%%%%         GPT3 - De?nir estratégia de teste 
+%%%%         GPT4 - Definir o escopo do trabalho para o projeto de teste 
+%%%%         GPT5 - Estabelecer estimativas de tamanho 
+%%%%         GPT6 - Definir o ciclo de vida do projeto de teste 
+%%%%         GPT7 - Estimar o esforço e o custo 
+%%%%         GPT8 - Estabelecer e manter o orçamento e o cronograma do projeto 
+%%%%         GPT9 - Identificar riscos do projeto 
+%%%%         GPT10 - Planejar os recursos humanos 
+%%%%         GPT11 - Planejar o ambiente de teste para o projeto 
+%%%%         GPT12 - Planejar os artefatos e dados do projeto 
+%%%%         GPT13 - Estabelecer indicadores de desempenho de teste 
+%%%%         GPT14 - Estabelecer o Plano de Teste
+%%%%         GPT15 - Revisar e obter compromisso com o Plano de Teste
+%%%%         GPT16 - Monitorar o projeto
+%%%%         GPT17 - Gerenciar o envolvimento dos stakeholders
+%%%%         GPT18 - Executar revisões em marcos do projeto
+%%%%         GPT19 - Analisar e registrar os problemas identificados
+%%%%         GPT20 - Estabelecer e acompanhar ações corretivas até a sua conclusão
+%%%%         GPT21 - Definir critérios de entrada e saída do teste (a partir do Nível 2)
+%%%%         GPT22 - Definir critérios de suspensão e reinício do teste (a partir do Nível 2)
+%%%%         GPT23 - Monitorar critérios de entrada, saída, suspensão e reinício do teste (a partir do Nível 2)
+%%%%         GPT24 - Monitorar defeitos (a partir do Nível 2)
+%%%%         GPT25 - Planejar e conduzir revisões de qualidade do produto (a partir do Nível 2)
+%%%%
+%%%%Lista de Práticas
+%%%%         PET1 - Identificar casos de teste
+%%%%         PET2 - Executar casos de teste
+%%%%         PET3 - Reportar incidentes
+%%%%         PET4 - Acompanhar incidentes
+%%%%         PET5 - Estabelecer padrões de documentação de casos de teste (a partir do Nível 2)
+%%%%         PET6 - Estabelecer padrões de documentação de incidentes (a partir do Nível 2)
+%%%%
+%%%%Lista de Práticas
+%%%%         GRT1 - Obter o entendimento dos requisitos
+%%%%         GRT2 - Obter o comprometimento com os requisitos
+%%%%         GRT3 - Gerenciar as mudanças dos requisitos
+%%%%         GRT4 - Manter a rastreabilidade bidirecional dos requisitos
+%%%%         GRT5 - Identificar inconsistência entre requisitos, planos do projeto e produtos de trabalho
+	%==============================================================================
+	%##############################################################################
+	%#################################    TCC   ###################################
+	%#########################  Capitulo 4.X - TMM  ############################
+	%##############################################################################
+	%==============================================================================
+	
+%%%%==============================================================================
+%%%%##############################################################################
+%%%%\subsubsection{Nível 1 - Parcialmente Gerenciado}
+%%%%Relativamente fácil implementação; 
+%%%%Cobre os princípios básicos do teste: planejamento e execução; 
+%%%%Teste é separado do debugging; 
+%%%%Uma estratégia de teste é definida com base nos objetivos do teste e nos riscos do produto; 
+%%%%O teste é amparado pela direção da organização.
+%%%%\subsubsection{Nível 2 - Gerenciado}
+%%%%Existe uma gestão do processo de teste; 
+%%%%A organização possui visibilidade sobre o teste;  
+%%%%Mudanças são avaliadas antes de sua aceitação; 
+%%%%Requisitos do teste são avaliados quanto a sua testabilidade; 
+%%%%Padrões para documentação de casos de teste e incidentes são adotados
+%%%%\subsubsection{Nível 3 - Definido}
+%%%%Um programa de medição deve existir na organização contemplando os indicadores do teste;  
+%%%%Um programa de treinamentos é estabelecido; 
+%%%%O ciclo de vida do teste é integrado ao ciclo de vida de desenvolvimento; 
+%%%%Teste estático e testes de aceitação são conduzidos; 
+%%%%Existe um acompanhamento do processo através da garantia da qualidade.
+%%%%\subsubsection{Nível 4 - Prevenção de Defeitos}
+%%%%A  organização  possui  um  processo  de  gestão  de  defeitos,  onde defeitos encontrados mais cedo no %%%%ciclo de vida são acompanhados e ações proativas são tomadas; 
+%%%%É  conduzida  uma  análise  de  risco  dos  atributos  não  funcionais  da aplicação  e  atividades  de  %%%%teste  não  funcional  são  executadas  para minimizar estes riscos; 
+%%%%É realizada uma análise para determinar a eficácia do teste e o nível de qualidade do produto.
+%%%%\subsubsection{Nível 5 - Automação e Otimização}
+%%%%Existe uma abordagem sistemática para automação do teste; 
+%%%%Um mecanismo para seleção e adoção de ferramentas CASE é utilizado; 
+%%%%O processo é controlado estatisticamente;  
+%%%%O processo está sob melhoria contínua.
+%%%%##############################################################################
+%%%%==============================================================================
+	
+	
+	%==============================================================================
+	%==============================================================================
+	%##############################################################################
+	%#################################    TCC   ###################################
+	%##########################  Capitulo 4.2 - TMMI  #############################
+	%##############################################################################
+	%==============================================================================
+\subsection{TMMI - \textit{Test Maturity Model integration}}
+
+O TMMI, \textit{Test Maturity Model integration}, em sua estrutura apresentada um \textit{framework}, que consiste em diversos elementos: níveis de maturidade, áreas chaves do processo, objetivos comuns, práticas chaves, sub-práticas, exemplos e literatura recomendada - \citet{TMMI}.
+
+Podemos ver na FIGURA ~\ref{fig:ImgTmmiLevelKeyProcess} os níveis e suas práticas chaves relacionadas. 
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.9\textwidth]{./Images/ImgTmmiLevelKeyProcess.png}
+		\caption{Níveis de maturidade de seus processos chaves}
+		\label{fig:ImgTmmiLevelKeyProcess}
+	\end{figure}
+	
+
+\subsubsection{Nível 1 - \textit{Initial}(Inicial)}     
+
+TMMi reconhece neste nível o teste como caótico com processo de teste não definido, sendo considerado uma parte da atividade de \textit{Debug} da aplicação na organização.
+O Sucesso do projeto, frequentemente é alçanda através feitos héroicos, ou mesmo, pelo cliente aceitar riscos da aplicação. A Organização tem uma forte dependência do alto comprometimento da equipe, não execução do processo em momentos críticos, e a incapacidade de repetir as práticas para alçancar o sucesso.
+Não há  processos chaves envolvidos neste nível.
+
+%%==============================================================================
+%%##############################################################################
+%%TMMi recognizes testing as chaotic with undefined test process and testing is often considered as part of debugging in the organization. Most likely the success in the %%organization is determined by the heroic deeds or the risks are accepted by the customers and users. The organizations are often characterized by over commitment, abandoning %%of processes in crisis times, and an inability to repeat the successes. There are no key processes involved at this level and is highly recommended for the advancement into %%next level.
+%%##############################################################################
+%%==============================================================================
+
+\subsubsection{Nível 2 - \textit{Managed} (Gerênciado)}
+
+
+O teste é um processo gerenciado, e neste nível é possível garantir que as atuais práticas existentes são mantidas em momentos crítico e de alto stress.
+O principal objetivo do teste é a verificação, assim satisfazendo os requisitos. 
+o processo de teste ainda é visto na organização pelos \textit{stakeholders} como uma fase do projeto que segue logo após a codificação.
+
+Neste nível reconhecido vários níveis de aplicação do teste, na qual variam de teste unitário ao teste de aceitação.
+Para cada nível de teste identificados existem objetivos específicos definidos na estratégia de teste de toda a organização,  ou o na estratégia do programa.
+
+%%==============================================================================
+%%##############################################################################
+%%Testing is a managed process that clearly separates from debugging and helps to ensure that the existing practices are retained during times of stress. The main objective of %%the testing is to verify that the product satisfies the product requirements. However, testing is still perceived by many stakeholders as being a project phase that follows %%right after coding. In this level testing is recognized as multileveled ranging from unit to acceptance test.  For each identified test level there are specific objectives %%defined in the organization-wide or program-wide test strategy. The process areas at level 2 are:
+%%==============================================================================
+%%##############################################################################
+
+
+\subsubsection{Nível 3 - \textit{Defined} (Definido)}
+
+Neste nível a organização compreende a importância das revisões no controle da qualidade, e consegue implementar um programa de revisão formal referente ao processo de teste dinâmico.
+O teste é totalmente integrado no ciclo de desenvolvimento e as há também metas associadas.
+Neste nível a melhoria de processo de teste é totalmente institucionalizada como uma parte das práticas da organização, sendo identificado como um papel com responsabilidades distintas.
+
+
+%%==============================================================================
+%%##############################################################################
+%%At this level, organizations understand the importance of reviews in quality control and implement a formal review program linked to dynamic test process. Testing is fully %%integrated into the development lifecycle and the associated milestones. At this level test process improvement is fully institutionalized as part of the test organization's %%accepted practices and testing is perceived as a profession. The process areas at level 3 are:
+%%==============================================================================
+%%##############################################################################
+
+
+\subsubsection{Nível 4 - \textit{Measured} (Medido)}
+
+Neste nível Os testes são completamente definidos, bem fundamentados e medidos. Revisões e inspeções são incorporadas ao ciclo de vida do desenvolvimento e considerados parte dos testes. Os produtos de software são avaliados a partir de critérios de qualidade e suas características (reusabilidade, usabilidade e mantenabilidade). Casos de testes são armazenados e gerenciados em uma base de dados central para reuso e testes de regressão.
+
+Com relação à qualidade do produto, um programa de medição permite que uma organização possaimplementar um processo de avaliação da qualidade do produto através da definição de necessidades de qualidade, atributos de qualidade e métricas. Os produtos relacionados com o trabalho são avaliados por critérios quantitativos para atributos de qualidade como usabilidade, confiabilidade e facilidade de manutenção.
+
+Nível 4 abrange também estabelecer uma abordagem de teste coordenada entre revisões por pares de testes estáticos e dinâmicos de testes eo uso dos resultados de avaliações pelos pares e dados para otimizar a abordagem de teste com ambos destinados a tornar os testes mais eficazes e mais eficientes. Revisões por pares são diretamente integrados com o processo de ensaio dinâmico e é uma parte da estratégia de teste, plano de teste e abordagem de teste.
+
+
+
+%%==============================================================================
+%%##############################################################################
+%%At this level testing becomes a measured process for the implementation of the Level 2 and Level 3 process areas to encourage further growth and accomplishment of the test %%organization. Testing is perceived as evaluation that consists of all testing lifecycle activities concerned with validation and verification for a product or related work %%products.
+
+%%With respect to product quality, the presence of a measurement program allows an organization to implement a product quality evaluation process by defining quality needs, %%quality attributes and quality metrics. Products or related work products are evaluated using quantitative criteria for quality attributes such as reliability, usability and %%maintainability.
+
+%%Level 4 also covers establishing a coordinated test approach between peer reviews of static testing and dynamic testing and the usage of peer reviews results and data to %%optimize the test approach with both aiming at making test more effective and more efficient. Peer reviews are directly integrated with dynamic testing process and is a part %%of the test strategy, test plan and test approach. The process areas at level 4 are:
+%%==============================================================================
+%%##############################################################################
+
+\subsubsection{Nível 5 - Optimization (Otimizado)}
+
+Ao alçancar o nível 5, a organização é capaz de implantar uma melhoria continua, aperfeiçoando seus processos com base em entendimento quantitativo dos dados estatísticos dos processos.
+Melhorar o desempenho do processo de teste é realizado através de um processo incremental e melhorias tecnológicas. Os métodos de teste e técnicas são otimizadas e existe uma preocupação contínua com o ajuste refinado e melhoria de processos. A área de processo de prevenção de defeito  é estabelecida para identificar e analisar as causas comuns dos defeitos em todo o desenvolvimento do ciclo de vida e definir ações para preveni que eventos semelhantes ocorram no futuro. 
+
+%%==============================================================================
+%%##############################################################################
+%%At level 5, an organization is capable of continually improving its processes based on a quantitative understanding of statistically controlled processes.
+%%Improving test process performance is carried out through incremental and innovative process and technological improvements. The testing methods and techniques are optimized %%and there is continuous focus on fine-tuning and process improvement. The defect prevention process area is established to identify and analyze common causes of defects across %%development lifecycle and define actions to prevent similar defects from occurring in the future. Test process optimization process area introduces mechanisms to fine-tune and %%continuously improve testing. The process areas at level 5 are:
+%%
+%%To summarize, TMMi process areas provide wide support and a more detailed specification of what is required to establish a defined verification and validation process. TMMi %%framework addresses all test levels (including static and dynamic testing) of structured testing (test lifecycle, techniques, infrastructure and test organization). TMMi %%provides an excellent reference model to aid in test process improvement for both internal and external customers and suppliers.
+%%==============================================================================
+%%##############################################################################
+
+\subsection{TPI NEXT - \textit{Test Process Improvement}}
+
+O modelo TPI (\textit{Test Process Improvement}) foi baseado nas melhores praticas para o desenvolvimento 
+ do processo de teste, oferecendo uma ponto de vista da maturidade do processo de teste de dentro da organização. Este modelo ajuda a definir gradualmente e de modo controlado a melhoraria dos processos de de teste baseado em alguns aspectos.
+Esses aspectos são chamados de áreas chaves, este modelo descreve 16 áreas chaves\footnote{Traduzidas do inglês.}:
+
+%%The Test Process Improvement (TPI) model has been developed based on
+%%the practi- cal knowledge and experiences of test process development. TPI offers
+%%a viewpoint in the maturity of the test processes within the organisation. Based on
+%%this understanding the model helps to define gradual and controllable test process
+%%improvement steps [Sog04].
+%%\begin{itemize}
+%%   \item Stakeholder commitment
+%%   \item Degree of involvement
+%%   \item Test Strategy 
+%%   \item Test organisation
+%%   \item Communication
+%%   \item Reporting
+%%   \item Test process management
+%%   \item Estimating and planning
+%%   \item Metrics
+%%   \item Defect management
+%%   \item Testware management
+%%   \item Methodology practice
+%%   \item Tester professionalism
+%%   \item Test case design
+%%   \item Test tools
+%%   \item Test environment
+%%\end{itemize}
+
+
+%
+%$$ |x| =
+%	\left\{
+%		\begin{array}{rc}
+%			1,\\
+%		 	x \\
+%		 	\\
+%		\end{array}
+%	\right.
+%$$
+\begin{enumerate}
+   \item Gestão de \textit{Stakeholder}
+   \item Grau de envolvimento
+   \item Estratégia de teste
+   \item Organização do teste
+   \item Comunicação
+   \item Relatórios
+   \item Gerenciamento de processo de teste
+   \item Estimativa e planejamento
+   \item Métricas
+   \item Gerenciamento de defeitos
+   \item Gerenciamento  de \textit{Testware}
+   \item Metodologia prática
+   \item Profissionalismo do Tester
+   \item Design de caso de teste
+   \item Ferramentas de teste
+   \item Ambiente de teste
+\end{enumerate}
+\subsubsection{Níveis de Maturidade de teste}
+
+%
+%Podes ver na FIGURA~\ref{fig:imgNiveisTPINEXT} os níveis existentes no TPI NEXT.
+%	\begin{figure}[h]
+%		\centering
+%		\includegraphics[width=.9\textwidth]{./Images/imgNiveisTPINEXT.png}
+%		\caption{Níveis de maturidade em escala}
+%		\label{fig:imgNiveisTPINEXT}
+%	\end{figure}
+%
+%\begin{itemize}
+%	\item \textbf{Controlled}
+%		\subitem A Segunda  escalas são os objetivos principalmente para o controle do processo de teste.
+%%are mainly for the control of the test process. The test process is carried out in phases according to a strategy defined in advance. Test specifica-
+%%tion techniques are used for testing, and defects are recorded and reported. The test-
+%%ware and test environment are well controlled and the test staff are sufficiently 
+%O processo de teste é realizado em fases de acordo com uma estratégia definida anteriormente. As técnicas de especificações de teste são utilizadas, e os defeitos são registrados e relatados. O \textit{testeware} e ambiente de teste estão bem controlados.
+%
+% 
+%	\item \textbf{Efficient}. 
+%%The levels in scales 6 to 10 aim more on the efficiency of the test process. 
+%%The efficiency can be achieved e.g. by automating the test process, by better integration between the mutual test process and with the other parties within the system development. 
+%		\subitem Os níveis de escalas para a efecuencia podem ser alcançada, por exemplo, automatizando o processo de teste, através de uma melhor integração entre o processo de teste e com os outros aplicações/processos de terceiros dentro do desenvolvimento do sistema.
+%
+%	\item \textbf{Optimizing}. 
+%%An efficient test process in the current situation may not be an efficient 
+%%one in the future. The levels in scales 11 to 13 are for increasing optimization of the 
+%%test process and they focus more on ensuring that continuous improvement of the test 
+%%process will be part of the working methods of the organisation. 
+%		\subitem Esses níveis estão voltados para uma maior otimização do processo de teste e se concentram mais em garantir que a melhoria contínua do seja parte dos processos e métodos de trabalho dentro da organização.
+%
+%
+%\end{itemize} 
+%\subsubsection{Test Maturity Matrix}
+
+
+O modelo TPI, usa a Matrix de Maturidade para gerar um \textit{overview} das áreas chaves de teste e suas respectivas maturidades. A matriz de maturidade lista todas as 16 ares de processo de teste, e então mostra o nível globas da maturidade baseado em níveis distintos:
+\begin{itemize}
+	\item Inicial
+	\item Controlado
+	\item Eficiente
+	\item Otimizado
+\end{itemize}
+
+O objetivo principal da matriz é mostrar os pontos fortes e fracos do atual processo de teste e apoiar a elaboração de propostas de melhoria, e facilitar a identificação de prioridade para ações de melhoria. A situação atual do processo de teste pode ser visto claramente através da matriz.
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.9\textwidth]{./Images/imgMaturityMatrix.png}
+		\caption{Contrução da Matrix de Maturidade}
+		\label{fig:imgMaturityMatrix}
+	\end{figure}
+
+As aéreas chaves podem ser avaliadas entre conceitos A e D, sendo o A o mais baixo, para que se encaixem em um conceito, é necessário elaborar questionamentos para avaliação, com base em alguns critério e conceitos definidos no modelo.
+
+As combinações das áreas chaves, níveis de maturidade e \textit{checkpoint} são utilizados para identificar os pontos fortes e fracos do atual processo de teste, e então auxiliar na definição plano de ação para melhoria.
+
+Completando a matriz torna-se fácil de identificar e avaliar propostas de melhorias. Os requisitos para cada níveis são definidos no forma de \textit{checkpoint}, que são questões necessariamente precisam ser respondidas, para que seja possível então, qualificar quanto ao nível avaliado. Esses \textit{checkpoint} permitem que seja possível classificar os objetivos por níveis.
+
+Podem ser definidas ações de melhoria focadas apenas em níveis mais altos, \textit{checkpoints} ajudam a determine quais ações são necessárias para alcançar o próximo nível, podemos ver um exemplo de Matriz de Maturidade completa na FIGURA~\ref{fig:imgMaturityMatrixComplete}.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.9\textwidth]{./Images/imgMaturityMatrixComplete.png}
+		\caption{Matrix de Maturidade Completa}
+		\label{fig:imgMaturityMatrixComplete}
+	\end{figure}
+
+Umas das vantagens, as sugestões de melhoria que este modelo oferece para apoiar melhoria de processo de teste inclui uma lista de dicas e idéias que podem ajudar a alcançar-lo.  
+
+
+%%%The TPI® Next model uses a test maturity matrix to provide a visual overview of the key test areas and their respective maturities. The maturity matrix lists the 16 key TPI® Next test process areas. It then shows the overall maturity level based on the 16 key areas i.e. four maturity levels - Initial, Controlled, Efficient and Optimising.
+%%%
+%%%The combination of key areas, levels and checkpoint are used to identify the strengths and weaknesses of the current test process, and to help define actions for improvement.
+%%%
+%%% 
+%%%Filling in the matrix makes it easier to evaluate the improvement proposals. The requirements for each level are defined in the form of checkpoints which are questions that need to be answered positively in order to qualify for that level. These checkpoints make an objective classification by level possible.
+%%%
+%%%Improvement actions can be defined in terms of desired higher levels. Checkpoints help determine the actions required to achieve a higher level.  Additionally, the model offers improvement suggestions to support test process improvement, which include a list of tips and ideas that can help in the effort to achieve the desired level.
+%%%	\begin{figure}[h]
+%%%		\centering
+%%%		\includegraphics[width=.9\textwidth]{./Images/ImgTmmiLevelKeyProcess.png}
+%%%		\caption{Níveis de maturidade de seus processos chaves}
+%%%		\label{fig:MaturityMatrixTMMI}
+%%%	\end{figure}
+%%%	
+%%%http://www.sogeti.ie/Resources--Downloads/Methodologies/TPI-Test-Process-Improvement/
+
+%%%
+%%% levels and key areas are related  to each other in a Test Maturity Matix. 
+%%%
+%%%
+%%%
+%%%The vertical axis of the matrix indicates key areas, the horizontal axis shows scales of 
+%%%maturity. In the matrix each level is related to a certain scale of test maturity. This re-sults in 13 scales of test maturity. The open cells between different levels have no 
+%%%meaning in themselves, but indicate that achieving a higher maturity for a key area is 
+%%%related to the maturity of other key areas. There is no gradation between different lev-els. As long as a test process is not entirely classified at level B, it remains at level A. 
+
+	%==============================================================================
+	%##############################################################################
+	%#################################    TCC   ###################################
+	%####################  Capitulo 5.X - Estratégia de Teste  ####################
+	%##############################################################################
+	%==============================================================================
+\chapter{Estratégia de Teste}
+
+Com base nos pontos apresentados até o momentos, podemos identificar a necessidade de definir as atividades a serem executadas, resultados esperados e demais informações para melhor entendimentos dos \textit{stakesholders} e demais envolvidos.
+\newline
+Será criado um documento para detalhar o plano de ação para as atividades de engenharia de teste de software para performance e segurança, fornecendo uma explicação dos objetivos, estratégia e detalhes das tarefas referente ao esforço. O plano de teste irá conter todas as informações necessárias referente a avaliação e execução de testes de desempenho e de segurança obedecendo os seguintes itens: 
+
+\begin{enumerate}
+	\item Objetivos
+	\item Procedimentos
+	\item Escopo de teste
+		\subitem Overview	
+		\subitem Objetivos 
+		\subitem Estratégia de Teste
+		\subitem Casos de Teste
+		\subitem Cenários
+		\subitem SLAs
+	\item Missão e critérios de saida de teste
+	\item Artefatos de saida
+	\item Técnicas Utilizadas
+	\item Riscos
+	\item Ambiente de Teste
+\end{enumerate}
+
+\begin{enumerate}
+	\item \textbf{Proposito}
+		\subitem $\bullet$ Detalhar o plano de ação para todas as atividades do teste de performance e segurança.
+		\subitem $\bullet$ Prover uma explicação das abordagens de teste definidas para o esforço de execução.
+	\newline
+	\item \textbf{Procedimentos}
+		\subitem $\bullet$ Identificar pontos de garantia para requisitos avaliados.
+		\subitem $\bullet$ Definir a missão da execução dos testes, (Ex: "Identificar o maior número de defeitos", "promover a integração com o sistema legado", "Identificar módulos com maior risco de invasão ou ataque").
+	\newline
+	\item \textbf{Escopo de teste}
+		\subitem $\bullet$ Definir o que será teste e o que não será testado
+	\newline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\textbf{3.1 Teste de Segurança}
+		\subitem \textbf{\textit{3.2.1 Overview}}
+			\subsubitem  $\bullet$ Considerar os requisitos de segurança e analisar arquitetura do software, aspectos gerais, riscos para definir a abordagem. casos de teste e técnicas necessárias para cobertura de teste.	
+		\subitem \textbf{3.2.2 Objetivos} 
+			\subsubitem $\bullet$ Acompanhar e monitorar a implementação dos controles.
+			\subsubitem $\bullet$ Identificar métodos de prevenção contra ataques internos e externos da rede.
+			\subsubitem $\bullet$ Identificar invulnerabilidades.
+			\subsubitem $\bullet$ Garantir um grau de segurança.
+		\subitem \textbf{3.2.3 Estratégia de Teste}
+			\subsubitem $\bullet$ Será utilizada técnica conhecida como \textit{"Man-in-the-middle"}, simulando uma ataque interno, para identificar as possíveis ações e requisitos necessários para prevenir e/ou interromper tal ataque.
+			\subsubitem $\bullet$ Será explorado e analisado as vulnerabilidades do estrutura e arquitetura, através de ataques externos. 
+		\subitem \textbf{Casos de Teste}
+		\subitem \textbf{Cenários}
+			\subsubitem $\bullet$ Lista de cenários bases para execução dos testes de segurança : 
+			\subsubitem - Ataque Interno.
+			\subsubitem - Ataque Externo.
+	\newline
+	\newline
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\textbf{3.2 Teste de Performance}
+		\subitem \textbf{\textit{3.2.1 Overview}}
+			\subsubitem $\bullet$ Considerar os requisitos de performance e analisar arquitetura do software, aspectos gerais, riscos para definir a abordagem, limites, carga de informações suportadas e as técnicas necessárias para cobertura de teste.
+		\subitem \textbf{3.2.2 Objetivos}
+				\subsubitem $\bullet$ Teste de Performance irá ter como objetivos esclarecer os seguintes pontos:
+				\subsubitem- Tempo de resposta para cada transação.
+				\subsubitem- Tempo de duração para cada carga.
+				\subsubitem- Recursos utilizados (CPU, memória, etc...) em um cenários específico (Normal, Exaustão).
+				\subsubitem- Tempo de exaustão para uma dado cenário.
+				\subsubitem- Números de usuários concorrentes.
+		\newline
+		\subitem \textbf{3.2.3 Estratégia de Teste}
+			\subsubitem $\bullet$ Será utilizado ferramentas para simular interações do usuário, \textit{Virtual Users}.
+			\subsubitem $\bullet$ Informações sobre tempo de respostas serão coletados através de \textit{Logs} das aplicações.
+		\subitem \textbf{3.2.4 Casos de Teste}
+			\subsubitem $\bullet$ Serão definidos conforme necessidade.
+		\subitem \textbf{3.2.5 Cenários}
+			\subsubitem $\bullet$ Lista de cenários bases para execução dos testes de performance : 
+			\subsubitem - Cenário de Consumo Normal de Recursos.
+			\subsubitem - Cenário de Consumo em Exaustão dos Recursos.
+			\newline
+		\item \textbf{Artefatos de saida}
+			\subitem $\bullet$ 	Plano de Tete de Performance
+			\subitem $\bullet$ 	Plano de Teste de Segurança
+		\newline
+%Item%	\item \textbf{Ambiente de Teste}
+%Item%		\subitem $\bullet$ 	Será definido e apresentado as características do Ambiente de Teste.
+\end{enumerate}
+
+%
+%3) Artefatos de saída
+%Documento de Estratégia de Testes
+%
+%4) Tarefas a serem realizadas
+%a) Definir a missão e o objetivo dos testes.
+%b) Fases de teste envolvidas: 
+%			 - Teste de Segurança
+%    * Examinar e identificar requisitos de segurança.
+%    * Examinar a arquitetura do software
+%    * Considerar os aspectos gerais e detalhados apropriados da abordagem de teste
+%    * Identificar as técnicas de teste existentes para reutilização
+%    * Identificar técnicas adicionais
+%    * Para cada técnica existente ou necessária;
+%          o Definir os objetivos e o escopo,
+%          o Descrever o método de implementação,
+%          o Identificar um método de avaliação adequado,
+%          o Identificar um uso de automatização aplicável,
+%          o Identificar as ferramentas aplicáveis
+%    * Descrever a Arquitetura para Automatização de Testes
+%    * Definir a estratégia de gerenciamento de configuração de componentes de teste
+%    * Elaborar um relatório sintético da disponibilidade dos componentes reutilizáveis
+%    * Capturar suas descobertas
+%    * Avaliar e verificar os resultados
+%
+%			 - Teste de Performance
+%		* Examinar os motivadores de teste e os itens de teste-alvo
+%    * Examinar a arquitetura do software
+%    * Considerar os aspectos gerais e detalhados apropriados da abordagem de teste
+%    * Identificar as técnicas de teste existentes para reutilização
+%    * Identificar técnicas adicionais
+%    * Para cada técnica existente ou necessária;
+%          o Definir os objetivos e o escopo,
+%          o Descrever o método de implementação,
+%          o Identificar um método de avaliação adequado,
+%          o Identificar um uso de automatização aplicável,
+%          o Identificar as ferramentas aplicáveis
+%    * Descrever a Arquitetura para Automatização de Testes
+%    * Definir a estratégia de gerenciamento de configuração de componentes de teste
+%    * Elaborar um relatório sintético da disponibilidade dos componentes reutilizáveis
+%    * Capturar suas descobertas
+%    * Avaliar e verificar os resultados
+%
+%5) Atores envolvidos na atividade e suas responsabilidades
+%	Responsável pelas atividades de teste - executa
+%	Gerente do projeto - acompanha
+%	Analista de Sistemas - acompanha
+%
+%6) Padrões
+%A definir.
+%
+%7) Procedimentos e Orientações.
+% - identificar pontos de garantia para requisitos de segurança.
+% - 
+%Definir a missão do projeto geralmente está associada a saber qual é o objetivo do mesmo, pode ser simplesmente "achar o maior número de defeitos", bem como pode ser "promover a integração com o sistema legado" ou "dar mais atenção aos módulos de maior risco para o projeto", etc. Pode estar explícito bem como pode precisar de um maior entendimento do negócio, isso dependerá de projeto para projeto.
+%O objetivo do teste está intimamente associado às atividades que serão executadas no decorrer do projeto de testes, como por exemplo, casos de teste baseados em risco, baseados na especificação, ou até, não criar casos de teste, somente executar testes exploratórios, tudo depende. 
+%
+%
+%Finalidade
+%
+%    * Identificar cada técnica específica a ser empregada para permitir o teste desejado.
+%    * Descrever as funções de cada técnica, incluindo os tipos de teste suportados.
+%    * Definir uma sugestão de arquitetura para o sistema de automatização de testes.
+%
+%Passos
+%
+%    * Examinar os motivadores de teste e os itens de teste-alvo
+%    * Examinar a arquitetura do software
+%    * Considerar os aspectos gerais e detalhados apropriados da abordagem de teste
+%    * Identificar as técnicas de teste existentes para reutilização
+%    * Identificar técnicas adicionais
+%    * Para cada técnica existente ou necessária;
+%          o Definir os objetivos e o escopo,
+%          o Descrever o método de implementação,
+%          o Identificar um método de avaliação adequado,
+%          o Identificar um uso de automatização aplicável,
+%          o Identificar as ferramentas aplicáveis
+%    * Descrever a Arquitetura para Automatização de Testes
+%    * Definir a estratégia de gerenciamento de configuração de componentes de teste
+%    * Elaborar um relatório sintético da disponibilidade dos componentes reutilizáveis
+%    * Capturar suas descobertas
+%    * Avaliar e verificar os resultados
+%Artefatos Informados:
+%
+%    * Plano de Iteração
+%    * Documento de Arquitetura de Software
+%    * Modelo de Implantação
+%    * Modelo de Casos de Uso
+%    * Especificação de Requisitos de Software
+%    * Visão
+%    * Encenação de Caso de Uso
+%    * Plano de Teste
+%    * Arquitetura para Automatização de Testes
+%    * Especificação de Interface de Teste
+%    * Configuração de Ambiente de Teste
+%    * Guia de Teste
+%
+%Artefatos Resultantes:
+%
+%    * Solicitação de Mudança
+%    * Plano de Teste
+%    * Arquitetura de Automatização de Teste
+%    * Especificação de Interface de Teste
+%    * Configuração do Ambiente de Teste
+%    * Guia de Teste
+%
+%=======================================================================
+% Referencias
+%=======================================================================
+\bibliography{TCC.ProjetoFinal.RA}
+
+%=======================================================================
+% Exemplo de ApÃªndice
+% O ApÃªndice Ã© utilizado para apresentar material complementar elaborado
+% pelo prÃ³prio autor.  Deve seguir as mesmas regras de formataÃ§Ã£o do
+% corpo principal do documento.
+%=======================================================================
+\appendix
+\chapter{Informações Complementares}
+Informações Complementares
+informa ç õ es 
+O ApÃªndice Ã© o lugar para incluir textos complementares, que nÃ£o sÃ£o essenciais para o entendimento do assunto principal da monografia, mas que podem contribuir com informaÃ§Ã£o relevante (por exemplo, uma prova matemÃ¡tica, uma conceituaÃ§Ã£o bÃ¡sica, etc.).  Ele deve seguir o formato normal do documento.
+
+%=======================================================================
+% Exemplo de Anexo
+% O Anexo Ã© utilizado para a ``inclusÃ£o de materiais nÃ£o elaborados pelo
+% prÃ³prio autor, como cÃ³pias de artigos, manuais, folders, balancetes, etc.
+% e nÃ£o precisam estar em conformidade com o modelo''.
+%=======================================================================
+\annex
+\chapter{Artigos Publicados}
+Existe diferenÃ§a entre os ApÃªndices e os Anexos.  Os apÃªndices trazem informaÃ§Ã£o escrita pelo prÃ³prio autor do trabalho, incorporando-se ao formato da monografia como um todo.  JÃ¡ um anexo Ã© um material Ã  parte, definido/publicado por si sÃ³, e que o autor julga conveniente ser apresentado juntamente com a monografia.  Normalmente tambÃ©m vai apresentar formato prÃ³prio, como um artigo publicado, um folder, uma planilha, etc.
+\end{document}

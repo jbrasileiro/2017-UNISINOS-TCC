@@ -1,0 +1,181 @@
+\begin{thebibliography}{\hspace{\parindent}}
+
+\bibitem[ALATS(2002)ALATS]{ALATS} ALATS. \emph{ALATS}. Associação Latino
+  Americana de Teste de Software, www.alats.org.br.
+
+\bibitem[BLACK(2007)BLACK]{ProgramaticST} BLACK, R\@. \emph{Pragmatic Software
+  Testing}: becoming an effective and efficient test professional. 1
+  edition.~ed. [S.l.]: Wiley, 2007. (978-0470127902).
+
+\bibitem[BLACK(2009)BLACK]{ISTQBBOOKVII} BLACK, R\@. \emph{Advanced Software
+  Testing - Vol. 2}: guide to the istqb advanced certification as an advanced
+  test manager. 1 edition.~ed. [S.l.]: Rocky Nook, 2009. (978-1933952369).
+
+\bibitem[BLOOR(2008)BLOOR]{RobinBloor} BLOOR, R\@. \emph{Everything as a
+  Service}: the growth of cloud computing.
+  \texttt{http://www.havemacwillblog.com/2008/06/everything-as-a-service-the-growth-of-cloud-computing/}.
+
+\bibitem[CZERNICKI(2011)CZERNICKI]{CloudComputingClearDefined} CZERNICKI, B\@.
+  \emph{IaaS, PaaS and SaaS Terms Clearly Explained and Defined}.
+  \texttt{http://www.silverlighthack.com/post/2011/02/27/IaaS-PaaS-and-SaaS-Terms-Explained-and-Defined.aspx},
+  www.silverlighthack.com.
+
+\bibitem[ENISA(2010)ENISA]{ENISA} ENISA. \emph{Cloud Computing - Benefits,
+  risks and recommendations for information security}.
+  \texttt{http://www.enisa.europa.eu/}.
+
+\bibitem[FELIPE~DIAS(2008)FELIPE~DIAS]{Pronus} FELIPE~DIAS, A\@. \emph{Por que
+  investir em melhoria de processos?}
+  \texttt{http://pronus.eng.br/artigos\_tutoriais/processo\_desenvolvimento/melhoria\_processo.php?pagNum=0/},
+  PRONUS\textsuperscript{\textregistered} Engenharia de Software.
+
+\bibitem[FIGUEIREDO(2011)FIGUEIREDO]{IDCAndersonFigueiredo} FIGUEIREDO, A\@.
+  \emph{Cloud computing já é usado em 18\% das companhias}.
+  \texttt{http://www.ceti.org.br/web/noticias.php?id=126}, Disponivél em
+  www.ceti.org.br.
+
+\bibitem[FOUNDATION(2009)Foundation]{TMMI} FOUNDATION, T\@. \emph{Test Maturity
+  Model Integrated (TMMi)}. 2009.
+
+\bibitem[GODBOLE(2004)GODBOLE]{SQAPraticeBook} GODBOLE, N.~S\@. \emph{Software
+  Quality Assurance}: principles and practice. [S.l.]: Alpha Science Intl Ltd,
+  2004. (978-1842651766).
+
+\bibitem[HINKLE(2010)Hinkle]{CloudLockInB} HINKLE, M\@. \emph{Three Cloud
+  Lock-in Considerations}. 2010.
+
+\bibitem[IEEE COMPUTER SOCIETY(2001a)IEEE Computer Society]{IEE610}
+  IEEE610-1990. \emph{610-1990 - IEEE Standard Computer Dictionary}:
+  compilation of ieee standard computer glossaries. [S.l.:~s.n.], 2001.
+
+\bibitem[IEEE COMPUTER SOCIETY(2001b)IEEE Computer Society]{IEE829}
+  IEEE829-2008. \emph{829-2008 - IEEE Standard for Software and System Test
+  Documentation}. [S.l.:~s.n.], 2001.
+
+\bibitem[IEEE COMPUTER SOCIETY(2001c)IEEE Computer Society]{IEE1028}
+  IEE1028-2008. \emph{1028-2008 - IEEE Standard for Software Review and
+  Audits}. [S.l.:~s.n.], 2001.
+
+\bibitem[IEEE COMPUTER SOCIETY(2001d)IEEE Computer Society]{IEE1044}
+  IEE1044-2009. \emph{IEE1044-2009 - IEEE Standard Classification for Software
+  Anomalies}. [S.l.:~s.n.], 2001.
+
+\bibitem[ISO - INTERNATINAL ORGANIZATION FOR STANDARDIZATION(2004)ISO -
+  Internatinal Organization For Standardization]{ISO15504} ISO/15504.
+  \emph{ISO/IEC TS 15504}:2004 information technology -- process assessment --
+  part1-9. 1 (Monolingual).~ed. [S.l.:~s.n.], 2004.
+
+\bibitem[ISO - INTERNATINAL ORGANIZATION FOR STANDARDIZATION(2011a)ISO -
+  Internatinal Organization For Standardization]{ISO91261} ISO/IEC9126:1.
+  \emph{ISO/IEC 9126-1}:2001 software engineering - product quality - part 1:
+  quality model. 1 (Monolingual).~ed. [S.l.:~s.n.], 2011.
+
+\bibitem[ISO - INTERNATINAL ORGANIZATION FOR STANDARDIZATION(2011b)ISO -
+  Internatinal Organization For Standardization]{ISO91262} ISO/IEC9126:2.
+  \emph{ISO/IEC 9126-2}:2003 software engineering - product quality - part 2:
+  external metrics. 1 (Monolingual).~ed. [S.l.:~s.n.], 2011.
+
+\bibitem[ISO - INTERNATINAL ORGANIZATION FOR STANDARDIZATION(2011c)ISO -
+  Internatinal Organization For Standardization]{ISO91263} ISO/IEC9126:3.
+  \emph{ISO/IEC 9126-3}:2003 software engineering - product quality - part 3:
+  internal metrics. 1 (Monolingual).~ed. [S.l.:~s.n.], 2011.
+
+\bibitem[ISO - INTERNATINAL ORGANIZATION FOR STANDARDIZATION(2011d)ISO -
+  Internatinal Organization For Standardization]{ISO91264} ISO/IEC9126:4.
+  \emph{ISO/IEC 9126-4}:2004 software engineering - product quality - part 4:
+  quality in use metrics. 1 (Monolingual).~ed. [S.l.:~s.n.], 2011.
+
+\bibitem[ISO - INTERNATINAL ORGANIZATION FORS TANDARDIZATION(2008)ISO -
+  Internatinal Organization ForS tandardization]{ISO12207} ISO/IEC12207.
+  \emph{ISO/IEC 12207}:2008 system and software engineering - software life
+  cycle processes. 2 (Monolingual).~ed. [S.l.:~s.n.], 2008.
+
+\bibitem[ISTQB(2007)ISTQB]{ISTQB} BOARD, I. S. T.~Q\@. \emph{Advanced Level
+  Syllabus}. Version 2007.~ed. [S.l.:~s.n.], 2007. Advanced Level Working
+  Party: Bernard Homès (chair), Graham Bath, Rex Black, Sigrid Eldh,
+  Jayapradeep Jiothis, Paul Jorgensen, Vipul Kocher, Judy McKay, Klaus Olsen,
+  Randy Rice, Jürgen Richter, Eric Riou Du Cosquer, Mike Smith, Geoff Thompson,
+  Erik Van Veenendaal;.
+
+\bibitem[KANER; BACH; PEETTICHORD(2011)KANER, BACH e
+  PEETTICHORD]{kaner2011lessons} KANER, C.; BACH, J.; PEETTICHORD, B\@.
+  \emph{Lessons Learned in Software Testing}: a context-driven approach.
+  [S.l.]: John Wiley \& Sons, 2011.
+
+\bibitem[KNORR; GRUMAN(2011)KNORR e GRUMAN]{MISCERIC} KNORR, E.; GRUMAN, G\@.
+  \emph{What cloud computing really means}.
+  \texttt{http://www.infoworld.com/d/cloud-computing/what-cloud-computing-really-means-031},
+  Avaliable at infoworld.com.
+
+\bibitem[MELL.~P(2009)MELL.~P]{NIST} MELL.~P, G.~T\@. \emph{Draft NIST Working
+  Definition of Cloud Computing.}
+  \texttt{http://csrc.nist.gov/groups/SNS/cloud-computing}, National Institute
+  of Standards and Technology.
+
+\bibitem[MILLER(2008)MILLER]{MichaelMiller} MILLER, M\@. \emph{Cloud
+  Computing}: web-based applications that change the way you work and
+  collaborate on-line. 1 edition.~ed. [S.l.]: Que, 2008. (0789738031).
+
+\bibitem[MPT.BR(2010)MPT.BR]{MPTBR} MPT.BR. MPT Melhoria do Processo de Teste.
+  \emph{}, [S.l.], June~2010. Centro de Excelência em Tecnologia de Software.
+
+\bibitem[NISBET(2011)NISBET]{BradNisbet} NISBET, B\@. \emph{Monetizing the
+  Cloud}: xaas opportunities for service providers. [S.l.]: IDC Analyze the
+  Future, 2011.
+
+\bibitem[POL; TEUNISSEN; VEENENDAAL(2011)POL, TEUNISSEN e VEENENDAAL]{TMAPBOOK}
+  POL, M.; TEUNISSEN, R.; VEENENDAAL, E.~V\@. \emph{Software Testing - A guide
+  to the TMAP Aprroach}. 1 edition.~ed. [S.l.]: Addison-Wesley, 2011.
+  (0201745712).
+
+\bibitem[REESE(2009)REESE]{CloudComputingAA} REESE, G\@. \emph{Cloud
+  Application Architectures - Building Applications and Infrastructure in the
+  Cloud}. 1 Edition.~ed. [S.l.]: O'Reilly Media, INC, 2009.
+  (987-0-596-15636-7).
+
+\bibitem[RIOSOFT(1990)RIOSOFT]{RIOSOFT} RIOSOFT. \emph{RIOSOFT}. Cia.
+  Brasileira de Software e Serviços Ltda.
+
+\bibitem[RITTINGHOUSE; RANSOME(2010)RITTINGHOUSE e RANSOME]{JRANDJR}
+  RITTINGHOUSE, J.; RANSOME, J\@. \emph{Cloud Computing}: implementation,
+  management, and security. 1 edition.~ed. [S.l.]: CRC Press, 2010.
+  n.~978-4398-0680-7. (0789738031).
+
+\bibitem[SOFTEX(2010)SOFTEX]{Softex} SOFTEX. \emph{Softex}. Centro de
+  Excelência em Tecnologia de Software, Softex.br.
+
+\bibitem[STINCHCOMBE(2010)STINCHCOMBE]{ISACASurvey} STINCHCOMBE, N\@.
+  \emph{Study finds organisations using cloud think risks outweigh benefits}.
+  The ISACA IT Risk/Reward Barometer survey is based on online polling in March
+  2010 of 1 529 IT professionals who are ISACA members in Europe, Editorial
+  Eskenzi PR -
+  \texttt{http://www.itweb.co.za/office/isaca/PressRelease.php?StoryID=206464},
+  http://www.isaca.org/.
+
+\bibitem[TAURION(2011)TAURION]{Cezar2011} TAURION, C\@. \emph{A ``nuvem`` que
+  traz uma revolução.} NEI Meetings -
+  \texttt{http://www.nei.com.br/artigos/download/julho\_2011\_tecnologia\_informacao.pdf},
+  NEI International Industrial Conference \& Show.
+
+\bibitem[TAXONOMY(2010)TAXONOMY]{OpenCrowd} TAXONOMY, C\@. \emph{Software as a
+  Service (SaaS)}.
+  \texttt{http://cloudtaxonomy.opencrowd.com/taxonomy/software-as-a-service/},
+  OpenCrowd - Cloud Taxonomy.
+
+\bibitem[THINKSTRATEGIES(2005)THINKSTRATEGIES]{THINKSTRATEGIES}
+  THINKSTRATEGIES. \emph{The Future of IT in Large Corporations - A Whitepaper
+  on Software as a Service.}
+  \texttt{http://www.thinkstrategies.com/images/SaaS/\_WP/\_Final/\_072405.pdf},
+  THINKSTRATEGIES.
+
+\bibitem[THIOLLENT(1986)THIOLLENT]{Thiollent} THIOLLENT, M\@. \emph{Metodologia
+  da Pesquisa-ação}. 1 Edition.~ed. [S.l.]: São Paulo: Corteaz: Autores
+  Associados, 1986.
+
+\bibitem[WIDJAYA(2011)Widjaya]{CloudLockInA} WIDJAYA, I\@. \emph{Three Types of
+  Cloud Lockin}. 2011.
+
+\bibitem[ZOHO(2010)Zoho]{zoho} ZOHO. \emph{Platform as a Service}.
+  \texttt{http://www.zoho.com/creator/paas.html}, ZOHOCreator.
+
+\end{thebibliography}

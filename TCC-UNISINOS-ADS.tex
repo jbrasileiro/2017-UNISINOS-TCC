@@ -27,157 +27,198 @@
 
   
 \begin{resumo} 
-Os métodos de desenvolvimento de software ágil têm se tornodo uma das principais abordagens no desenvolvimento de software, trazendo um grande impacto na engenharia de software, aumentando e alterando a percepção e o conceito de qualidade na códificação e na entrega de códigos.
-Saber como utilizar conceitos e principios do design orientado a objeto (OOPD), CLEAN CODE - não excludente, produção de testes unitarios e/ou de integração - para aumentar a produtivida são extremamente importantes.
-Este artigo corrobora com a aplicação desses conceitos e define uma melhor estratégia para alcançar um desenvolvimento mais eficaz e eficiente, produzindo códigos com alta qualidade e alto grau de manutenabilidade.
+Os métodos de desenvolvimento de software ágil têm se tornado uma das principais abordagens no desenvolvimento de software, trazendo um grande impacto na engenharia de software, aumentando e alterando a percepção e o conceito de qualidade na codificação e na entrega de códigos.
+Saber como utilizar conceitos e princípios do \textit{design} orientado a objeto (OOPD), \textit{CLEAN CODE} - não excludente, produção de testes unitários e/ou de integração - para aumentar a produtividade são extremamente importantes.
+Muitas das falhas são por falta de boas práticas mais básicas de programação, tais problemas, embora não correspondam necessariamente a bugs, dificultam a leitura do código, o debug, novas implementações ou qualquer futura manutenção, diminuindo a efetividade na fase do desenvolvimento.
+Este artigo corrobora com a aplicação desses conceitos e define uma melhor estratégia para alcançar um desenvolvimento mais eficaz e eficiente, produzindo códigos com alta qualidade e alto grau de manutenabilidade, com o objetivo geral de definir uma estratégia de codificação, contendo ações necessárias para maximizar e monitorar a codificação, visando um código com alta qualidade e manunenabilidade, utilizando método de pesquisa quantitativas baseadas em métricas passiveis de serem coletadas e monitoradas através de analises estáticas de código (\textit{automatic code-review}) junto com métricas qualitativas através de lições aprendidas, projetos   bem sucedidos e alguns \textit{insights} sobre as melhores soluções e \textit{designs}, aplicado a alguns estudos de casos, simulações de erros ou de problemas, trechos ou demais exemplos de código a serem utilizados nesse artigo. 
 \end{resumo}
 
 
 \begin{abstract}
-The agile software development methods have become one of the main approaches in software development, bringing a great impact in software engineering, increasing and changing the perception and the concept of quality in coding and in delivering.
-Knowing how to use object-oriented concepts and design principles (OOPD), CLEAN CODE - not excluding, producing unit tests and / or integration - to increase productivity are extremely important.
-This article corroborates with the application of these concepts and defines the best strategy to achieve a more effective and efficient development, producing codes with high quality and high maintainability.
+\sout{ abstract }
 \end{abstract}
 
+
+\textit{Palavras-chaves: clean-code, software development, object-oriented design principles, test driven development (TDD) }
 
 %\newpage 
 %\tableofcontents
 %\newpage
 
+
 \part{INTRODUÇÃO}
 
 %1º e 2º parágrafo: apresentação do tema dentro de um contexto.
- Uma das mudanças mais impactantes no processo de desenvolvimento de software das últimas décadas, foi a concepção e absorção das metodologias ágeis de software, seja SCRUM, Extreme Programming (XP), Test Driven Development (TDD), Lean Software Development, Kanban, etc, todas foram criadas a partir da filosofia AGILE \cite{MANISFESTOAGILE}, surgido a partir do esforço de várias pessoas que lidavam com o processo de software na década de 1990, com o objetivo de definir uma abordagem mais efetiva e eficiente para o desenvolvimento de software. Apesar dos conceitos já existirem a quase 20 anos, a importância e a implementação dessas ideias ainda são muito pouco exploradas no Brasil, segundo Coleman Parkes Research \cite{COLEMANPARKES_AGILE_2017}, durante uma pesquisa, envolvendo cerca de 1.770 executivos de tecnologia da informação em 21 países, incluindo 76 brasileiros, mostra que somente 6\% das empresas têm utilizado fortemente essa filosofia com o objetivo de "transformar toda a organização para abranger os princípios de agilidade".
+ Uma das mudanças mais impactantes no processo de desenvolvimento de software das últimas décadas, foi a concepção e absorção das metodologias ágeis de software, seja \textit{SCRUM}, \textit{Extreme Programming} (XP), \textit{Test Driven Development} (TDD), \textit{Lean Software Development}, \textit{Kanban}, etc, todas foram criadas a partir da filosofia \textit{AGILE} \cite{AGILE_X_LEAN}.
+ 
+ O manifesto \textit{Agile} \cite{AGILE_X_LEANMANISFESTOAGILE} surgido a partir do esforço de várias pessoas que lidavam com o processo de software na década de 1990, com o objetivo de definir uma abordagem mais efetiva e eficiente para o desenvolvimento de software. Apesar dos conceitos já existirem a quase 20 anos, a importância e a implementação dessas ideias ainda são muito pouco exploradas no Brasil, segundo o instituto Coleman Parkes Research \cite{COLEMANPARKES_AGILE_2017}, durante uma pesquisa, envolvendo cerca de 1.770 executivos de tecnologia da informação em 21 países, incluindo 76 brasileiros, mostra que somente 6\% das empresas têm utilizado fortemente essa filosofia com o objetivo de "transformar toda a organização para abranger os princípios de agilidade".
 
- A partir dessa nova abordagem de gerenciar software, a importância da qualidade evoluiu e alcançou novos pontos de vistas, aumentando significativamente tanto na concepção, quanto no decorrer das outras fases, incluindo durante o desenvolvimento, e não mais apenas no final com um simples objetivo de execução do software. Um das grandes mudanças foi a inclusão e a utilização do conceito de \textbf{MPV}, sigla de \textit{Minimum Viable Product}, que significa Produto Mínimo Viável – conceito popularizado por Eric Ries \cite{ERICRIES_THELEAN} - trazendo a importância de entregar e assegurar o sistema de modo incremental, incluindo progressivamente funcionalidades importantes para o cliente, ou o negócio, ressaltando não apenas garantir um software útil, mas também visando minimizar a maleabilidade do ecossistema do negócio, seja as possibilidades de mudanças, tanto de prioridades de funções, técnicas ou mesmo do próprio objetivo fim. A adoção desses pequenos entregáveis, gerou e exigi um aumento na maturidade no desenvolvimento, criando a necessidade de gerar artefatos que evidenciassem e garantissem, desdo inicio, dois grandes aspectos: (i) Qualidade e (ii) a garantia que cada entregáveis operasse corretamente.
+ A partir dessa nova abordagem de gerenciar software, a importância da qualidade evoluiu e alcançou novos pontos de vistas, aumentando significativamente tanto na concepção, quanto no decorrer das outras fases, incluindo durante o desenvolvimento, e não mais apenas no final com um simples objetivo de execução do software \cite{WATERFALL_MODEL}.
+ 
+ Um das grandes mudanças foi a inclusão e a utilização do conceito de \textbf{MPV}, sigla de \textit{Minimum Viable Product}, que significa Produto Mínimo Viável – conceito popularizado por Eric Ries \cite{ERICRIES_THELEAN} - trazendo a importância de entregar e assegurar o sistema de modo incremental, incluindo progressivamente funcionalidades importantes para o cliente, ou o negócio, ressaltando não apenas garantir um software útil, mas também visando minimizar a maleabilidade do ecossistema do negócio, seja as possibilidades de mudanças, tanto de prioridades de funções, técnicas ou mesmo do próprio objetivo fim. A adoção desses pequenos entregáveis, gerou e exigi um aumento na maturidade no desenvolvimento, criando a necessidade de gerar artefatos que evidenciassem e garantissem, desdo inicio, dois grandes aspectos: (i) Qualidade e (ii) a garantia que cada entregáveis operasse corretamente \cite{AGILE_WORKING_PROCESS}.
 
- Max Kanat-Alexander \cite{CODE_SIMPLICITY} resume sinteticamente uma interpretação da importância da qualidade do código/design: 
-
+Max Kanat-Alexander \cite{CODE_SIMPLICITY} resume sinteticamente uma interpretação da importância da qualidade do código/design: 
 \begin{quote}
- \emph{"É mais importante reduzir o esforço de manutenção do que reduzir o esforço de implementação"}.
+ "É mais importante reduzir o esforço de manutenção do que reduzir o esforço de implementação".
+\end{quote}
+
+Max Kanat-Alexander \cite{CODE_SIMPLICITY} também reforça as consequências de ignorar o fato de existir um futuro, e cair no erro de criado software que "apenas funcionam no presente", a partir disso menciona uma regra importante para a qualidade: 
+\begin{quote}
+ "O nível de qualidade do seu projeto deve ser proporcional ao tempo do futuro em que seu sistema continuará a ajudar as pessoas".
 \end{quote} 
 
+Steve McConnell \cite{CODE_COMPLETE_2} deixa claro a ideia de qualidade de um código limpo, sendo uma parte principal, e não uma parte opcional no desenvolvimento, reforçando a importância dos aspectos de um código bem feito (capacidade de extensão, código testavel, fácil compreensão, alta coesão, desacoplamento, entre outros).
 
- Também reforça as consequências de ignorar o fato de existir um futuro, e cair no erro de criamos coisas que "apenas funcionam no presente", a partir disso menciona uma regra importante para a qualidade: 
-
-\begin{quote}
- \emph{"O nível de qualidade do seu projeto deve ser proporcional ao tempo do futuro em que seu sistema continuará a ajudar as pessoas"}.
-\end{quote} 
-
-
-	Steve McConnell \cite{CODE_COMPLETE_2} deixa claro a ideia de qualidade de um código limpo, sendo uma parte principal, e não uma parte opicional no desenvolvimento, reforçando a importancia dos aspectos de um código bem feito (capacidade de extensão, código testavel, fácil comprensão, alta coesão, desacoplamento, entre outros).
+Em um artigo ainda em 2005, Richard C. Martin \cite{THE_PRINCIPLES_OF_OOD} aborda os conceitos e a importância do que é \textit{design} orientado a objetos, seus benefícios e ainda seus custos.
+Ainda, segundo o author Richard C. Martin \cite{THE_PRINCIPLES_OF_OOD}, essas simples perguntas por mais óbvias e bobas que possam parecer em tempos aonde praticamente todos os desenvolvedores de software estão usando uma linguagem orientada a objetos de algum tipo, ressaltam a importância da questão, evidenciando um cenário aonde a maioria usa essas línguas sem saber o por quê, e sem saber como tirar o máximo proveito delas.
 	 
 
 %3º parágrafo: delimitação do tema, apresentado através do problema de pesquisa do seu TCC.
 %-- Código ruim e "Ice cream" problem
-A partir dessas novas perpectivas e preocupações, e visando amadurecer a qualidade continua no processo de desenvolvimento foi identificado um grande problema na quantidade de esforço para manutenção de códigos com baixa extensibilidade e alto acoplamento, junto com uma alta taxa de “code smells”, termo criado por Kent Beck em conjuto de Martin Fowler \cite{MARTIN_FOWLER_REFACTORING}, e níveis muito baixos de qualidade de design/código.
+A partir dessas novas perpectivas e preocupações, e visando amadurecer a qualidade continua no processo de desenvolvimento foi identificado um grande problema na quantidade de esforço para manutenção de códigos com baixa extensibilidade e alto acoplamento, junto com uma alta taxa de “code smells”, termo criado por Kent Beck em conjuto de Martin Fowler \cite{MARTIN_FOWLER_REFACTORING}, e níveis muito baixos de qualidade de \textit{design}/código.
 
 %4º parágrafo: apresente possíveis respostas para o problema de pesquisa levantado, ou seja, as hipóteses.
 %Aplicação das principios OO e CLEAN CODE.
 %Segregação das testes unitarios e testes de integração.
 
-%--REMOVE
-\sout{Acreditando na importância da qualidade do código, o presente trabalho visou desenvolver, aplicar e avaliar uma estratégia para minimizar as adversidades na fase de um desenvolvimento eficiente, obter uma melhor produtividade através da codificação de códigos com alta manutenibilidade e alta confiabilidade, desacoplados e coeso, aplicando as ideias do CLEAN CODE, em conjunto com os mais difundidos princípios da programação orientada a objeto.}
-%--REMOVE
-
-Acreditando na importância da qualidade do código, o presente trabalho visou definir uma estratégia alçancar uma fase de desenvolvimento mais eficaz e eficiente através da aplicação dos conceitos e mais conhecidos principios de design orientado a objeto, CODE CODE e aplicação de TDD - incluindo teste de integração - produzindo códigos com alta qualidade e alta manutenabilidade.
-
 
 %5º parágrafo: em poucas palavras, fale sobre o objetivo geral do trabalho e também dos específicos.
 %Eles são ingredientes fundamentais para o trabalho.
-A finalidade desse trabalho trabalho foi aplicar os conceitos do OODP (Object Oriented Design Principles), CLEAN CODE e “AGILE”, sendo assim, o objetivo geral foi analisar uma estratégia para produção de códigos com qualidade. A partir disso para alçancar o objetivo geral foram definidos os seguindos objetivos especificos: 
-\begin{itemize}
-	\item Identificar a correta aplicação dos conceitos de OOPD/CLEAN CODE.
-	\item Identificar as melhores práticas para a produção de código eficiente.  
-%--REMOVE
-\sout{
-Apontar uma pratica eficiente de códificação.
-Identificar as melhores práticas para a produção de código eficiente. :
-o resultado seria um quadro com a prática identificada, o seu propósito e um exemplo de como aplicar}
-%--REMOVE
-	\item Aplicar as melhores práticas identificadas.
-%--REMOVE
-\sout{ Definir métricas qualitativas e quantitativas para monitoramento da qualidade de código. ajustar um pouco para algo como: - Propor uma estratégia para aumentar a eficiência na codificação o que vai ter dentro da estratégia: recomendações (métricas para avaliar e ou monitorar o código)}
-	\item Propor uma estratégia para aumentar a eficiência na codificação.
-\end{itemize} 
+A finalidade desse trabalho trabalho foi aplicar os conceitos do OODP (\textit{Object Oriented Design Principles}), \textit{CLEAN CODE} e \textit{AGILE}, sendo assim, o objetivo geral foi analisar uma estratégia para produção de códigos com qualidade. A partir disso para alcançar o objetivo geral foram definidos os seguintes objetivos específicos: 
+(i) Identificar a correta aplicação dos conceitos de OOPD/\textit{CLEAN CODE}
+,(ii) identificar as melhores práticas para a produção de código eficiente
+,(iii) aplicar as melhores práticas identificadas
+,(iv) propor uma estratégia para aumentar a eficiência na codificação
+.
 
 %6º parágrafo: apresente a relevância do seu trabalho acadêmico, identificando a importância dele para a sociedade ou comunidade %científica. Isso é o que chamamos de justificativa.
-O presente trabalho justifica-se por uma forte necessidade de ressaltar ao desenvolvedor, a responsabilidade direta pela produção do artefato final da fase de desenvolvimento (código-fonte)\cite{TR_CLEAN_CODE_IMPORTANCIA}, não apenas em relação ao presente, mas também quanto ao seu futuro, maximizar a rapidez de entendimento do código, ou sua possivel extensão, evidenciar a importância e a necessidade de conhecer, estudar e aplicar os conceitos de OOPD, e/ou do CLEAN CODE, que por sua vez, trouxe uma mudança de paradigma de como codificar software, como assegurar, minimizar e identificar impactos decorrentes de mudanças\cite{CODE_SIMPLICITY}.
+O presente trabalho justifica-se por uma forte necessidade de ressaltar ao desenvolvedor, a responsabilidade direta pela produção do artefato final da fase de desenvolvimento (código-fonte)\cite{TR_CLEAN_CODE_IMPORTANCIA}, não apenas em relação ao presente, mas também quanto ao seu futuro, maximizar a rapidez de entendimento do código, ou sua possivel extensão. Também inclui evidenciar a importância e a necessidade de conhecer, estudar e aplicar os conceitos de OOPD, e/ou do CLEAN CODE, que por sua vez, trouxe uma mudança de paradigma de como codificar software, como assegurar, minimizar e identificar impactos decorrentes de mudanças\cite{CODE_SIMPLICITY}.
 Também visa, da perspectiva da empresa, evidenciando que diante um código com qualidade, código melhor estruturado, bem testado, fácil absorção e entendimento, a sua manutenção será mais eficiente e rápida, fazendo do desenvolvimento mais eficaz e eficiente, assim, gerando mais produtividade.
 
 %7º parágrafo: descreva, em poucas palavras, qual metodologia foi utilizada. Foi pesquisa bibliográfica ou de campo?
 %Você deve especificar o procedimento de forma concisa.
-O plano de pesquisa desse trabalho utiliza uma abordagem mista utilizando de métricas quantitativas e qualitativas, de natureza aplicada, afim de determinar uma estratégia para maximizar a qualidade de código, explorando técnicas, conceitos e praticas. Utilizando do método de pesquisa estudo de caso, através de cenários, reais, baseados em cenarios, ou simulção do problema, para analisar os resultados objetivos a partir. 
+O plano de pesquisa desse trabalho utiliza uma abordagem mista utilizando de métricas quantitativas e qualitativas, de natureza aplicada, afim de determinar uma estratégia para maximizar a qualidade de código, explorando técnicas, conceitos e praticas. Utilizando do método de pesquisa estudo de caso, através de cenários, reais, baseados em cenários, ou simulação do problema, para analisar os resultados objetivos a partir. 
 
 %8º parágrafo: apresente a estrutura do trabalho, ou seja, como ele está dividido em capítulos. Lembre-se de falar, %resumidamente, sobre o que se trata cada capitulo.
 O presente trabalho foi estruturado em 7 capítulos.
-O capítulo 1 apresenta a introdução. 
+O capítulo 1 apresenta a introdução.
 O capítulo 2 apresenta a revisão bibliografia.
-O capítulo 3 apresenta os trabalhos relacionados. 
-O capítulo 4 apresenta a metodologia de Pesquisa utilizada. 
-O capítulo 5,apresenta a avaliação da solução proposta.
-O capítulo 6,apresenta os trabalhos futuros.
-E, o capítulo 7, apresenta a conclusão deste trabalho
+O capítulo 3 apresenta os trabalhos relacionados.
+O capítulo 4 apresenta a metodologia de Pesquisa utilizada.
+%O capítulo 5,apresenta a avaliação da solução proposta.
+%O capítulo 6,apresenta os trabalhos futuros.
+%E, o capítulo 7, apresenta a conclusão deste trabalho.
 
 
 
-\part{REVISÃO BIBLIOGRAFICA} \label{sec:revisaobibliografica}
+\part{REVISÃO BIBLIOGRÁFICA} \label{sec:revisaobibliografica}
 
 \section{\textit{Clean Code}} \label{sec:cleancode}
 
-"Clean code" \cite{ROBERT_MARTIN_CLEAN_CODE} é um conceito subjetivo, que de modo muito generico, significa código bem feito, incluindo saber transformar um "código ruim" em um "código bom", ou o conhecimento da diferença entre ambos, assim como escrever um "código bom". Robert C. Martin \cite{ROBERT_MARTIN_CLEAN_CODE} debate os conceitos do que é "certo" e o que é "errado" na codificação. Destacando pontos impotantes para alcançar o nível de qualidade como principios, padrões, e boas práticas, passando por estudos de casos de diversos tipos e complexidades, uma base de conhecimento que descreve e explicar o racícinio usado durante a leitura, a escrita e durante a aplicação do "clean code", como a utilização de nomes significativos, escritas de funções pequenas e com objetivos claros, The Stepdown Rule \footnote{The Stepdown Rule \cite{ROBERT_MARTIN_CLEAN_CODE}, um código deve ser escrito de modo "TOPDOWN", aonde o programa fosse um conjunto des parágrafos "TO-DO", cada um descrevendo o nível atual de abstração e referenciando subseqüentemente outro parágrafos "TO-DO" no próximo nível de abstração abaixo.}, formatação de código, importancia de um sistema testavel \footnote{Um sistema que é testado de forma abrangente e passa todos os seus testes o tempo todo é um sistema testável. Essa é uma declaração óbvia, mas importante. Sistemas que não são testáveis
-não são verificáveis. Provavelmente, um sistema que não pode ser verificado nunca deve ser implantado}, entre outros pontos. 
 
-Também destaca o esforço necessario para absorver o conhecimento, e conhecer o "clean code" \cite{ROBERT_MARTIN_CLEAN_CODE}:
+"Clean code" \cite{ROBERT_MARTIN_CLEAN_CODE} é um conceito subjetivo, que de modo muito generico, significa código bem feito, incluindo saber transformar um "código ruim" em um "código bom", ou o conhecimento da diferença entre ambos, assim como escrever um "código bom". Robert C. Martin \cite{ROBERT_MARTIN_CLEAN_CODE} debate os conceitos do que é "certo" e o que é "errado" na codificação.
+
+É destacado pontos importantes para alcançar o nível de qualidade como principios, padrões, e boas práticas, passando por estudos de casos de diversos tipos e complexidades.
+
+Inclui também uma base de conhecimento que descreve e explica o racícinio utilizado durante as leituras, as escritas e durante a aplicação do "clean code", assim como:
+\begin{itemize}
+ \item utilização de nomes significativos,
+ \item codificação de funções pequenas e com objetivos claros,
+ \item The Stepdown Rule \footnote{The Stepdown Rule \cite{ROBERT_MARTIN_CLEAN_CODE}, um código deve ser escrito de modo "\textit{TOPDOWN}", aonde o programa fosse um conjunto de parágrafos "TO-DO", cada um descrevendo o nível atual de abstração e referenciando subsequentemente outro parágrafos "TO-DO" no próximo nível de abstração abaixo.},
+ \item formatação de código,
+ \item a importância de objetivar um \textit{design}/sistema testavel \footnote{Um sistema que é testado de forma abrangente e passa todos os seus testes o tempo todo é um sistema testável. Essa é uma declaração óbvia, mas importante. Sistemas que não são testáveis
+não são verificáveis. Provavelmente, um sistema que não pode ser verificado nunca deve ser implantado},
+ \item entre outros pontos. 
+\end{itemize}
+Robert C. Martin \cite{ROBERT_MARTIN_CLEAN_CODE} também destaca o esforço necessario para absorver o conhecimento, e conhecer o "clean code" \cite{ROBERT_MARTIN_CLEAN_CODE}:
 
 \begin{quotation}
-\textit{"Aprender a escrever um código limpo é um trabalho árduo. Exige mais do que apenas o conhecimento de princípios e padrões. Você deve suar sobre ele. Você deve praticá-lo você mesmo, e assistir você falha. Você deve observar os outros praticando e falhar. Você deve vê-los tropeçar e siga seus passos. Você deve vê-los agonizantes sobre as decisões e ver o preço que pagam fazendo essas decisões do jeito errado." }
+\textit{"Aprender a escrever um código limpo é um trabalho árduo. Exige mais do que apenas o conhecimento de princípios e padrões. Você deve suar sobre ele. Você deve pratica-lo você mesmo, e assistir você falha. Você deve observar os outros praticando e falhar. Você deve vê-los tropeçar e siga seus passos. Você deve vê-los agonizantes sobre as decisões e ver o preço que pagam fazendo essas decisões do jeito errado." }
 \end{quotation}
 
 \section{\textit{Object-Oriented Design Principles (OODP)}} \label{sec:oopd}
  
- Os principios de design orientado a objeto, tem como objetivo ajudar os desenvolvedores a eliminar "design smell" \footnote{"Desing smell"\ \cite{ROBERT_MARTIN_AGILE_SW_DEV_PPP} é um sintoma, algo mensuravel, subjetivamente se não objetivamanete, que normalmente, é o resultado de uma ou mais violações aos principios.} e construir melhores soluções para o atual problema/"feature".
+ Richard C. Marti \cite{ROBERT_MARTIN_AGILE_SW_DEV_PPP} afirma que os principios de \textit{design} orientado a objeto, tem como objetivo ajudar os desenvolvedores a eliminar \textit{"design smell"} \footnote{\textit{"Desing smell"}\ \cite{ROBERT_MARTIN_AGILE_SW_DEV_PPP} é um sintoma, algo mensurável, subjetivamente se não objetivamente, que normalmente, é o resultado de uma ou mais violações aos princípios.} e construir melhores soluções para o atual problema/"feature".
 
 \subsection{\textit{S.O.L.I.D principles}} \label{sec:solid}
 
  Conceitos apresentendo iniciamente em 2002 \cite{ROBERT_MARTIN_AGILE_SW_DEV_PPP}, como parte do processo "agile design":
  
  \begin{quote}
-\textit{" É a aplicação contínua de princípios, padrões e práticas para melhorar a estrutura e a legibilidade do software. É a dedicação de permanecer o design do sistema tão simples, limpa e expressiva quanto possivel a todo hora. "}
+\textit{" É a aplicação contínua de princípios, padrões e práticas para melhorar a estrutura e a legibilidade do software. É a dedicação de permanecer o design do sistema tão simples, limpa e expressiva quanto possível a todo hora. "}
  \end{quote}
 
- Posteriormente, em 2004, estes cinco princípios tornou conhecido pelo acrônimo "SOLID", após Michael Feathers reorganizar as sequencia dos itens. 
+ Posteriormente, em 2004, estes cinco princípios tornou conhecido pelo acrónimo "SOLID", após Michael Feathers reorganizar as sequencia dos itens. 
 
 \begin{itemize}
-	\item \textbf{SRP} - Single responsibility principle
-	\item \textbf{OCP} - Open closed principle
-	\item \textbf{LSP} - Liskov substitution principle
-	\item \textbf{ISP} - Interface segregation principle
-	\item \textbf{DIP} - Dependency Inversion principle
+	\item \textit{\textbf{SRP} - Single responsibility principle}
+	\item \textit{\textbf{OCP} - Open closed principle}
+	\item \textit{\textbf{LSP} - Liskov substitution principle}
+	\item \textit{\textbf{ISP} - Interface segregation principle}
+	\item \textit{\textbf{DIP} - Dependency Inversion principle}
 \end{itemize}
 
 \subsubsection{SRP - Single responsibility principle}
+
 \begin{quote}
-	\textit{"A classe deve ter apenas uma responsabilidade."}	
+	\textit{"A classe deve ter apenas uma responsabilidade."}
 \end{quote}
+
+Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, uma responsabilidade\footnote{\textbf{SRP} foi inicialmente introduzida por Tom DeMarco \cite{SASS_SRP}.} é um conceito genérico, sendo considerado uma das razões para mudar ou alterar uma classe. 
+
+Este princípio afirma que, se tivermos duas razões para mudar uma classe, temos que dividir a funcionalidade em duas classes distintas. Cada classe irá lidar com apenas uma responsabilidade e no futuro, se precisarmos adicionar um novo comportamento, deverá ser adicionado na classe que mais se adequa a mudança.
+
+Quando é necessário realizar uma mudança em uma classe com mais responsabilidades, a alteração pode afetar inúmeras outras funcionalidade de outras classes. Esse principio mostra a importância de pensar em termos de responsabilidades ajuda a projetar melhor a aplicação, questionar se a lógica ou o comportamento a ser adicionado deverá viver na classe em questão ou não.
+
+Dividir as grandes classes em menores evita o problema conhecido como "\textit{God Class}"\footnote{"\textit{God class}" é descrito como um objeto que controla muito outros objetos, e que cresceu muito além de qualquer lógica que tornou "uma classe que controla tudo".}\cite{GOD_CLASS}, para o português "classe deus". 
+
+
 \subsubsection{OCP - Open closed principle}
+
 \begin{quote}
-	\textit{"Entidades de software (classes, modulos, fuções..) devem estar abertas para extensão, mas fechadas para modificação."}	
+	\textit{"Entidades de software (classes, módulos, funções..) devem estar abertas para extensão, mas fechadas para modificação."}	
 \end{quote}
+
+Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, com base nesse principio, é necessário considerar quando criar as classes, certificar de que quando precisar estender seu comportamento, não precisará mudar a classe, mas estende-la. O mesmo princípio pode ser aplicado para módulos, pacotes, bibliotecas.
+
+Se você tem uma biblioteca contendo um conjunto de classes, há muitos motivos pelos quais você preferirá estende-la sem alterar o código que já estava escrito (compatibilidade com versões anteriores, teste de regressão, etc... ). É por isso que temos que garantir que nossos módulos sigam o \textbf{OCP}.
+
+Ao se referir às classes, \textbf{OCP} pode ser assegurado pelo uso de classes abstratas, aonde as classes concretas implementam seu comportamento. Isso exigirá que as classes concretas estendam algum comportamento especifico das abstratas em vez de altera-las. Alguns exemplos e casos específicos deste são os \textit{design pattern}: (i) \textit{Template Pattern} e (ii) \textit{Strategy Pattern}.
+
 \subsubsection{LSP - Liskov substitution principle}
 \begin{quote}
 	\textit{"Subtipos \footnote{Também conhecidas como "Classes derivadas".} devem ser substituíveis por suas classes base."}\footnote{Barbara Liskov escreveu em seu primeiro artigo em 1988, \textit{"What is wanted here is something like the following substitution property: If for each object $ o_1 $ of type S there is an object $ o_2 $ of type T such that for allprograms Pdefined in terms of T, the behavior of P is unchanged when $ o_1 $ is substituted for $ o_2 $ then S is a subtype of T."} }	
 \end{quote}
+
+Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, este princípio é apenas uma extensão do \textbf{OCP} em termos de comportamento, aonde deverá ser garantido que novas classes derivadas estejam estendendo as classes base sem alterar seu comportamento. As novas classes derivadas devem ser capazes de substituir as classes base sem qualquer alteração no código.
+
 \subsubsection{ISP - Interface segregation principle}
 \begin{quote}
-	\textit{"Muitas interfaces específicas são melhores do que uma interface com propósito generico."}	
+	\textit{"Muitas interfaces específicas são melhores do que uma interface com propósito genérico."}	
 \end{quote}
+
+Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, este princípio ensina a forma de criar interfaces. Quando é necessário criar interfaces, é necessário adicionar apenas métodos que são utilizados ou extremamente obrigatórios. É necessário analisar, ao adicionar métodos incorretamente, ou que não deveriam estar na interface, as classes que implementam a interface terão que implementar esses métodos. 
+
+Um exemplo educacional, ao criarmos uma interface chamada \textbf{Pato} e adicionar um segundo método \textbf{voar}, todos as classes terão que implementar esse novo comportamento, porém se um \textbf{Pato} é um robô ou um pato de brinquedo não obrigatoriamente eles irão precisar desse método.
+
+Conclusão para o exemplo, interfaces que contêm métodos que não são específicos são chamadas \textit{polluted interfaces} ou \textit{fat interfaces}, e essa característica deve ser evitada, classes não devem implementar métodos que não são utilizados. A aplicação do \textbf{ISP} proporciona um baixo acoplamento e alta coesão.
+
+Ao falar sobre o acoplamento, a coesão também é mencionada. A alta coesão significa manter coisas similares e relacionadas. A união de coesão e acoplamento é o design ortogonal.A ideia é manter seus componentes focados e tentar minimizar as dependências entre eles.
+
 \subsubsection{DIP - Dependency Inversion principle}
 \begin{quote}
 	\textit{A - Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações.}
 	
 	\textit{B -  Abstrações não devem depender de detalhes. Detalhes devem depender de abstrações.}	
 \end{quote}
+
+Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, afirma que devemos desacoplar módulos de alto nível de módulos de baixo nível, introduzindo uma camada de abstração entre classes de alto nível e classes de baixo nível. Ivertendo a dependência: em vez de escrever nossas abstrações com base nos detalhes, devemos escrever os detalhes com base em abstrações.
+
+Inversão de Dependência ou Inversão de Controle, são melhores termos de conhecimento referentes à forma como as dependências são realizadas. Na maneira clássica, quando um módulo de software (classe, estrutura, ) precisa de algum outro módulo, ele inicializa e mantém uma referência direta a ele. Isso fará com que os 2 módulos estejam altamente acoplados. Para desacoplá-los, o primeiro módulo fornecerá uma referencia (uma propriedade, parâmetro, ) e um módulo externo que controle as dependências injetará a referência ao segundo.
+
+Ao aplicar \textbf{DIP}, os módulos podem ser facilmente alterados por outros módulos apenas mudando o módulo de dependência (implementação).
+
+% Fábricas e fábricas de resumo podem ser usadas como estruturas de dependência, mas existem estruturas especializadas para isso, conhecidas como Inversão de Contentor de Controle.
 
 \subsection{\textit{General Responsibility Assignment Software Principles (GRASP)}} \label{sec:grasp}
 [WIP]
@@ -203,8 +244,8 @@ Criar sistemas usando a composição permite muito mais flexibilidade, permite u
 
 
 \subsection{\textit{Law of Demeter principles}} \label{sec:law_of_demeter}
-[WIP]
-A lei de Demeter foi desenvolvida em 1988 por Karl Lieberherr e Ian Holland, da Northeastem Univerity, com uma idéia extremamente simples: organizar e reduzir dependências entre classes.
+
+A lei de Demeter foi desenvolvida em 1988 por Karl Lieberherr e Ian Holland, da Northeastem Univerity, com uma ideia extremamente simples: organizar e reduzir dependências entre classes.
 
 Na classe C, para todos os métodos M definidos em C, todos os objetos com o qual M se comunica deve ser:
 
@@ -218,46 +259,47 @@ Esta lei tem dois propósitos primários:
     Simplificar modificações;
     Simplificar a complexidade da programação.
 
+%https://dzone.com/articles/the-genius-of-the-law-of-demeter
+%https://www.slideshare.net/skarpushin/solid-ood-dry
 
 \subsection{\textit{Don't Repeat Yourself (DRY)}} \label{sec:dey}
-[WIP]
-
-O princípio DRY ("não se repita") busca reduzir a duplicação de código e os problemas de manutenção resultantes, mas quando é mal aplicado aumenta o acoplamento e atrapalha a leitura do código. Conheça a opinião de vários especialistas sobre o princípio, suas aplicações e armadilhas.
-
-DRY é uma abreviação para o inglês Don't Repeat Yourself, "Não se Repita". É o primeiro princípio do desenvolvimento de software mencionado por Andy Hunt e Dave Thomas no clássico livro O Programador Pragmático: de aprendiz a mestre. O princípio declara que:
-% https://www.infoq.com/br/news/2012/07/DRY-acoplamento-duplicacao
 
 \begin{quote}
-\textit{Cada parte do conhecimento deve ter uma representação única, não ambígua e definitva dentro do sistema.}
+\textit{Cada parte do conhecimento deve ter uma representação única, não ambígua e definitiva dentro do sistema.}
 \end{quote}
 
+% https://www.infoq.com/br/news/2012/07/DRY-acoplamento-duplicacao
+Segundo os autores Andy Hunt e Dave Thomas \cite{KEEP_IT_DRY_SHY} o principio DRY \cite{THE_PRAGMATIC_PROGRAMMER}, abreviação do inglês \textit{"Don't Repeat Yourself"} ("Não se Repita"), tem como ideal manter as representações de qualquer ideia, qualquer pedaço de conhecimento de um sistema em apenas um lugar.
+Define centralizar, não necessariamente, por acabar com cópias físicas de código, mas visa existir apenas uma representação deverá ser a fonte definitiva.
+Ainda, segundo o autor \cite{KEEP_IT_DRY_SHY}, idealmente, o sistema deverá automaticamente gerar as copias a partir da fonte definitiva, desse modo quando houver uma mudança de código, só precisará realizar em único ponto, minimizando o desastre de inconsistências e potenciais bugs difíceis de encontrar por ambiguidade no código. 
 
-\subsection{\textit{Keep it Simple, Stupid. (KISS)}} \label{sec:kiss}
-[WIP]
-O princípio KISS – de “Keep It Simple, Stupid” – tem como principio manter a simplicidade e descartar a complexidade, no contexto de desenvolvimento de software o "descartar a complexidade" seria algo como quebrar aquele script complexo em “n” partes simples e de resolução única, ou seja, cada parte se limitaria a resolver somente uma única tarefa do problema principal.
-
+DRY aplica-se ao especialmente ao código, mas também a qualquer outra parte do sistema e paravida diária dos desenvolvedores - processos de construção, documentação, esquema de banco de dados, código comentários, e assim por diante.
 
 \section{\textsl{Test-driven development (TDD)}} \label{sec:tdd}
-[WIP]
-%Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: first the developer writes an (initially failing) automated test case that defines a desired improvement or new function, then produces the minimum amount of code to pass that test, and finally refactors the new code to acceptable standards.
-%
-%The process can be defined as such:
-%\begin{enumerate}
-%	\item Write a failing unit test
-%	\item Make the unit test pass
-%	\item Refactor
-%\end{enumerate}
-%  
-%
-%Repeat this process for every feature, as is necessary.
 
+Kwent Back \cite{TDD_EXAMPLE} define \textit{test-driven development} (TDD) como uma abordagem evolutiva para o desenvolvimento, combinando o \textit{test-first development } onde escreve um teste primeiro, e em seguida, produz um código de produção que contemple o objetivo do teste, e realiza refatorações. Ainda segundo Kwent Back um principal objetivo do TDD é uma visão aonde o objetivo é a especificação e não a validação, uma forma de pensar em seus requisitos ou no \textit{design} antes de escrever seu código funcional (implica e determina que o TDD como um importante requisito ágil e uma técnica de \textit{design} ágil). Outra visão é que TDD é uma técnica de programação, Como diz Ron Jeffries \cite{CLEAN_CODE_TOO_MUCH_OF_A_GOOD_THING}, o objetivo do TDD é escrever um código limpo que funciona.
+
+\begin{enumerate}
+\item Adicionar um teste que falhe
+\item Codifique até o teste passar
+\item Refatoração (melhore o \textit{design}/ código).
+\item Repetir.
+\end{enumerate}
+
+%	\begin{figure}[h]
+%		\centering
+%			\includegraphics[width=1.0\textwidth,natwidth=910,natheight=842]{./img/tdd-simple-process.png}
+%		\caption{Processo simplificado do TDD}
+%		\label{fig:TDD-PROCESS}
+%	\end{figure}
+	
 \part{Trabalhos Relacionados} \label{sec:trabalhosrelacionados}
 
 Com o objetivo de entender e levantar os diversos problema de design e manutenabilidade de código, foram analisadas diversas inciativas e estudos relacionados que utilizam ou exploram os conceito e objetivam a qualidade de código referente a esse trabalho.
 Com isso, os principais trabalhos analisados foram: (i) trabalho de \cite{TR_CLEAN_CODE_INTRODUCAO} que explora os conceitos do CLEAN CODE, explicar e apresenta com mais detalhes algumas técnicas a serem utilizadas.
 
  (ii) \cite{TR_CLEAN_CODE_IMPORTANCIA} enfatiza por meio de exemplos a importância da aplicação do
-Código Limpo com a finalidade de se obter um sistema robusto com poucos erros e alta manutenibilidade. Destacando ainda o quanto um código ruim pode custar às empresas e diminuir drasticamente a produtividade dos desenvolvedores através de um pequeno experimento, por fim, analisa estatisticamente as vantagens do código limpo comparado a um código convencional, concluindo que a partir dos resultados observados, os mesmos, sugerem que as técnicas, quando aplicadas disciplinadamente, podem aumentar a produtividade dos desenvolvedores, visto que o índice de manutenibilidade, alegibilidade e o tempo de manutenção são melhores.
+Código Limpo com a finalidade de se obter um sistema robusto com poucos erros e alta manutenibilidade. Destacando ainda o quanto um código ruim pode custar às empresas e diminuir drasticamente a produtividade dos desenvolvedores através de um pequeno experimento, por fim, analisa estatisticamente as vantagens do código limpo comparado a um código convencional, concluindo que a partir dos resultados observados, os mesmos, sugerem que as técnicas, quando aplicadas disciplinadamente, podem aumentar a produtividade dos desenvolvedores, visto que o índice de manutenibilidade, a legibilidade e o tempo de manutenção são melhores.
  
  (iii) \cite{TR_QC_TECHNICAL_DEBT} fala sobre a dívida técnica, se referir a qualquer projeto de sistema, arquitetura, desenvolvimento dentro da base de código, é uma solução de curto prazo para qualquer trabalho específico, que é aplicado antes da solução completa ou adequada para
 qualquer trabalho, como dizendo que não é uma solução a longo prazo para qualquer trabalho específico. É uma espécie de solução que é encaminhado pelos não especialistas para o conclusão ou entrega do produto, mas é atraídos pelos especialistas que podem comprometer a qualidade do produto.
@@ -271,16 +313,21 @@ para escrever código legível, e identificar correções. Apresenta uma compara
  (vi) \cite{CODE_SMELLS_REFLECT_IMPORTANT_MAINTAINABILITY_ASPECTS} esse artigo apresenta uma importante analisa sobre "code smell", sendo apresentado um relatório sobre um estudo empírico que investiga a extensão que os "code smell" refletem e afetam a capacidade de manutenção.
 
 \part{Metodologia de Pesquisa} \label{sec:metodologia_Pesquisa}
-[WIP]
 
-\part{Avaliação da solução proposta} \label{sec:avaliacao}
-[WIP]
+Esta pesquisa possui caráter qualitativo, e quantitativo em relação a sua abordagem e coleta de dados, utilizando de métricas em ambos os tipos. Conforme Prodanov e Freitas \cite(METOLOGIA), a pesquisa quantitativa  considera que tudo pode ser quantificável, traduzido em números opiniões e informações para classificá-las e analisá-las. Dessa forma, buscando métricas para serem monitoradas afim de determinar a qualidade do código em relação ao objetiva desse trabalho.
 
-\part{Trabalhos futuros} \label{sec:trabalhos_futuros}
-[WIP]
+Também considerando um caráter quantitativo como abordagem e coleta de dados conforme autores Prodanov e Freitas \cite(METOLOGIA) considerando a relação dinâmica entre o mundo real e um  vínculo  indissociável  entre  o  mundo  objetivo e  a  subjetividade  do  sujeito  que  não  pode  ser  traduzido  em  números
+exploratório. Com base nisso será analisados os resultados a fim de determinar uma forma não numericamente representativa as melhores práticas, recomendações para a codificação. Assim seguindo o autor, como pesquisa qualitativa há um contato direto do pesquisador com a situação estudada, esse trabalho visa entender a perspectiva no decorrer da aplicação, e apresentar as experiências e percepções.
 
-\part{Conclusão} \label{sec:conclusao}
-[WIP]
+Em relação a natureza, o mesmo será aplicada, conforme Prodanov e Freitas \cite(METOLOGIA) objetiva gerar conhecimentos para aplicação prática dirigidos à solução de problemas específicos. Com objetivo exploratório descritivo, do ponto de vista dos procedimentos técnicos, o dados serão obtidos a partir de estudo de caso, aonde "envolve  o  estudo  profundo  e  exaustivo  de  um  ou  poucos  objetos  de  maneira  que  permita  o  seu  amplo  e  detalhado  conhecimento." \cite(METOLOGIA). Utilizando de trechos de códigos ou \textit{design} e/ou problemas que representam o problema citado nesse trabalho.
+
+
+%\part{Avaliação da solução proposta} \label{sec:avaliacao}
+
+%\part{Trabalhos futuros} \label{sec:trabalhos_futuros}
+
+%\part{Conclusão} \label{sec:conclusao}
+
 
 
 \bibliographystyle{sbc}
