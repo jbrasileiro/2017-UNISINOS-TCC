@@ -1,11 +1,10 @@
 \documentclass[12pt]{article}
-
 \usepackage{sbc-template}
 \usepackage{graphicx,url}
-\usepackage{ulem}
 %\usepackage[brazil]{babel}  
 \usepackage[utf8]{inputenc} 
-   
+
+
 \sloppy
 
 \title{Maturidade no processo de desenvolvimento de software\\ Qualidade de código contínua }
@@ -54,7 +53,7 @@ This article corroborates with the application of these concepts and defines a b
 %1º e 2º parágrafo: apresentação do tema dentro de um contexto.
  Uma das mudanças mais impactantes no processo de desenvolvimento de software das últimas décadas, foi a concepção e absorção das metodologias ágeis de software, seja \textit{SCRUM}, \textit{Extreme Programming} (XP), \textit{Test Driven Development} (TDD), \textit{Lean Software Development}, \textit{Kanban}, etc, todas foram criadas a partir da filosofia \textit{AGILE} \cite{AGILE_X_LEAN}.
  
- O manifesto \textit{Agile} \cite{AGILE_X_LEANMANISFESTOAGILE} surgido a partir do esforço de várias pessoas que lidavam com o processo de software na década de 1990, com o objetivo de definir uma abordagem mais efetiva e eficiente para o desenvolvimento de software. Apesar dos conceitos já existirem a quase 20 anos, a importância e a implementação dessas ideias ainda são muito pouco exploradas no Brasil, segundo o instituto Coleman Parkes Research \cite{COLEMANPARKES_AGILE_2017}, durante uma pesquisa, envolvendo cerca de 1.770 executivos de tecnologia da informação em 21 países, incluindo 76 brasileiros, mostra que somente 6\% das empresas têm utilizado fortemente essa filosofia com o objetivo de "transformar toda a organização para abranger os princípios de agilidade".
+ O manifesto \textit{Agile} \cite{MANISFESTOAGILE} surgido a partir do esforço de várias pessoas que lidavam com o processo de software na década de 1990, com o objetivo de definir uma abordagem mais efetiva e eficiente para o desenvolvimento de software. Apesar dos conceitos já existirem a quase 20 anos, a importância e a implementação dessas ideias ainda são muito pouco exploradas no Brasil, segundo o instituto Coleman Parkes Research \cite{COLEMANPARKES_AGILE_2017}, durante uma pesquisa, envolvendo cerca de 1.770 executivos de tecnologia da informação em 21 países, incluindo 76 brasileiros, mostra que somente 6\% das empresas têm utilizado fortemente essa filosofia com o objetivo de "transformar toda a organização para abranger os princípios de agilidade".
 
  A partir dessa nova abordagem de gerenciar software, a importância da qualidade evoluiu e alcançou novos pontos de vistas, aumentando significativamente tanto na concepção, quanto no decorrer das outras fases, incluindo durante o desenvolvimento, e não mais apenas no final com um simples objetivo de execução do software \cite{WATERFALL_MODEL}.
  
@@ -224,7 +223,12 @@ Ao aplicar \textbf{DIP}, os módulos podem ser facilmente alterados por outros m
 % Fábricas e fábricas de resumo podem ser usadas como estruturas de dependência, mas existem estruturas especializadas para isso, conhecidas como Inversão de Contentor de Controle.
 
 \subsection{\textit{General Responsibility Assignment Software Principles (GRASP)}} \label{sec:grasp}
-[WIP]
+
+Segundo \cite{CRAIG_LARMAN} os padrões GRASP englobam uma série de princípios baseados em conceitos de Orientação a Objetos. Partindo de análises que procuram definir quais as obrigações dos diferentes tipos de objetos em uma aplicação, estes patterns disponibilizam uma série de recomendações que procuram favorecer a obtenção de sistemas melhor estruturados.
+Ainda segundo o autor GRASP procuram fornecer diretrizes para a construção de aplicações bem estruturadas e que possam ser facilmente adaptáveis diante da necessidade de mudanças. A consequência direta das recomendações propostas por estes patterns é um código melhor organizado, de fácil manutenção e ainda, capaz de ser compreendido por diferentes desenvolvedores sem grandes dificuldades.
+
+Craig Larman, afirma que "a ferramenta crucial de projeto para desenvolvimento de software é uma mente bem educada em princípios de projeto. Não é UML ou qualquer outra tecnologia". \cite{CRAIG_LARMAN} Assim, GRASP é definido como um conjunto de ferramentas mentais, um auxílio de aprendizagem para ajudar no projeto de software orientado a objetos.
+
 \begin{itemize}
 	\item Controller	
 	\item Creator
@@ -236,7 +240,64 @@ Ao aplicar \textbf{DIP}, os módulos podem ser facilmente alterados por outros m
 	\item Protected Variations
 	\item Pure Fabrication
 \end{itemize}
-[WIP]
+
+
+\subsubsection{Controller} \label{sec:grasp}
+	
+Segundo \cite{CRAIG_LARMAN} Craig Larman, o padrão controlador atribui a responsabilidade de manipular eventos do sistema para uma classe que não seja de interface do usuário (UI) que representa o cenário global ou cenário de caso de uso. Um objeto controlador é um objeto de interface não-usuário, responsável por receber ou manipular um evento do sistema.
+
+Um caso de uso controlador deve ser usado para lidar com todos os eventos de casos de uso e pode ser usado para mais de um caso de uso (por exemplo, para casos de uso como Criar usuário e Excluir usuário, pode ter um único UserController, em vez de dois casos de uso controllers separados).
+
+É definido como o primeiro objeto além da camada UI que recebe e coordena ("controla") operações do sistema. O controlador deve delegar o trabalho que precisa ser feito para outros objetos; ele coordena ou controla a atividade. Ele não deve fazer muito trabalho por si próprio. O Controller GRASP pode ser considerado uma parte da camada de aplicação/serviço [2] (assumindo que a aplicação tenha feito uma distinção explícita entre a camada de aplicativo/serviço e a camada de domínio em um sistema orientado a objetos com camadas comuns em uma arquitetura lógica do sistema de informações).
+
+\subsubsection{Creator}
+
+Segundo \cite{CRAIG_LARMAN}, criação de objetos é uma das mais comuns atividades em um sistema orientado a objetos. Descobrir qual classe é responsável por criar objetos é uma propriedade fundamental da relação entre objetos de classes particulares.
+
+Em geral, uma classe B deve ser responsável por criar instâncias de classe A se uma, ou preferencialmente mais, das seguintes afirmações se aplicam:
+
+Instâncias de B contêm ou agregam instâncias de A;
+Instâncias de B gravam instâncias de A;
+Instâncias de B utilizam de perto instâncias de A;
+Instâncias de B têm as informações de inicialização das instâncias de A e passam isso na criação.
+
+\subsubsection{Indirection} \label{sec:grasp}
+
+Segundo \cite{CRAIG_LARMAN}, indireção suporta baixo acoplamento (e potencial de reutilização) entre dois elementos, atribuindo a objeto intermediário a responsabilidade de ser o mediador entre eles. Um exemplo é a introdução do componente controlador para mediação entre dados (modelo) e sua representação (visualização) no padrão MVC.
+
+\subsubsection{Information Expert} \label{sec:grasp}
+	
+Segundo \cite{CRAIG_LARMAN}, especialista na informação é um princípio utilizado para determinar onde delegar responsabilidades. Essas responsabilidades incluem métodos, campos computados, e assim em diante.
+
+Usando o princípio information expert, uma abordagem geral para atribuir responsabilidades é olhar para uma determinada responsabilidade, determinar a informação necessária para cumpri-la e depois determinar onde essa informação está armazenada.
+
+Information expert guia a colocará a responsabilidade na classe com a maioria das informações necessárias para cumpri-la.
+
+\subsubsection{High Cohesion} \label{sec:grasp}
+
+Segundo \cite{CRAIG_LARMAN} a alta coesão é um padrão avaliativo que tenta manter os objetos adequadamente focados, gerenciáveis e compreensíveis. A alta coesão é geralmente utilizada em suporte de baixo acoplamento. A alta coesão significa que as responsabilidades de um determinado elemento estão fortemente relacionadas e altamente focadas. A quebra de programas em classes e subsistemas é um exemplo de atividades que aumentam as propriedades coesivas de um sistema. Alternativamente, a baixa coesão é uma situação em que um determinado elemento tem muitas responsabilidades distintas, não relacionadas. Elementos com baixa coesão muitas vezes sofrem de ser difíceis de entender, reutilizar, manter e são avessos à mudança.
+
+\subsubsection{Low Coupling} \label{sec:grasp}
+
+Segundo \cite{CRAIG_LARMAN} o acoplamento é uma medida de quão forte um elemento está conectado, tem conhecimento ou depende de outros elementos. O baixo acoplamento é um padrão de avaliação que determina como atribuir responsabilidades de suporte:
+
+menor dependência entre as classes,
+mudança em uma classe com menor impacto em outras,
+maior potencial de reutilização.
+
+\subsubsection{Polymorphism} \label{sec:grasp}
+
+Segundo \cite{CRAIG_LARMAN} o princípio do polimorfismo, a responsabilidade de definir a variação dos comportamentos com base no tipo é atribuída ao tipo para o qual essa variação ocorre. Isto é conseguido utilizando operações polimórficas. O usuário do tipo deve usar operações polimórficas em vez de ramificações explícitas com base no tipo.
+
+
+\subsubsection{Protected Variations} \label{sec:grasp}
+
+Segundo \cite{CRAIG_LARMAN} o padrão variações protegidas protege elementos das variações em outros elementos (objetos, sistemas, subsistemas) envolvendo o foco de instabilidade com uma interface e usando polimorfismo para criar várias implementações desta interface.
+
+\subsubsection{Pure Fabrication} \label{sec:grasp}
+
+Segundo \cite{CRAIG_LARMAN} Uma fabricação/invenção pura é uma classe artificial que não representa um conceito no domínio do problema, especialmente feito para conseguir baixo acoplamento, alta coesão e o potencial de reutilização derivado (quando uma solução apresentada pelo padrão information expert não é). Esse tipo de classe é chamado de "serviço" em padrão orientado a domínio.
+
 
 \subsection{\textit{Favor Composition over Inheritance.}} \label{sec:favor_composition}
 \begin{quote}
@@ -332,8 +393,8 @@ Em relação a natureza, o mesmo será aplicada, conforme Prodanov e Freitas \ci
 %\part{Conclusão} \label{sec:conclusao}
 
 
-
-\bibliographystyle{sbc}
+%http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907111
+%\bibliographystyle{sbc}
+\bibliographystyle{apalike}
 \bibliography{TCC-UNISINOS-ADS}
-
 \end{document}
