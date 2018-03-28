@@ -11,14 +11,14 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1249
-NormalPos.bottom=559
-Class=LaTeXView
-Document=TCC-UNISINOS-ADS.tex
+NormalPos.right=1654
+NormalPos.bottom=574
+Class=BibTeXView
+Document=TCC-UNISINOS-ADS.bib
 
 [Frame0_View0,0]
-TopLine=98
-Cursor=3936
+TopLine=240
+Cursor=8871
 
 [Frame1]
 Flags=0
@@ -29,16 +29,16 @@ MaxPos.x=-1
 MaxPos.y=-1
 NormalPos.left=4
 NormalPos.top=26
-NormalPos.right=1249
-NormalPos.bottom=559
-Class=BibTeXView
-Document=TCC-UNISINOS-ADS.bib
+NormalPos.right=1654
+NormalPos.bottom=574
+Class=LaTeXView
+Document=TCC-UNISINOS-ADS.tex
 
 [Frame1_View0,0]
-TopLine=0
-Cursor=0
+TopLine=727
+Cursor=52981
 
 [SessionInfo]
 FrameCount=2
-ActiveFrame=0
+ActiveFrame=1
 
