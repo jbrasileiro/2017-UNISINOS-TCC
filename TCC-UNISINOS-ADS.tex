@@ -5,8 +5,7 @@
 \usepackage[utf8]{inputenc} 
 \usepackage{listings}
 \usepackage{color}
-
-
+\usepackage{makecell}
 
 \definecolor{cred}{rgb}{0.6,0,0} % for strings
 \definecolor{cpurple}{rgb}{0.5,0,0.35} % keywords
@@ -18,15 +17,16 @@
 % https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
 \lstset{
 	language=Java,
-	frame=single,
-	basicstyle=\ttfamily,
+	breaklines=false,
+	frame=L,
+	basicstyle=\footnotesize\ttfamily,
 	keywordstyle=\color{cpurple}\bfseries,
 	stringstyle=\color{cred},
 	commentstyle=\color{cgreen},
-	morecomment=[s][\color{cblue}]{/**}{*/},
+	morecomment=[s][\color{cblue}]{/**}{*/}{//},
 	numbers=left,
 	numberstyle=\tiny\color{black},
-	stepnumber=2,
+	stepnumber=1,
 	numbersep=10pt,
 	tabsize=4,
 	showspaces=false,
@@ -83,7 +83,7 @@ This article corroborates with the application of these concepts and defines a b
 
  A partir dessa nova abordagem de gerenciar software, a importância da qualidade evoluiu e alcançou novos pontos de vistas, aumentando significativamente tanto na concepção, quanto no decorrer das outras fases, incluindo durante o desenvolvimento, e não mais apenas no final com um simples objetivo de execução do software \cite{WATERFALL_MODEL}.
  
- Um das grandes mudanças foi a inclusão e a utilização do conceito de \textbf{MPV}, sigla de \textit{Minimum Viable Product}, que significa Produto Mínimo Viável – conceito popularizado por Eric Ries \cite{ERICRIES_THELEAN} - trazendo a importância de entregar e assegurar o sistema de modo incremental, incluindo progressivamente funcionalidades importantes para o cliente, ou o negócio, ressaltando não apenas garantir um software útil, mas também visando minimizar a maleabilidade do ecossistema do negócio, seja as possibilidades de mudanças, tanto de prioridades de funções, técnicas ou mesmo do próprio objetivo fim. A adoção desses pequenos entregáveis, gerou e exigi um aumento na maturidade no desenvolvimento, criando a necessidade de gerar artefatos que evidenciassem e garantissem, desdo inicio, dois grandes aspectos: (i) Qualidade e (ii) a garantia que cada entregáveis operasse corretamente \cite{AGILE_WORKING_PROCESS}.
+ Um das grandes mudanças foi a inclusão e a utilização do conceito de \textbf{MPV}, sigla de \textit{Minimum Viable Product}, que significa Produto Mínimo Viável – conceito popularizado por Eric Ries \cite{ERICRIES_THELEAN} - trazendo a importância de entregar e assegurar o sistema de modo incremental, incluindo progressivamente funcionalidades importantes para o cliente, ou o negócio, ressaltando não apenas garantir um software útil, mas também visando minimizar a maleabilidade do ecossistema do negócio, seja as possibilidades de mudanças, tanto de prioridades de funções, técnicas ou mesmo do próprio objetivo fim. A adoção desses pequenos entregáveis, gerou e exigiu um aumento na maturidade no desenvolvimento, criando a necessidade de gerar artefatos que evidenciassem e garantissem, desdo inicio, dois grandes aspectos: (i) Qualidade e (ii) a garantia que cada entregável operasse corretamente conforme evolução do proprio software \cite{AGILE_WORKING_PROCESS}.
 
 Max Kanat-Alexander \cite{CODE_SIMPLICITY} resume sinteticamente uma interpretação da importância da qualidade do código/design: 
 \begin{quote}
@@ -98,7 +98,7 @@ Max Kanat-Alexander \cite{CODE_SIMPLICITY} também reforça as consequências de
 Steve McConnell \cite{CODE_COMPLETE_2} deixa claro a ideia de qualidade de um código limpo, sendo uma parte principal, e não uma parte opcional no desenvolvimento, reforçando a importância dos aspectos de um código bem feito (capacidade de extensão, código testavel, fácil compreensão, alta coesão, desacoplamento, entre outros).
 
 Em um artigo ainda em 2005, Richard C. Martin \cite{THE_PRINCIPLES_OF_OOD} aborda os conceitos e a importância do que é \textit{design} orientado a objetos, seus benefícios e ainda seus custos.
-Ainda, segundo o author Richard C. Martin \cite{THE_PRINCIPLES_OF_OOD}, essas simples perguntas por mais óbvias e bobas que possam parecer em tempos aonde praticamente todos os desenvolvedores de software estão usando uma linguagem orientada a objetos de algum tipo, ressaltam a importância da questão, evidenciando um cenário aonde a maioria usa essas línguas sem saber o por quê, e sem saber como tirar o máximo proveito delas.
+Ainda, segundo o author Richard C. Martin \cite{THE_PRINCIPLES_OF_OOD}, essas simples pontos, por mais óbvias e bobas que possam parecer em tempos aonde praticamente todos os desenvolvedores de software estão usando uma linguagem orientada a objetos de algum tipo, ressaltam a importância da questão, evidenciando um cenário aonde a maioria usa essas línguas sem saber o por quê, e sem saber como tirar o máximo proveito delas.
 	 
 
 %3º parágrafo: delimitação do tema, apresentado através do problema de pesquisa do seu TCC.
@@ -196,16 +196,73 @@ Robert C. Martin \cite{ROBERT_MARTIN_CLEAN_CODE} também destaca o esforço nece
 	\textit{"A classe deve ter apenas uma razão para mudar."}
 \end{quote}
 
-Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, \textbf{OCP}\footnote{\textbf{SRP} foi inicialmente introduzida por Tom DeMarco \cite{SASS_SRP}.} sendo um conceito genérico, sendo considerado uma das razões para mudar ou alterar uma classe como uma responsabilidade. 
+Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, \textbf{Single responsibility principle (SRP)}\footnote{\textbf{SRP} foi inicialmente introduzida por Tom DeMarco \cite{SASS_SRP}.} é um conceito genérico, que considera as ideias referente as razões para mudar ou alterar uma classe como uma responsabilidade. 
 
 Este princípio afirma que, se tivermos duas ou mais razões, ou responsabilidades, para mudar uma classe, há uma grande probabilidade da necessidade de dividir essa funcionalidade em duas classes distintas. Sendo assim, cada classe irá lidar com apenas uma responsabilidade e no futuro, se precisarmos adicionar um novo comportamento, deverá ser adicionado na classe especifica que mais se adequa a essa mudança.
 
 Quando é necessário realizar uma alteração em uma classe que possuiu uma sobrecarga comportamentos, a alteração pode afetar inúmeras outras funcionalidade de outras classes.
 
+\begin{lstlisting}[caption=Exemplo em conformidade ao SRP,language=java]
+public interface RelatorioCliente{
+	RelatorioClienteDTO clientesPendentes();
+	RelatorioClienteDTO clientesSemMovimentacao(Intervalo ref);	
+	RelatorioClienteDTO clientesComMovimentacao(Intervalo ref);
+	RelatorioClienteDTO clientes(Filtro filtro);		
+}
+\end{lstlisting}
+
 Esse principio mostra a importância de pensar em termos de responsabilidades, ajuda a projetar melhor a aplicação, questionar a lógica ou o comportamento a ser adicionado deverá viver na classe em questão ou não, adicionar uma nova classe para implementar as novas necessidades.
 
 Dividir as grandes classes em menores evita o problema conhecido como "\textit{God Class}"\footnote{"\textit{God class}", sendo descrito como um objeto que controla muito outros objetos, que cresceu muito além de qualquer lógica, se tornando "uma classe que controla tudo".}\cite{GOD_CLASS}, para o português "classe deus". 
 
+% Sua função é bombear o sangue oxigenado (arterial) proveniente dos pulmões para todo o corpo 
+% e
+% direcionar o sangue desoxigenado (venoso), que retornou ao coração, até os pulmões, onde deve ser enriquecido com oxigênio novamente.
+
+\begin{lstlisting}[caption=Exemplo de violação ao SRP,language=java]
+public interface Coracao{
+	boolean bombear(Sangue sangue, Destino destino);
+	boolean direcionar(Sangue sangue, Origem origem);
+	SangueArterial enriquecer(Sangue sangue);
+	Oxigenio receberOxigenio();
+	boolean movimentarBracoDireito(Movimento movimento);
+	boolean processar(ImpulsoNervoso impulso);
+	Reacao definirReacao(Fato fato);
+	Collection<Som> falar();
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Exemplo 2.1 de conformidade ao SRP,language=java]
+public interface GenericDAO{
+	<T> T save(T entity);
+	<T> T update(T entity);
+	boolean delete(Long id);
+	<T> Collection<T> queryByExample(T example);
+	<T> Collection<T> findAll();
+	int count();
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Exemplo 2.2.1 de conformidade ao SRP,language=java]
+public interface GenericDAOPersistence{
+	@Transactional( propagation = Propagation.SUPPORTS,readOnly = false )
+	<T> T save(T entity);
+	@Transactional( propagation = Propagation.SUPPORTS,readOnly = false )
+	<T> T update(T entity);
+	@Transactional( propagation = Propagation.SUPPORTS,readOnly = false )
+	boolean delete(Long id);
+}
+\end{lstlisting}
+\begin{lstlisting}[caption=Exemplo 2.2.2 de conformidade ao SRP,language=java]
+public interface GenericDAOQuery{
+	@Transactional( propagation = Propagation.NEVER,readOnly = true )
+	<T> Collection<T> queryByExample(T example);
+	@Transactional( propagation = Propagation.NEVER,readOnly = true )
+	<T> Collection<T> findAll();
+	@Transactional( propagation = Propagation.NEVER,readOnly = true )
+	int count();
+}
+\end{lstlisting}
 
 \subsubsection{OCP - Open closed principle}
 
@@ -219,12 +276,78 @@ Se você tem uma biblioteca contendo um conjunto de classes, há muitos motivos 
 
 Ao se referir às classes, \textbf{OCP} pode ser assegurado pelo uso de classes abstratas, aonde as classes concretas implementam seu comportamento. Isso exigirá que as classes concretas estendam algum comportamento especifico das abstratas em vez de altera-las. Alguns exemplos e casos específicos deste são os \textit{design pattern}: (i) \textit{Template Pattern} e (ii) \textit{Strategy Pattern}.
 
+\begin{lstlisting}[caption=Exemplo em conformidade ao OCP,language=java]
+class Pessoa {
+ public boolean export(PessoaExporter exporter) {
+	return exporter.export(this);
+ }
+}
+ 
+interface PessoaExporter { boolean export(Pessoa pessoa); }
+
+class PessoaExporterXML implements PessoaExporter  {
+ @Override
+ public boolean export(Pessoa pessoa) {/* export to XML */}
+} 
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Exemplo de violação ao OCP,language=java]
+public class FornecedorCadastroWS{
+	public boolean processaRequisicao(int id) {
+		Requisicao requisicao = new RequisicaoDAO("dsMSSQL").find(id);
+		new RequisicaoValidator().validate(requisicao);
+		new RequisicaoDAO("dsMSSQL").salvar(requisicao);
+		new RequisicaoFornecedorCadastro().processa(requisicao);
+		Email email = new EmailBuilder(new Reader("\email.properties")
+											.read("destinatario"))
+								 .build(requisicao);
+		new EmailSender(new Reader("\email.properties").read("user")
+										, new Reader("\email.properties").read("pwd")
+				.enviarEmail());
+		new NegocioAnalisador.analisar(new FornecedorDAO("dsMSSQL").get(requisicao));
+	}
+}
+\end{lstlisting}
+
 \subsubsection{LSP - Liskov substitution principle}
 \begin{quote}
 	\textit{"Subtipos \footnote{Também conhecidas como "Classes derivadas".} devem ser substituíveis por suas classes base."}\footnote{Barbara Liskov escreveu em seu primeiro artigo em 1988, \textit{"What is wanted here is something like the following substitution property: If for each object $ o_1 $ of type S there is an object $ o_2 $ of type T such that for allprograms Pdefined in terms of T, the behavior of P is unchanged when $ o_1 $ is substituted for $ o_2 $ then S is a subtype of T."} }	
 \end{quote}
 
 Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, este princípio é apenas uma extensão do \textbf{OCP} em termos de comportamento, aonde deverá ser garantido que novas classes derivadas estejam estendendo as classes base sem alterar seu comportamento. As novas classes derivadas devem ser capazes de substituir as classes base sem qualquer alteração no código.
+
+\begin{lstlisting}[caption=Exemplo em conformidade ao LSP,language=java]
+interface Quackable {String reproduzirSom();}
+
+abstract class AbstractPato implements Quackable{
+    public final void quack() {System.out.println(reproduzirSom());}
+}
+class PatoSemiReal extends AbstractPato{
+ public String reproduzirSom() {return "quack quase real";}
+}
+class PatoRobo extends AbstractPato{
+ public String reproduzirSom() {return "quack eletronico";}
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Exemplo de violação ao LSP,language=java]
+class Pato{
+ public void quack() {System.out.println("quack");}
+}
+class PatoToy extends Pato{
+ public void quack() {System.out.println("barulho");}
+}
+class PatoRobo extends PatoToy{
+ public void quack() {System.out.println("quack eletronico");}
+}
+class PatoMain{
+   public void run(final String[] args) {
+    Pato pato = getPato();
+    pato.quack();
+   }
+   private Pato getPato() {return new PatoRobo();}
+ }
+\end{lstlisting}
 
 \subsubsection{ISP - Interface segregation principle}
 \begin{quote}
@@ -239,6 +362,48 @@ Conclusão para o exemplo, interfaces que contêm métodos que não são especí
 
 Ao falar sobre o acoplamento, a coesão também é mencionada. A alta coesão significa manter coisas similares e relacionadas. A união de coesão e acoplamento é o design ortogonal.A ideia é manter seus componentes focados e tentar minimizar as dependências entre eles.
 
+\begin{lstlisting}[caption=Exemplo de violação ao ISP,language=java]
+interface Pato {
+ void quack();
+ boolean fly();
+}
+
+class PatoReal implements Pato{
+ public void quack() {System.out.println("quack chato real!");}
+  public boolean fly() {
+   System.out.println("flying...??");
+  // ommited code
+   return true;
+ }
+}
+
+class PatoBorracha implements Pato{
+ public void quack() {System.out.println("uaquiiii!!!");}
+ public boolean fly() {
+  // Pato de borracha nao voa
+  //logo nao deveria precisa implementar esse comportamento.
+  throw new UnsupportedOperationException();
+ }
+}
+\end{lstlisting}
+\begin{lstlisting}[caption=Exemplo em conformidade ao ISP,language=java]
+interface PatoSonoro {void quack();}
+interface PatoVoador {boolean fly();}
+interface Pato extends PatoSonoro, PatoVoador {}
+class PatoReal implements Pato{
+ public void quack() {System.out.println("quack chato real!");}
+  public boolean fly() {
+   System.out.println("flying...??");
+  // ommited code
+   return true;
+ }
+}
+class PatoBorracha implements PatoSonoro{
+ public void quack() {System.out.println("kuaquiiii!!!");}
+}
+
+\end{lstlisting}
+
 \subsubsection{DIP - Dependency Inversion principle}
 \begin{quote}
 	\textit{A - Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações.}
@@ -251,8 +416,6 @@ Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, afirma q
 Inversão de Dependência ou Inversão de Controle, são melhores termos de conhecimento referentes à forma como as dependências são realizadas. Na maneira clássica, quando um módulo de software (classe, estrutura, ) precisa de algum outro módulo, ele inicializa e mantém uma referência direta a ele. Isso fará com que os 2 módulos estejam altamente acoplados. Para desacoplá-los, o primeiro módulo fornecerá uma referencia (uma propriedade, parâmetro, ) e um módulo externo que controle as dependências injetará a referência ao segundo.
 
 Ao aplicar \textbf{DIP}, os módulos podem ser facilmente alterados por outros módulos apenas mudando o módulo de dependência (implementação).
-
-% Fábricas e fábricas de resumo podem ser usadas como estruturas de dependência, mas existem estruturas especializadas para isso, conhecidas como Inversão de Contentor de Controle.
 
 \subsection{\textit{General Responsibility Assignment Software Principles (GRASP)}} \label{sec:grasp}
 
@@ -391,8 +554,6 @@ Kwent Back \cite{TDD_EXAMPLE} define \textit{test-driven development} (TDD) como
  \item Repetir.
 \end{enumerate}
 
-	
-
 \part{Trabalhos Relacionados} \label{sec:trabalhosrelacionados}
 
 Com o objetivo de entender e levantar os diversos problema de design e manutenabilidade de código, foram analisadas diversas inciativas e estudos relacionados que utilizam ou exploram os conceito e objetivam a qualidade de código referente a esse trabalho.
@@ -423,7 +584,7 @@ Em relação a natureza, o mesmo será aplicada, conforme Prodanov e Freitas \ci
 
 \part{Entendimento do problema} \label{sec:problema}
 
-Levando em consideração pontos importantes que tornam díficil trabalhar com software \cite{MARTIN_FOWLER_REFACTORING}:
+Existem alguns pontos importantes que tornam díficil trabalhar com software \cite{MARTIN_FOWLER_REFACTORING}:
 
 \begin{itemize}
  \item Programas dificies de ler, são dificeis de modificar.
@@ -432,167 +593,306 @@ Levando em consideração pontos importantes que tornam díficil trabalhar com s
  \item Programas que requerem comportamentos adicionais e exigem mudanças no código corrente, são díficeis de modificar.
 \end{itemize} 
 
-Podemos identificar inúmeros pontos durante o desenvolvimento que representam violações aos principios, e assim, tornam a manutenção uma tarefa mais dificil:
+Em consideração aos itens descritos, é possivel identificar inúmeros pontos durante o desenvolvimento, itens que possuem uma forte relação com os itens citados, e muitos tendem a representar uma clara violações a muitos dos principios presente nesse trabalho, e assim, tornando a manutenção, uma tarefa mais dificil:
 
 \begin{itemize}
  \item Classe com muitas responsabilidades (GOD CLASS).
  \item Método muito complexo.
  \item Design favorecendo implementação ao invés da abstração.
  \item Duplicidade de código
+ \item Código redundante
  \item Alto acoplamento
  \item Métodos adicionados sem necessidade.
+ \item Metodos com muitos laços 
 \end{itemize} 
 	
 \part{Concepção da solução proposta} \label{sec:concepcao}
 
+A solução proposta é composta dos seguintes itens:
 
-\section{\textit{x}} \label{sec:x}
+\begin{itemize}
+ \item Análise de código estático (\textit{Static Code Analysis}).
+ \item Gerenciamento da qualidade de código.
+ \item Utilização de métricas de qualidade de código.
+\end{itemize} 
 
+\section{Análise de código estático (\textit{Static Code Analysis})} \label{sec:staticcodeanalysis}
+Brian Chess e Jacob West explicam \cite{SECURE_PROGRAMMING_STATIC_ANALYSIS} os pontos mais importantes na utilização dessa analise, e as diferentes categorias de análise estática :
 
-\section{\textit{Static Code Analysis}} \label{sec:managecodequality}
+\begin{itemize}
+ \item Verificação de tipo
+ \item Verificação de estilo de código (espaços em branco, tabulação nomeação, funções obsoletas, comentários).
+ \item Compreensão do programa (nome de variáveis, analise de divição de função única para várias funções.)
+ \item Verificação do programa e verificação de propriedades
+ \item Verificação de potenciais BUGS
+ \item Revisão de segurança
+\end{itemize} 
 
+A utilização análise da qualidade do código fonte é uma parte essencial no processo de qualidade contínua, juntamente com testes automatizados, é o elemento-chave para fornecer um software confiável, e principalmente, uma base quantitativa em conjunto com uma base historica de métricas do software. 
 
-%
-% ##############################
-%
-
-A análise da qualidade do código fonte é uma parte essencial do processo de Integração Contínua. Juntamente com testes automatizados, é o elemento-chave para fornecer software confiável sem muitos bugs, vulnerabilidades de segurança ou vazamentos de desempenho. Provavelmente, o melhor analisador de código estático que você pode encontrar no mercado é o SonarQube. Tem suporte para mais de 20 linguagens de programação. Ele pode ser facilmente integrado aos mecanismos de Integração Contínua mais populares, como o Jenkins ou o TeamCity. Finalmente, ele possui muitos recursos e plug-ins que podem ser gerenciados facilmente a partir de um extenso painel da web.
-
-No entanto, antes de prosseguirmos para discutir sobre as capacidades mais poderosas desta solução, vale a pena perguntar Por que fazemos isso? Seria produtivo forçar os desenvolvedores a se concentrarem na qualidade do código? Provavelmente a maioria de nós é programadora e sabemos exatamente que todo mundo espera de nós para entregar código que atenda às demandas de negócios ao invés de parecer legal Afinal, nós realmente queremos quebrar a construção por não cumprir regra não importante como o comprimento máximo da linha? um pouco de prazer. Por outro lado, assumir o código-fonte de alguém que não estava prestando atenção a qualquer boa prática de programação também não é bem-vindo se você sabe o que quero dizer. Mas fique calmo, o SonarQube é a solução certa para você. Neste artigo, mostrarei a você que carregar uma alta qualidade de código pode ser uma boa diversão e, acima de tudo, você pode aprender mais como desenvolver um código melhor, enquanto outros membros da equipe gastam tempo corrigindo seus bugs
-
-%
-% ##############################
-%
-
-As ferramentas de análise de código estático são amplamente usadas no desenvolvimento de Java para melhorar a base de código e identificar possíveis vulnerabilidades junto com falhas de design. Cada ferramenta tem seu próprio recurso, propósito e força, o que ajuda a aumentar a qualidade do código e faz de você um desenvolvedor melhor. Eu irei me referir a Static Analysis Tools como SCA a partir de agora.
+As ferramentas de análise de código estático (SCA) são amplamente usadas no desenvolvimento \cite{SECURE_PROGRAMMING_STATIC_ANALYSIS} e cada ferramenta tem seu próprio recurso, propósito e objetivo, o que ajuda a aumentar a qualidade do código. 
 
 \subsection{PMD} \label{sec:pmd}
-Analisa a Árvore de Sintaxe Abstrata (AST) gerada pelo JavaCC e não requer a compilação real.
-     Identifica problemas potenciais principalmente código morto e duplicado, complexidade ciclomática, expressões complicadas e quase tudo de que o Checkstyle é capaz.
-		O PMD é uma ferramenta extremamente útil para analisar o código-fonte. De acordo com o site do projeto, ele "verifica o código-fonte e procura possíveis problemas, possíveis bugs, códigos não usados e sub-ótimos, expressões complicadas e códigos duplicados". O PMD vem com um enorme conjunto de regras que podem analisar muitas coisas diferentes no código java. Para nomear alguns:
+	O PMD é uma ferramenta extremamente útil para analisar o código-fonte, podendo verificar o código-fonte a procura de possíveis problemas, possíveis bugs, códigos não usados e sub-ótimos, expressões complicadas e códigos duplicados \cite{PMD}, a tabela \ref{table:PMD:rules} mostra o conjunto de regras, que podemos analisar no código.
 
-- Esvaziar blocos try / catch
-
-- Expressões complicadas
-
-- Usando .equals () em vez de "=="
-
-- Variáveis e importações não utilizadas
-
-- loops desnecessários e instruções if
-
-- Aplicar convenções de nomenclatura
-
-Além disso, o PMD vem com um detector de copiar e colar para localizar blocos de códigos copiados e colados. O melhor de tudo, as regras PMD personalizadas são facilmente escritas com XPath e uma GUI incluída no software.
+\begin{table}[h!]
+ \begin{tabular}{| c | c | c |} 
+ \hline
+ REGRA & DESCRIÇÃO & EXEMPLO \\ [0.5ex]
+ \hline\hline
+  
+\hline Basic &
+\makecell{Regras básicas gerais.} & 
+\makecell{Blocos try ou \\ catch vazios, usar \\ return desnecessariamente, etc. } \\
+\hline Braces & 
+\makecell{Regras  relacionadas \\ ao  uso  de chaves.} &
+\makecell{Ifs, whiles \\ e loops devem \\ possuir chaves.} \\
+\hline Controversial &
+\makecell{Regras de aplicação geral,\\ mas de aplicação controversa.} & 
+\makecell{Presença de construtor desnecessário, \\ atribuição de null \\ a uma variável etc.} \\
+\hline Coupling &
+\makecell{Regras relacionadas \\ ao acoplamento \\ entre objetos e pacotes.} &
+\makecell{Número  excessivo  de  imports, \\ uso  de  classe \\ concreta em declaração \\ ao invés da interface \\ (ex.: “ArrayList l” em vez de “List l” etc.).} \\
+\hline Design &
+\makecell{Regras que avaliam \\ o design do código.} &
+\makecell{Chamada  a  métodos  que  podem  \\ ser  sobrecarregados  no  construtor,  \\ preservar  o  stacktrace \\ em exceções, colocar  o  literal \\ primeiro  em  comparações etc.} \\
+\hline \makecell{Import statement} &
+\makecell{Regras relacionadas  ao \\ uso  de import.}&
+\makecell{Abuso do recurso \\ de static import.} \\
+\hline Naming &
+\makecell{Regras  que  avaliam  \\ nomes  de variáveis e métodos.} &
+\makecell{Nomes de métodos ou variáveis \\ curtos demais ou longos demais, \\ nomes de classes devem \\ começar com maiúscula etc.} \\
+\hline Optimization &
+\makecell{Regras  relacionadas  à  otimização.} &
+\makecell{Conversão de argumentos de \\ métodos para final, \\ evitar instanciação \\ de objetos em loops etc.} \\
+\hline \makecell{Strict Exception} &
+\makecell{Regras  relacionadas  ao  \\ lançamento e captura de exceções.} &
+\makecell{Captura  de  Throwable,  \\ exceções  usadas  para \\ controle de fluxo etc.} \\
+\hline \makecell{String  and \\ StringBuffer} &
+\makecell{Regras  que  verificam  a correta \\ utilização das  classes  \\ String  e  StringBuffer.} &
+\makecell{Evitar  a  duplicação  de  literais,  \\ instanciação  de Strings etc.} \\
+\hline \makecell{Unused code} &
+\makecell{Regras que  detectam \\ código não utilizado.} &
+\makecell{Campos privados, \\ variáveis  locais \\ e  parâmetros de métodos não usados.} \\
+[1ex] 
+\hline
+\end{tabular}
+\caption{Alguns dos principais tipos de regras implementadas no PMD\cite{PMD}.}
+\label{table:PMD:rules}
+\end{table}
 
 \subsection{FindBugs} \label{sec:findbugs}
-Ele analisa o código de byte Java, principalmente .classes para encontrar qualquer falha de projeto e possíveis bugs.
-     Ele precisa de código compilado para contornar e, eventualmente, será rápido, já que funciona em nível de código de bytes.
-     As principais categorias desta ferramenta são: Exatidão, Má prática, Código desonesto, Corrigidez multissegmentada, Desempenho malicioso, Vulnerabilidade de código, Segurança experimental e internacionalização
-		O FindBugs é outro analisador de código estático muito semelhante ao PMD. A maior diferença entre o PMD e o FindBugs é que o FindBugs funciona no código de bytes, enquanto o PMD trabalha no código-fonte. FindBugs pode encontrar coisas como:
 
-- Uso indevido de .equals () e .hashCode ()
-- Conjuntos inseguros
-- Quando algo sempre será nulo
-- Possíveis StackOverflows
-- Possíveis exceções ignoradas
+Ele analisa o código de byte Java, principalmente .classes para encontrar qualquer falha de projeto e possíveis bugs. Ele precisa de código compilado para contornar e, eventualmente, será rápido, já que funciona em nível de código de bytes.
+
+\begin{table}[h!]
+ \begin{tabular}{| c | c |} 
+ \hline
+ REGRA & DESCRIÇÃO \\ [0.5ex]
+  \hline\hline
+  \hline \makecell{CN:\\ Class implements\\ Cloneable but\\ does not define\\ or use clone method } &
+  \makecell{Implementa de classe Clonável,\\ mas não define nem usa\\ o método clone.} \\ 
+  \hline \makecell{CN:\\ Class defines clone() but \\ doesn't implement Cloneable } &
+  \makecell{Essa classe define um método clone (),\\ mas a classe não implementa Cloneable.\\ Existem algumas situações em que isso é aceitável\\ (por exemplo, você quer controlar\\ como as subclasses podem se clonar),\\ mas apenas certifique-se de que\\ é isso que você pretendia.} \\ 
+  \hline \makecell{CN:\\ clone method does not \\ call super.clone() } &
+  \makecell{Essa classe não final define\\ um método clone () que não chama super.clone ().\\ Se esta classe ("A") é extendida por\\ uma subclasse ("B"), e a subclasse B\\ chama super.clone (),\\ então é provável que o método clone ()\\ de B retorne um objeto do tipo A,\\ o que viola o contrato padrão para clone ().\\ Se todos os métodos clone () chamarem super.clone (),\\ eles terão a garantia\\ de usar Object.clone (),\\ que sempre retorna um objeto do tipo correto.} \\ 
+  \hline \makecell{Eq:\\ Class defines compareTo(...) \\ and uses Object.equals() } &
+  \makecell{Essa classe define um método compareTo (...),\\ mas herda seu método equals () de java.lang.Object.\\ Geralmente, o valor de compareTo\\ deve retornar zero se e somente se igual for true.\\ Se isso for violado, estranho e imprevisto} \\ 
+  \hline \makecell{HE:\\ Class defines equals()\\ but not hashCode() } &
+  \makecell{Classe substitui equals (Object),\\ mas não substitui o hashCode ().\\ Portanto, a classe pode violar a invariante\\ de que objetos iguais devem ter códigos de hash iguais.} \\ 
+  \hline \makecell{HE:\\ Class defines hashCode()\\ but not equals() } &
+  \makecell{Essa classe define um método hashCode (),\\ mas não um método equals ().\\ Portanto, a classe pode violar a invariante\\ de que objetos iguais devem ter\\ códigos de hash iguais.} \\ 
+  [1ex] 
+  \hline
+ \end{tabular}
+ \caption{Exemplo de regras implementadas no FINDBUGS\cite{FINDBUGS}.}
+ \label{table:FINDBUGS:rules}
+\end{table}
+ As principais categorias desta ferramenta são: Exatidão, Má prática, Código desonesto, Corrigidez multissegmentada, Desempenho malicioso, Vulnerabilidade de código, Segurança experimental e internacionalização
+		O FindBugs é outro analisador de código estático muito semelhante ao PMD. A maior diferença entre o PMD e o FindBugs é que o FindBugs funciona no código de bytes, enquanto o PMD trabalha no código-fonte.
+
 
 \subsection{Checkstyle} \label{sec:checkstyle}
-Ele basicamente analisa o código-fonte e procura melhorar o padrão de codificação ao atravessar o simples AST gerado pelo Checkstyle.
-     Ele verifica o código-fonte para convenções de codificação como cabeçalhos, importações, espaços em branco, formatação etc.
-		Checkstyle é uma ferramenta para analisar estilo e convenções de codificação. Ele não interromperá as exceções de rouge, mas fornecerá feedback sobre como o código é organizado. Checkstyle é útil para garantir que o código Java está sendo escrito corretamente. Aqui estão algumas coisas que o Checkstyle vai pegar:
+Checkstyle analisa o código-fonte e procura melhoraralinhar o padrão de formatação do código, verifica o código-fonte conforme convenções de codificação como cabeçalhos, importações, espaços em branco etc.
+		Checkstyle é uma ferramenta para analisar estilo e convenções de codificação. Ele não interromperá as exceções de rouge, mas fornecerá feedback sobre como o código é organizado. Checkstyle é útil para garantir que o código Java está seguindo um padrão de formatação de códigos.
+		Algumas pontos que o Checkstyle consegue identificar:
 
-- Falta / javadoc impróprio
-- espaço em branco
-- Colocação de chaves e parênteses
-- Comprimento da linha
-- Convenções de nomenclatura
+\begin{itemize}
+ \item Falta / javadoc impróprio
+ \item Utilização de tabulação e espaço em branco denecessarios.
+ \item Utilização de chaves e parênteses.
+ \item Comprimento da linha
+\end{itemize} 
 
-O Checkstyle é muito diferente do PMD e do FindBugs. Embora tenha verificações de itens como blocos de captura vazios e .equals () versus ‘==’, o foco principal do projeto é garantir que o estilo de codificação esteja de acordo com um conjunto de convenções.
+\subsection{Fortify} \label{sec:fortify}
+Fortify\cite{FORTIFY} é um conjunto de analisadores de segurança de software que procura violações de regras de codificação específicas de segurança. Esse SCA fornece dados que permite identificar e priorizar violações aonde correções sejam rápidas e precisas.
+O Fortify informações de análise que ajudam a fornecer softwares mais seguros, além de criar códigos de segurança avaliações mais eficientes, consistentes e completas. Seu design permite que você incorpore rapidamente novos regras de segurança específicas de terceiros e de clientes.
+
+Algumas pontos que o Fortify consegue identificar\cite{OWASP}:
+
+\begin{itemize}
+ \item Mass Assignment: Insecure Binder Configuration
+  \subitem Para facilitar o desenvolvimento e aumentar a produtividade, a maioria das estruturas modernas permite que um objeto seja automaticamente instanciado e preenchido com os parâmetros de solicitação HTTP cujos nomes correspondem a um atributo da classe a ser vinculado. A instanciação automática e a população de objetos aceleram o desenvolvimento, mas podem levar a sérios problemas se implementados sem cautela. Qualquer atributo nas classes vinculadas, ou classes aninhadas, será automaticamente vinculado aos parâmetros de solicitação HTTP. Portanto, os usuários mal-intencionados poderão atribuir um valor a qualquer atributo em classes vinculadas ou aninhadas, mesmo que não sejam expostos ao cliente por meio de formulários da Web ou contratos de API.
+	
+ \item Log Forging
+  \subitem Os aplicativos geralmente usam arquivos de log para armazenar um historico de eventos ou transacoes para revisão posterior, coleta de estatísticas ou depuração.
+ Dependendo da natureza do aplicativo, a tarefa de revisar arquivos de log pode ser executada manualmente conforme necessário ou automatizada com uma ferramenta que seleciona automaticamente os logs para eventos importantes ou informações de tendências.
+A interpretação dos arquivos de log pode ser prejudicada ou mal direcionada se um invasor puder fornecer dados para o aplicativo que é posteriormente registrado na íntegra. No caso mais benigno, um invasor pode inserir entradas falsas no arquivo de log, fornecendo ao aplicativo uma entrada que inclua caracteres apropriados. Se o arquivo de log for processado automaticamente, o invasor poderá tornar o arquivo inutilizável corrompendo o formato do arquivo ou injetando caracteres inesperados.
+
+ \item System Information Leak: Internal
+  \subitem Dependendo da configuração do sistema, essas informações podem ser despejadas em um console, gravadas em um arquivo de log ou expostas a um usuário. Em alguns casos, a mensagem de erro informa ao invasor com precisão em que tipo de ataque o sistema está vulnerável. Por exemplo, uma mensagem de erro do banco de dados pode revelar que o aplicativo é vulnerável a um ataque de injeção de SQL. Outras mensagens de erro podem revelar pistas mais oblíquas sobre o sistema. No exemplo acima, a informação que vazou poderia implicar informações sobre o tipo de sistema operacional, os aplicativos instalados no sistema e a quantidade de cuidados que os administradores dedicaram à configuração do programa.
+\end{itemize} 
 
 \section{\textit{Manage code quality}} \label{sec:managecodequality}
 
-Hora de respirar! Na verdade, não há necessidade de tomar essa posição, uma vez que essas ferramentas não competem, mas são complementares e devem ser usadas simultaneamente, como é o caso do Sonar. Cada um deles está direcionando principalmente um certo tipo de regras de codificação: convenções (Checkstyle), práticas ruins (PMD) e possíveis bugs (FindBugs).
+Colocar toda a equipe sincronizado em relação a qualidade é bastante difícil. Para centralizar e escalar em uma visão única a qualidade do código, é necessario um local central para visualizar e definir as regras usadas durante a análise de projetos. Esses conjuntos de regras devem ser organizad, aonde os membros da organização podem ver quais regras são aplicadas ao projeto.
+O SonarQube\cite{SONARQUBE} fornece um Quality Gate padrão com foco na definição de requisitos unicos, mas aplicados em todos os projetos.
 
-O tipo de convenção abrange nomenclatura, comentários e convenções de formato. Aqui estão alguns exemplos :
+\subsection{Sonar} \label{sec:sonar}
 
-    Existe javadoc em métodos públicos?
-    O projeto está seguindo as convenções de nomenclatura da Sun?
-    O código é escrito com um formato consistente?
-
-
-O tipo de convenção tem frequentemente a reputação de ser bastante inútil, pois as regras são muito simples. Como explicar então que a maioria dos projetos de código aberto fornece um arquivo checkstyle em seu guia de desenvolvimento, quando os mesmos projetos geralmente descartam algo inútil? É verdade que as regras de convenção não têm impacto na estabilidade, desempenho ou confiabilidade de um aplicativo. No entanto, o tipo de convenção é a cola que permite que as pessoas trabalhem juntas e liberem sua criatividade, em vez de gastar tempo e energia na compreensão de código inconsistente.
-
-
-
-O tipo de más práticas consiste em comportamentos bem conhecidos que quase sistematicamente levam a dificuldades ao longo do tempo. Aqui estão alguns exemplos de más práticas:
-
-    Pegando uma exceção sem fazer nada
-    Ter código morto
-    Muitos métodos complexos
-    Uso direto de implementações em vez de interfaces
-    Implementando o método hashcode () sem o método não igual (Object object)
-
-
-O PMD é um tipo de anjo que sempre olha por cima do seu ombro para lembrá-lo de práticas ruins, da mesma forma que seu senso comum o lembra de interagir com seu cliente ao desenvolver uma funcionalidade completa e responder a perguntas de seus colegas de trabalho.
-
-
-
-O tipo de bugs em potencial ajuda a detectar o que não está claramente visível no código e a entender por que sequências de código podem levar a possíveis bugs. Aqui estão alguns exemplos de possíveis bugs:
-
-    Sincronização em Boolean pode levar a deadlock
-    Pode expor a representação interna retornando a referência ao objeto mutável
-    O método usa o mesmo código para dois ramos
-
-
-Bugs são como relações humanas, nem sempre é fácil entender o problema, pois há muitos parâmetros a serem levados em conta. Pode ser uma boa ideia, às vezes, consultar um analista para ajudar a resolvê-los :-). Findbugs é um tipo de analista para o seu código-fonte!
-
-
-
-O que há com o Macker? Enquanto o Checkstyle, o PMD e o Findbugs concentram sua atenção na análise de fontes e na aplicação de regras, a Macker dá um grande passo atrás para questões de arquitetura de identidade. Aqui estão alguns exemplos de regras arquitetônicas:
-
-    Classes na camada de interface do usuário podem não acessar diretamente a camada de objeto de dados ou usar classes em java.sql
-    Sistemas externos não podem acessar classes de implementação internas (com sufixo 'Impl')
-    Um módulo funcional pode acessar outro somente por meio de sua API
-    Somente classes implementando interfaces em javax.ejb e determinados pacotes de frameworks podem usar as APIs EJB
-
-
-Macker olha para a sua aplicação da mesma forma que um homem na lua olha para a terra: ei, o que está acontecendo? O oceano pacífico está muito perto do continente europeu! Uma vez que você tenha uma ideia clara de como deve ser sua arquitetura, você pode facilmente modelá-la com o Macker para manter sua arquitetura consistente ao longo do tempo. Com a Macker, você pode definir convenções arquitetônicas e identificar práticas ruins de arquitetura.
-
-\section{Sonar} \label{sec:sonar}
-
+%% https://www.romexsoft.com/blog/improve-java-code-quality/
 %% image - https://docs.sonarqube.org/display/SONAR/Architecture+and+Integration
-The following schema shows how SonarQube integrates with other ALM tools and where the various components of SonarQube are used.
 %%
 
-O SonarQube é uma plataforma de código aberto para inspeção contínua da qualidade do código. Usando a análise de código estático, ele tenta detectar bugs, códigos cheiros e vulnerabilidades de segurança. O SonarQube suporta vários idiomas por meio de conjuntos de regras integrados e também pode ser estendido com vários plug-ins.
+%% https://docs.sonarqube.org/download/attachments/11636592/image2017-10-31%2013%3A9%3A10.png?version=1&modificationDate=1509451751000&api=v2
 
-Neste artigo, estamos particularmente interessados em questões de segurança. Muitas ferramentas de análise estática existem para a linguagem Java, incluindo aquelas de fonte livre e de código aberto. Algumas vantagens do SonarQube são as seguintes:
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.25]{img/img-sonar.png}
+	\caption{Arquitetura\cite{SONARQUBE} de integração do SonarQube e seus componentes.}
+	\label{fig:sonar-arquitetura}
+\end{figure}
 
-     É ativamente desenvolvido e bem integrado. Muitos plugins estão disponíveis para uso como parte de pipelines de integração contínua, incluindo Maven, Jenkins e GitHub.
-     Seus conjuntos de regras internos podem ser estendidos com plug-ins que são mais orientados à segurança. Por exemplo, usaremos o plugin FindBugs para aproveitar as regras do FindBugs.
-     Ele também pode relatar coisas como código duplicado, cobertura de código ou padrões de codificação.
 
-https://sonarcloud.io/dashboard?id=net.sourceforge.pmd%3Apmd
-https://sonarcloud.io/dashboard?id=net.java.openjdk%3Ajdk7
-https://sonarcloud.io/dashboard?id=org.apache%3Atomcat%3A9.x
-https://sonarcloud.io/dashboard?id=net.java.openjdk%3Ajdk9
+O SonarQube\cite{SONAR} é uma plataforma de código aberto para inspeção contínua da qualidade do código. Usando a análise de código estático, ele tenta detectar bugs, códigos cheiros e vulnerabilidades de segurança. O SonarQube suporta vários idiomas por meio de conjuntos de regras integrados e também pode ser estendido com vários plug-ins, inclusive os citados nesse artigo.
+Principais vantagens e integrações do SonarQube são as seguintes \cite{SONARQUBE_IN_ACTION}:
+
+\begin{itemize}
+ \item SonarQube Plugins - Possuiu varios plugins importantes:
+  \subitem Findbugs.
+	\subitem Checkstyle.
+	\subitem PMD.
+	\subitem Fortify.
+	\subitem PI test.
+ \item SonarQube Scanners - Possível de realizar a analise de varias formas:
+	\subitem Maven\cite{MAVEN}.
+	\subitem Gradle\cite{GRADLE}.
+	\subitem Jenkins\cite{JENKINS}.
+	\subitem Standalone / Ant\cite{ANT}.
+\end{itemize} 
+
+\section{\textit{Métricas de qualidade de código.}} \label{sec:managecodequality}
+\subsubsection{Métricas quantitativas.} \label{sec:sonar-planning-mquantity}
+
+Métricas quantitativas foram definidas e configuradas no Sonarqube no quality gate \cite{SONAR_QUALITY_GATE}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{img/sonar-quality-gates.png}
+	\caption{Quality Gates}
+	\label{fig:sonar-quality-gates}
+\end{figure}
+
+
+Em caso de não conformidade, as mudanças não serão aprovadas para revisão manual.
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{img/sonar-check-quality-gate-fail.png}
+	\caption{Quality Gates}
+	\label{fig:sonar-quality-gates}
+\end{figure}
+
+%%\subsubsection{Métricas qualitativas.} \label{sec:sonar-planning-mquality}
+%% https://sonarcloud.io/dashboard?id=net.sourceforge.pmd%3Apmd
+%% https://sonarcloud.io/dashboard?id=net.java.openjdk%3Ajdk7
+%% https://sonarcloud.io/dashboard?id=org.apache%3Atomcat%3A9.x
+%% https://sonarcloud.io/dashboard?id=net.java.openjdk%3Ajdk9
 		
 \part{Avaliação da solução proposta} \label{sec:avaliacao}
+ Avaliação da solução proposta foi definida em 3 partes:
+ 
+ \begin{itemize}
+ 	\item Planejando uma estratégia e insights.	
+ 	\item Inspeção contínua.
+ 	\item Utilizando SonarQube para conduzir revisões de código.
+ \end{itemize}
+
+\subsection{Planejando uma estratégia e insights.} \label{sec:sonar-planning}
+
+O planejamento e atualização das estretégias de qualidade de código, foram atualizadas conforme a utilização do sonar e o desenvolvimento das aplicações.
+Ao final de cada Sprint, avaliações das métricas atuais, e inclusão de novas métricas foram realizadas.
+Sendo a partir do Sprint 0, da utilização do sonar, até a normalização da qualidade do projeto, os objetivos foram definidos em:
+
+ \begin{itemize}
+ 	\item Não diminuição da qualidade atual do projeto.
+ 	\item Aumento gradual do coverage de código legado.
+ 	\item Resoluções de issues de nível BLOCKED.
+ \end{itemize}
+
+\subsubsection{Métricas quantitativas.} \label{sec:sonar-planning-mquantity}
+
+ \begin{itemize}
+ 	\item Quantidade de issues de qualidade críticas / bloqueantes : nenhuma.
+ 	\item Horas de trabalho necessárias correção (debito técnico) : \textless 12 horas.
+ 	\item Tendência de qualidade : A.
+ 	\item Cobertura de teste de unidade : \textgreater 85.
+ 	\item Complexidade por método : \textless 8.
+ 	\item Package tangle index (dependências cíclicas) : \textgreater 8.
+ \end{itemize}
+
+\subsubsection{Métricas qualitativas.} \label{sec:sonar-planning-mquality}
+
+%\subsection{Inspeção contínua.} \label{sec:sonar-ci}
+
+
+\subsection{SonarQube - Revisões de código.} \label{sec:sonar-review}
+SonarQube foi adicionado como ferramenta de revisão de código, sendo implementado e executado a cada nova mudança, e adicionado em cada novo "pull-request"', e definido como críterio de aceitação a aderencia as regras definidas.
+Sendo possivel de aliviar e eliminar muitas das revisões com base em conceitos pessoais, ajudando o time a organizar e gerenciar esforços de qualidade de código por meio da confirmação de problemas, comentários, atribuições e ajustes de gravidade. 
 
 \part{Trabalhos futuros} \label{sec:trabalhos_futuros}
 
 \part{Conclusão} \label{sec:conclusao}
 
-\begin{verbatim}
-	public class Abstract {}
-\end{verbatim}
+Através do presente trabalho, obteve-se maior entendimento em relação à utilização de métricas no desenvolvimento de software.
+Houve um indicio que, a utilização do TDD/BDD, ou de modo geral o test-first, resultada em grades ganhos em relação a qualidade de código:
 
+\begin{itemize}
+	\item Feedback rápido sobre a funcionalidade em desenvolvimento e em relação ao funcionalidades existentes no sistema	
+	\item Design com foco funcional (objetivos claro).
+	\item Código mais limpo
+	\item Realizar refatorações se torna um processo mais seguro.
+	\item Segurança na correção de bugs (reproduzir o bug em relação a unidade afetada)
+	\item Maior produtividade já que o desenvolvedor encontra menos bugs e não desperdiça tempo com depuradores
+	\item Código da aplicação mais flexível, já que para escrever testes temos que separar em pequenos "pedaços" o nosso código, para que sejam testáveis, ou seja, nosso código estará menos acoplado.
+	\item Desenvolve um equipe mais confiante, pois um possivel bug, ou impacto/modificação não planjada, já é mostrado pelos testes.
+	\item Possibilidade de integração contínua, com builds automáticos e feedbacks rápidos de problemas.
+	\item Utilização do TDD, facilita e favorece um coverage alto.
+\end{itemize}
 
-\begin{lstlisting}[language=java]
-	public class Abstract {}
-\end{lstlisting}
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.5]{img/img-sonar-report-history.png}
+	\caption{Quality activity history}
+	\label{fig:sonar-activity-history}
+\end{figure}
 
+Configuração das regras e a uliização do dashboard Sonar como guia, permite uma melhor códificação e centralização de definições :
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.25]{img/sonar-dashboard.png}
+	\caption{Dashboard\ do Sonar.}
+	\label{fig:sonar-dashboard}
+\end{figure}
+
+Houve um grande ganho em relação a review, com a utilização do sonar, houve um maior aproveitamente das revisões manuais pelos seguintes motivos.
+ \begin{itemize}
+	\item Classes e métodos menor são mais rápidos de revisão.
+  \item Utilização do relatorios de testes unitarios e de integração como criterio de entrega proporcionou um maior controle em relação a confiabilidade do projeto.
+	\item Houve um esforço menor com alteração em relação ao mudança da formatação.
+	\item Time teve um ganho significativo em conhecimento técnico com pouco esforço.
+\end{itemize}
 
 %http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907111
 %\bibliographystyle{sbc}
