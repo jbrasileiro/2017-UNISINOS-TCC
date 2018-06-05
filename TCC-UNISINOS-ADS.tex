@@ -781,7 +781,18 @@ Principais vantagens e integrações do SonarQube são as seguintes \cite{SONARQ
 	\subitem Standalone / Ant\cite{ANT}.
 \end{itemize} 
 
+O SonarQube não compete de forma alguma com nenhuma das ferramentas de análise estática acima, mas complementa e funciona muito bem com essas ferramentas, sendo totalmente operante sem essas mesmas ferramentas de análise estática (Checkstyle, PMD e FindBugs).
+
 \section{\textit{Métricas de qualidade de código.}} \label{sec:managecodequality}
+
+As métricas definidas foram avaliadas e consideras com base no seguinte pontos importantes:
+
+ \begin{itemize}
+ 	\item O modelo de qualidade deve ser simples quanto possível.
+ 	\item Bugs, vulnerabilidades e qualquer issue não devem se perder entre os problemas de manutenibilidade.
+ 	\item Problemas de manutenção do código são importantes e não podem ser ignorados.
+ \end{itemize}
+
 \subsubsection{Métricas quantitativas.} \label{sec:sonar-planning-mquantity}
 
 Métricas quantitativas foram definidas e configuradas no Sonarqube no quality gate \cite{SONAR_QUALITY_GATE}
@@ -832,6 +843,11 @@ Sendo a partir do Sprint 0, da utilização do sonar, até a normalização da q
 
 \subsubsection{Métricas quantitativas.} \label{sec:sonar-planning-mquantity}
 
+Regras, Quality Profiles e Quality Gates são as chave da plataforma SonarQube \cite{SONARQUBE}, cada plugin no SonarQube executa uma especifica análise de código estático, e nele contém um repositório com as descrições de cada regra, diagnóstico e em muitos casos sugestões de melhoria.
+Violações dessas regras são usadas para determinar e calcular a dívida técnica no projeto e no código, gerando um previa avaliação com um determinado tempo, também calculado, para corrigir esses problemas.
+
+Quality Gate é um indicador de conformidade (ou inconsistência) do projeto com as métricas de código de limite especificadas\cite{SONARQUBE}. Por padrão, todos os projetos adicionados ao SonarQube usam o gate de qualidade, e ao final desse trabalho as seguintes métricas e seus valores foram definidas:
+
  \begin{itemize}
  	\item Quantidade de issues de qualidade críticas / bloqueantes : nenhuma.
  	\item Horas de trabalho necessárias correção (debito técnico) : \textless 12 horas.
@@ -839,14 +855,17 @@ Sendo a partir do Sprint 0, da utilização do sonar, até a normalização da q
  	\item Cobertura de teste de unidade : \textgreater 85.
  	\item Complexidade por método : \textless 8.
  	\item Package tangle index (dependências cíclicas) : \textgreater 8.
+	\item Novas issues : 0.
+	\item Novas vulnerabilidades : 0.
+	\item Tolerancia de taxa adicional de dívida técnica em código : \textless 3\%.
  \end{itemize}
 
 \subsubsection{Métricas qualitativas.} \label{sec:sonar-planning-mquality}
 
 %\subsection{Inspeção contínua.} \label{sec:sonar-ci}
 
-
 \subsection{SonarQube - Revisões de código.} \label{sec:sonar-review}
+
 SonarQube foi adicionado como ferramenta de revisão de código, sendo implementado e executado a cada nova mudança, e adicionado em cada novo "pull-request"', e definido como críterio de aceitação a aderencia as regras definidas.
 Sendo possivel de aliviar e eliminar muitas das revisões com base em conceitos pessoais, ajudando o time a organizar e gerenciar esforços de qualidade de código por meio da confirmação de problemas, comentários, atribuições e ajustes de gravidade. 
 
@@ -894,6 +913,10 @@ Houve um grande ganho em relação a review, com a utilização do sonar, houve 
 	\item Time teve um ganho significativo em conhecimento técnico com pouco esforço.
 \end{itemize}
 
+O ponto mais importante na qualidade contínua, incluindo a utilização do SonarQube, é a produção de métricas de uma forma efetiva, criando um repositorio confiavel aonde nao apenas fornece métricas e estatísticas sobre código, mas traduz valores não descritos em valores de negócios reais, como risco e dívida técnica.
+Não apenas abordando os desenvolvedores, mas também os gerentes de projeto e níveis administrativos ainda mais altos, devido ao aspecto de gerenciamento que o mesmo oferece, e sua visibilidade em relação a qualidade com seus relatorios, e principalmente pelas diferentes perspectivas, e de uma perspectiva gerencial, o acesso transparente e contínuo aos dados históricos permite que o gerente, e o time, analise e faça as perguntas certas,  auxiliando na tomada de decisão no decorrer do desenvolvimento de software.
+
+\newpage
 %http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907111
 %\bibliographystyle{sbc}
 \bibliographystyle{apalike}

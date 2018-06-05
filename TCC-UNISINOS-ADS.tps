@@ -17,8 +17,8 @@ Class=BibTeXView
 Document=TCC-UNISINOS-ADS.bib
 
 [Frame0_View0,0]
-TopLine=0
-Cursor=11
+TopLine=353
+Cursor=11685
 
 [Frame1]
 Flags=0
@@ -35,8 +35,8 @@ Class=LaTeXView
 Document=TCC-UNISINOS-ADS.tex
 
 [Frame1_View0,0]
-TopLine=764
-Cursor=49053
+TopLine=952
+Cursor=61744
 
 [SessionInfo]
 FrameCount=2
