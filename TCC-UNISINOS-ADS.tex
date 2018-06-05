@@ -6,6 +6,7 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{makecell}
+\usepackage{float}
 
 \definecolor{cred}{rgb}{0.6,0,0} % for strings
 \definecolor{cpurple}{rgb}{0.5,0,0.35} % keywords
@@ -750,19 +751,12 @@ O SonarQube\cite{SONARQUBE} fornece um Quality Gate padrão com foco na definiç
 
 \subsection{Sonar} \label{sec:sonar}
 
-%% https://www.romexsoft.com/blog/improve-java-code-quality/
-%% image - https://docs.sonarqube.org/display/SONAR/Architecture+and+Integration
-%%
-
-%% https://docs.sonarqube.org/download/attachments/11636592/image2017-10-31%2013%3A9%3A10.png?version=1&modificationDate=1509451751000&api=v2
-
 \begin{figure}[h]
 	\centering
 		\includegraphics[scale=0.25]{img/img-sonar.png}
 	\caption{Arquitetura\cite{SONARQUBE} de integração do SonarQube e seus componentes.}
 	\label{fig:sonar-arquitetura}
 \end{figure}
-
 
 O SonarQube\cite{SONAR} é uma plataforma de código aberto para inspeção contínua da qualidade do código. Usando a análise de código estático, ele tenta detectar bugs, códigos cheiros e vulnerabilidades de segurança. O SonarQube suporta vários idiomas por meio de conjuntos de regras integrados e também pode ser estendido com vários plug-ins, inclusive os citados nesse artigo.
 Principais vantagens e integrações do SonarQube são as seguintes \cite{SONARQUBE_IN_ACTION}:
@@ -797,22 +791,21 @@ As métricas definidas foram avaliadas e consideras com base no seguinte pontos 
 
 Métricas quantitativas foram definidas e configuradas no Sonarqube no quality gate \cite{SONAR_QUALITY_GATE}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 		\includegraphics[scale=0.5]{img/sonar-quality-gates.png}
 	\caption{Quality Gates}
 	\label{fig:sonar-quality-gates}
 \end{figure}
 
-
 Em caso de não conformidade, as mudanças não serão aprovadas para revisão manual.
-
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 		\includegraphics[scale=0.5]{img/sonar-check-quality-gate-fail.png}
 	\caption{Quality Gates}
 	\label{fig:sonar-quality-gates}
 \end{figure}
+
 
 %%\subsubsection{Métricas qualitativas.} \label{sec:sonar-planning-mquality}
 %% https://sonarcloud.io/dashboard?id=net.sourceforge.pmd%3Apmd
@@ -846,7 +839,7 @@ Sendo a partir do Sprint 0, da utilização do sonar, até a normalização da q
 Regras, Quality Profiles e Quality Gates são as chave da plataforma SonarQube \cite{SONARQUBE}, cada plugin no SonarQube executa uma especifica análise de código estático, e nele contém um repositório com as descrições de cada regra, diagnóstico e em muitos casos sugestões de melhoria.
 Violações dessas regras são usadas para determinar e calcular a dívida técnica no projeto e no código, gerando um previa avaliação com um determinado tempo, também calculado, para corrigir esses problemas.
 
-Quality Gate é um indicador de conformidade (ou inconsistência) do projeto com as métricas de código de limite especificadas\cite{SONARQUBE}. Por padrão, todos os projetos adicionados ao SonarQube usam o gate de qualidade, e ao final desse trabalho as seguintes métricas e seus valores foram definidas:
+Quality Gate é um indicador de conformidade (ou inconsistência) do projeto com as métricas de código de limite especificadas\cite{SONARQUBE}. Os projetos adicionados ao SonarQube usaram o gate de qualidade, e ao final desse trabalho as seguintes métricas e seus valores foram definidas:
 
  \begin{itemize}
  	\item Quantidade de issues de qualidade críticas / bloqueantes : nenhuma.
@@ -860,16 +853,60 @@ Quality Gate é um indicador de conformidade (ou inconsistência) do projeto com
 	\item Tolerancia de taxa adicional de dívida técnica em código : \textless 3\%.
  \end{itemize}
 
-\subsubsection{Métricas qualitativas.} \label{sec:sonar-planning-mquality}
+\subsubsection{Evolução da qualidade.} \label{sec:evolucao-mquantity}
+Foi possivel acompanhar e analisar visualmente a partir dos relatorios a evolução da qualidade:
 
-%\subsection{Inspeção contínua.} \label{sec:sonar-ci}
+A partir de uma overview dos projetos :
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.5]{img/sonar-overview.png}
+	\caption{Overview dos projetos}
+	\label{fig:sonar-overview}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.5]{img/sonar-overview-checkstyle.png}
+	\caption{Exemplo 01 de historico de atividades}
+	\label{fig:sonar-overview-checkstyle}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[scale=0.5]{img/sonar-overview-PMD.png}
+	\caption{Exemplo 02 de historico de atividades}
+	\label{fig:sonar-overview-PMD}
+\end{figure}
+
+
+%\subsubsection{Métricas qualitativas.} \label{sec:sonar-planning-mquality}
 
 \subsection{SonarQube - Revisões de código.} \label{sec:sonar-review}
 
 SonarQube foi adicionado como ferramenta de revisão de código, sendo implementado e executado a cada nova mudança, e adicionado em cada novo "pull-request"', e definido como críterio de aceitação a aderencia as regras definidas.
 Sendo possivel de aliviar e eliminar muitas das revisões com base em conceitos pessoais, ajudando o time a organizar e gerenciar esforços de qualidade de código por meio da confirmação de problemas, comentários, atribuições e ajustes de gravidade. 
 
+\newpage
 \part{Trabalhos futuros} \label{sec:trabalhos_futuros}
+
+Alguns trabalhos futuros podem ser realizados para melhorar a avaliação e entendimento das métricas apresentadas:
+
+ \begin{itemize}
+ 	\item Como  pôde  ser  observado,  houve  poucos  estudos  empíricos e referencias entre alguns príncipios e métricas quantitativas, ou não houve ainda uma métrica sólida e confiavel o suficiente para algumas das questões e regras:
+		\begin{itemize}
+		 \item Polymorphism - Métrica confiavel para avalição do grau de utilização de abstração.
+		 \item  SRP nas classes de testes, classe realizandos diversos contextos de testes.
+		 \item Law of Demeter principles.
+		\end{itemize}
+	\item A conformidade em relação a arquitetura, muitos casos apresenta  o problema de ser implementado não aderentes as definições de arquitetura, aonde  que  em  muitos  casos  a  arquitetura  não  é  refleetida  no  código  fonte.
+		\begin{itemize}
+		 \item Utilização de Classes de dominio (Entidades ORM) sendo utilizadas fora da camada de persistencia, sendo propagada e expondo mais informações que o necessario.
+		 \item Sobrecarga de represetações em um unico objeto (XML, JSON, DTO) não foram possiveis de serem quantificadas.
+		\end{itemize}
+	\item Divergências  entre  a  Arquitetura  Conceitual  (definida) e a Arquitetura  Concreta  (implementada).
+\end{itemize}
+
+Pontos que podem ser avaliados, e gerar uma proposta para definição de métrica quantitativas. 
 
 \part{Conclusão} \label{sec:conclusao}
 
@@ -891,7 +928,7 @@ Houve um indicio que, a utilização do TDD/BDD, ou de modo geral o test-first, 
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[scale=0.5]{img/img-sonar-report-history.png}
+		\includegraphics[scale=0.5]{img/sonar-PMD-activity.png}
 	\caption{Quality activity history}
 	\label{fig:sonar-activity-history}
 \end{figure}
