@@ -1,0 +1,683 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840) (preloaded format=pdflatex 2018.11.7)  7 NOV 2018 06:22
+entering extended mode
+**./TCC-UNISINOS-ADS.tex
+(TCC-UNISINOS-ADS.tex
+LaTeX2e <2018-04-01> patch level 5
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(sbc-template.sty
+Package: sbc-template 2001/06/09
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/geometry/geometry.sty
+Package: geometry 2018/04/16 v5.8 Page Geometry
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/geometry/geometry.cfg))
+(caption2.sty
+Package: caption2 2002/08/03 v2.1 Customising captions (AS)
+\captionmargin=\dimen111
+\captionwidth=\dimen112
+\captionindent=\dimen113
+Package caption2 Info: Running in caption2 v2.0 compatibility mode on input lin
+e 147.
+\captionlinewidth=\dimen114
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+\c@instn=\count91
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+\ttl@box=\box26
+\beforetitleunit=\skip43
+\aftertitleunit=\skip44
+\ttl@plus=\dimen115
+\ttl@minus=\dimen116
+\ttl@toksa=\toks16
+\titlewidth=\dimen117
+\titlewidthlast=\dimen118
+\titlewidthfirst=\dimen119
+))
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen120
+\Gin@req@width=\dimen121
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/base/inputenc.sty
+Package: inputenc 2018/04/06 v1.3b Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/listings/listings.sty
+\lst@mode=\count92
+\lst@gtempboxa=\box27
+\lst@token=\toks19
+\lst@length=\count93
+\lst@currlwidth=\dimen122
+\lst@column=\count94
+\lst@pos=\count95
+\lst@lostspace=\dimen123
+\lst@width=\dimen124
+\lst@newlines=\count96
+\lst@lineno=\count97
+\lst@maxwidth=\dimen125
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
+\c@lstnumber=\count98
+\lst@skipnumbers=\count99
+\lst@framebox=\box28
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/listings/listings.cfg
+File: listings.cfg 2018/09/02 1.7 listings configuration
+))
+Package: listings 2018/09/02 1.7 (Carsten Heinz)
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/tools/array.sty
+Package: array 2018/04/30 v2.4h Tabular extension package (FMi)
+\col@sep=\dimen126
+\ar@mcellbox=\box29
+\extrarowheight=\dimen127
+\NC@list=\toks20
+\extratabsurround=\skip45
+\backup@length=\skip46
+\ar@cellbox=\box30
+)
+\rotheadsize=\dimen128
+\c@nlinenum=\count100
+\TeXr@lab=\toks21
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count101
+\float@exts=\toks22
+\float@box=\box31
+\@float@everytoks=\toks23
+\@floatcapt=\box32
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2018/09/02 1.7 listings language file
+)
+(TCC-UNISINOS-ADS.aux
+
+LaTeX Warning: Label `sec:grasp' multiply defined.
+
+
+LaTeX Warning: Label `sec:grasp' multiply defined.
+
+
+LaTeX Warning: Label `sec:grasp' multiply defined.
+
+
+LaTeX Warning: Label `sec:grasp' multiply defined.
+
+
+LaTeX Warning: Label `sec:grasp' multiply defined.
+
+
+LaTeX Warning: Label `sec:grasp' multiply defined.
+
+
+LaTeX Warning: Label `sec:grasp' multiply defined.
+
+
+LaTeX Warning: Label `sec:grasp' multiply defined.
+
+
+LaTeX Warning: Label `sec:managecodequality' multiply defined.
+
+
+LaTeX Warning: Label `fig:sonar-quality-gates' multiply defined.
+
+
+LaTeX Warning: Label `sec:sonar-planning-mquantity' multiply defined.
+
+)
+\openout1 = `TCC-UNISINOS-ADS.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 51.
+ (/home/jbrasileiro/.miktex/texmfs/install/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* v-part:(T,H,B)=(99.58464pt, 674.33032pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=426.79135pt
+* \textheight=674.33032pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-9.68535pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count102
+\scratchdimen=\dimen129
+\scratchbox=\box33
+\nofMPsegments=\count103
+\nofMParguments=\count104
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count105
+\MPscratchDim=\dimen130
+\MPnumerator=\count106
+\makeMPintoPDFobject=\count107
+\everyMPtoPDFconversion=\toks25
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+(/home/jbrasileiro/.miktex/texmfs/install/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+))) (/home/jbrasileiro/.miktex/texmfs/install/tex/generic/oberdiek/pdftexcmds.s
+ty
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+\c@lstlisting=\count108
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <16> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 54.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 54.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 54.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 54.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 54.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 54.
+ (/home/jbrasileiro/.miktex/texmfs/install/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 57.
+
+[1
+
+{/home/jbrasileiro/.miktex/texmfs/data/pdftex/config/pdftex.map}]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
+[]\OT1/ptm/m/n/12 Max Kanat-Alexander [[]] re-sume sin-teti-ca-mente uma
+ []
+
+[2] [3]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <13> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <13> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 150.
+
+Underfull \hbox (badness 1292) in paragraph at lines 154--155
+[][]\OT1/ptm/m/n/12 E desta-cado pon-tos im-por-tantes para alcan[]ar o n[]vel
+ de qual-i-dade como
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 158.
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 158.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 160.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 160.
+ [4]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 200.
+
+[5]
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 206.
+
+ (/home/jbrasileiro/.miktex/texmfs/install/tex/latex/psnfss/ot1phv.fd
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 206.
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 207.
+
+[6]
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 249--250
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 251--252
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (11.2131pt too wide) in paragraph at lines 253--254
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 274--275
+[]\OT1/ptm/m/n/12 Segundo Richard C. Mar-tin, [[]], com base nesse princ[]pio,
+ []e
+ []
+
+[7]
+Overfull \hbox (83.21384pt too wide) in paragraph at lines 306--307
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][] 
+ []
+
+
+Overfull \hbox (83.21384pt too wide) in paragraph at lines 308--309
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[8] [9] [10] [11]
+Underfull \hbox (badness 3826) in paragraph at lines 462--463
+\OT1/ptm/m/n/12 Segundo [[]], indire[][]ao su-porta baixo acopla-mento (e po-te
+n-cial de
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+[]\OT1/ptm/m/it/12 "Uma rela[][]ao "HAS-A" pode ser mel-hor do que "IS-
+ []
+
+[13]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/sl' in size <13> not available
+(Font)              Font shape `OT1/ptm/b/sl' tried instead on input line 538.
+<img/tdd-simple-process.png, id=54, 408.52625pt x 402.50375pt>
+File: img/tdd-simple-process.png Graphic file (type png)
+<use img/tdd-simple-process.png>
+Package pdftex.def Info: img/tdd-simple-process.png  used on input line 546.
+(pdftex.def)             Requested size: 163.4076pt x 160.99864pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[14] [15 <./img/tdd-simple-process.png>]
+Underfull \hbox (badness 4108) in paragraph at lines 588--589
+\OT1/ptm/m/n/12 Existem al-guns pon-tos im-por-tantes que tor-nam dif[]cil tra
+-bal-har com soft-ware
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16]
+[17]
+Overfull \hbox (62.89166pt too wide) in paragraph at lines 640--681
+[][] 
+ []
+
+
+Underfull \hbox (badness 6110) in paragraph at lines 681--681
+ \OT1/phv/b/n/10 Table 1. Al-guns dos prin-ci-pais tipos de re-gras im-ple-men-
+tadas no 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (5.00055pt too wide) in paragraph at lines 690--709
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 709--709
+ \OT1/phv/b/n/10 Table 2. Ex-em-plo de re-gras im-ple-men-tadas no 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 1102) in paragraph at lines 716--719
+\OT1/ptm/m/n/12 do c[]odigo, ver-i-f-i-cando o c[]odigo-fonte con-forme conven[
+][]oes de codifica[][]ao como
+ []
+
+[18]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
+[20]
+Underfull \hbox (badness 1648) in paragraph at lines 738--741
+\OT1/ptm/m/n/12 de even-tos ou transa[][]oes para re-vis[]ao pos-te-rior, co-le
+ta de es-tat[]sticas ou
+ []
+
+<img/img-sonar.png, id=78, 1866.975pt x 1089.06876pt>
+File: img/img-sonar.png Graphic file (type png)
+<use img/img-sonar.png>
+Package pdftex.def Info: img/img-sonar.png  used on input line 755.
+(pdftex.def)             Requested size: 466.74261pt x 272.26653pt.
+
+Overfull \hbox (39.95126pt too wide) in paragraph at lines 755--756
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[21] [22 <./img/img-sonar.png>]
+<img/sonar-quality-gates.png, id=87, 776.9025pt x 422.32782pt>
+File: img/sonar-quality-gates.png Graphic file (type png)
+<use img/sonar-quality-gates.png>
+Package pdftex.def Info: img/sonar-quality-gates.png  used on input line 795.
+(pdftex.def)             Requested size: 388.45029pt x 211.16339pt.
+<img/sonar-check-quality-gate-fail.png, id=88, 621.82312pt x 301.8778pt>
+File: img/sonar-check-quality-gate-fail.png Graphic file (type png)
+<use img/sonar-check-quality-gate-fail.png>
+Package pdftex.def Info: img/sonar-check-quality-gate-fail.png  used on input l
+ine 803.
+(pdftex.def)             Requested size: 310.9108pt x 150.93852pt.
+ [23 <./img/sonar-quality-gates.png> <./img/sonar-check-quality-gate-fail.png>]
+
+Underfull \hbox (badness 1127) in paragraph at lines 838--840
+\OT1/ptm/m/n/12 Regras, Qual-ity Pro-files e Qual-ity Gates s[]ao as chave da p
+lataforma Sonar-Qube
+ []
+
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 845.
+
+(/home/jbrasileiro/.miktex/texmfs/install/tex/latex/psnfss/omlptm.fd
+File: omlptm.fd 
+)
+LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 845.
+<img/sonar-overview.png, id=92, 612.03656pt x 476.53032pt>
+File: img/sonar-overview.png Graphic file (type png)
+<use img/sonar-overview.png>
+Package pdftex.def Info: img/sonar-overview.png  used on input line 861.
+(pdftex.def)             Requested size: 306.01753pt x 238.26457pt.
+ [24]
+<img/sonar-overview-checkstyle.png, id=97, 785.18344pt x 481.04718pt>
+File: img/sonar-overview-checkstyle.png Graphic file (type png)
+<use img/sonar-overview-checkstyle.png>
+Package pdftex.def Info: img/sonar-overview-checkstyle.png  used on input line 
+868.
+(pdftex.def)             Requested size: 392.59076pt x 240.523pt.
+<img/sonar-overview-PMD.png, id=98, 794.2172pt x 459.96844pt>
+File: img/sonar-overview-PMD.png Graphic file (type png)
+<use img/sonar-overview-PMD.png>
+Package pdftex.def Info: img/sonar-overview-PMD.png  used on input line 875.
+(pdftex.def)             Requested size: 397.10762pt x 229.98366pt.
+
+[25 <./img/sonar-overview.png> <./img/sonar-overview-checkstyle.png>] [26 <./im
+g/sonar-overview-PMD.png>] [27]
+Underfull \hbox (badness 1681) in paragraph at lines 922--923
+[]\OT1/ptm/m/n/12 Maior pro-du-tivi-dade j[]a que o de-sen-volve-dor en-con-tra
+ menos bugs e n[]ao
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 924--925
+[]\OT1/ptm/m/n/12 Desenvolve uma equipe mais con-fi-ante, pois um pos-sivel bug
+, ou
+ []
+
+<img/sonar-PMD-activity.png, id=109, 642.90187pt x 414.04688pt>
+File: img/sonar-PMD-activity.png Graphic file (type png)
+<use img/sonar-PMD-activity.png>
+Package pdftex.def Info: img/sonar-PMD-activity.png  used on input line 931.
+(pdftex.def)             Requested size: 321.45015pt x 207.02292pt.
+<img/sonar-dashboard.png, id=110, 2000.97563pt x 856.70062pt>
+File: img/sonar-dashboard.png Graphic file (type png)
+<use img/sonar-dashboard.png>
+Package pdftex.def Info: img/sonar-dashboard.png  used on input line 940.
+(pdftex.def)             Requested size: 500.24269pt x 214.17462pt.
+
+Overfull \hbox (73.45134pt too wide) in paragraph at lines 940--941
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[28 <./img/sonar-PMD-activity.png>] [29 <./img/sonar-dashboard.png>]
+(TCC-UNISINOS-ADS.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 4--7
+[]\OT1/ptm/m/n/12 Agile (2001).  Man-i-festo for ag-ile soft-ware de-vel-op-men
+t.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--38
+[]\OT1/ptm/m/n/12 Atlassian (2008-2018a).  Sonarqube[] soft-ware.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--43
+[]\OT1/ptm/m/n/12 Atlassian (2008-2018b).  Sonarqube[] soft-ware.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--84
+[]\OT1/ptm/m/n/12 Jeffries, R. E. (2017).  Clean code: Too much of a good thing
+?
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--100
+[]\OT1/ptm/m/n/12 Martin, R. C. (2000).  The prin-ci-ples of ood.
+ []
+
+[30]
+Overfull \hbox (219.51529pt too wide) in paragraph at lines 130--134
+[]\OT1/ptm/m/n/12 MicroFocus (2003).  For-tify inc.  \OT1/pcr/m/n/12 https://so
+ftware.microfocus.com/en-us/solutions/application-security\OT1/ptm/m/n/12 . 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--141
+[]\OT1/ptm/m/n/12 Nedre, N. (2011).  How to choose be-tween ag-ile and lean,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--141
+\OT1/ptm/m/n/12 scrum and kan-ban | which method-ol-ogy is the best?
+ []
+
+
+Overfull \hbox (101.27528pt too wide) in paragraph at lines 136--141
+\OT1/pcr/m/n/12 "https://realtimeboard.com/blog/choose-between-agile-lean-scrum
+-kanban"\OT1/ptm/m/n/12 . 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--151
+[]\OT1/ptm/m/n/12 OWASP, T. O. W. A. S. P. (2003).  For-tify inc.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--156
+[]\OT1/ptm/m/n/12 PMD (2018).  Pmd - an ex-ten-si-ble cross-language static cod
+e an-a-lyzer.
+ []
+
+
+Underfull \hbox (badness 4001) in paragraph at lines 210--214
+[]\OT1/ptm/m/n/12 Wells, D. (2009).  Work-ing soft-ware.  Tech-ni-cal re-port, 
+Agile-Process.org.
+ []
+
+) [31] (TCC-UNISINOS-ADS.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4894 strings out of 492971
+ 69268 string characters out of 3130218
+ 336992 words of memory out of 3000000
+ 8660 multiletter control sequences out of 15000+200000
+ 38279 words of font info for 68 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 41i,19n,40p,1051b,1611s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/home/jbrasileiro/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/
+jbrasileiro/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+home/jbrasileiro/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi12.p
+fb></home/jbrasileiro/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr
+7.pfb></home/jbrasileiro/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/
+cmr8.pfb></home/jbrasileiro/.miktex/texmfs/install/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></home/jbrasileiro/.miktex/texmfs/install/fonts/type1/urw/courier
+/ucrb8a.pfb></home/jbrasileiro/.miktex/texmfs/install/fonts/type1/urw/courier/u
+crr8a.pfb></home/jbrasileiro/.miktex/texmfs/install/fonts/type1/urw/helvetic/uh
+vb8a.pfb></home/jbrasileiro/.miktex/texmfs/install/fonts/type1/urw/times/utmb8a
+.pfb></home/jbrasileiro/.miktex/texmfs/install/fonts/type1/urw/times/utmb8a.pfb
+></home/jbrasileiro/.miktex/texmfs/install/fonts/type1/urw/times/utmbi8a.pfb></
+home/jbrasileiro/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb></home
+/jbrasileiro/.miktex/texmfs/install/fonts/type1/urw/times/utmri8a.pfb>
+Output written on TCC-UNISINOS-ADS.pdf (31 pages, 984289 bytes).
+PDF statistics:
+ 166 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,222 @@
+\begin{thebibliography}{}
+
+\bibitem[Agile, 2001]{MANISFESTOAGILE}
+Agile (2001).
+\newblock Manifesto for agile software development.
+\newblock \texttt{http://agilemanifesto.org/}.
+
+\bibitem[Alliance, 2006]{WATERFALL_MODEL}
+Alliance, T.~W. (2006).
+\newblock Waterfall.
+\newblock \texttt{http://www.waterfall2006.com/}.
+
+\bibitem[Almeida and de~Miranda, 2010]{TR_CLEAN_CODE_METRICA}
+Almeida, L.~T. and de~Miranda, J.~M. (2010).
+\newblock Código limpo e seu mapeamento para métricas de código fonte.
+\newblock {\em Instituto de Matemática e Estatística da Universidade de São
+  Paulo (IME-USP)}.
+
+\bibitem[Apache, 2018b]{MAVEN}
+Apache (2008-2018b).
+\newblock Apache maven.
+\newblock \texttt{https://maven.apache.org/}.
+
+\bibitem[Apache, 2018a]{ANT}
+Apache (2018a).
+\newblock Apache ant™.
+\newblock \texttt{https://ant.apache.org/}.
+
+\bibitem[Apache, 2018c]{GRADLE}
+Apache (2018c).
+\newblock Gradle build tool.
+\newblock \texttt{https://gradle.org/}.
+
+\bibitem[Atlassian, 2018a]{SONARQUBE}
+Atlassian (2008-2018a).
+\newblock Sonarqube® software.
+\newblock \texttt{https://docs.sonarqube.org/display/SONAR/}.
+
+\bibitem[Atlassian, 2018b]{SONAR_QUALITY_GATE}
+Atlassian (2008-2018b).
+\newblock Sonarqube® software.
+\newblock \texttt{https://docs.sonarqube.org/display/SONAR/Quality+Gates}.
+
+\bibitem[Campbell and Papapetrou, 2013]{SONARQUBE_IN_ACTION}
+Campbell, G.~A. and Papapetrou, P.~P. (2013).
+\newblock {\em SonarQube in Action}.
+\newblock MANNING.
+
+\bibitem[Chess and West, 2007]{SECURE_PROGRAMMING_STATIC_ANALYSIS}
+Chess, B. and West, J. (2007).
+\newblock {\em Secure Programming with Static Analysis}.
+\newblock Addison-Wesley Professional.
+
+\bibitem[DeMarco, 1979]{SASS_SRP}
+DeMarco, T. (1979).
+\newblock {\em Structured Analysis and System Specification}.
+\newblock Prentice Hall, 1st edition edition.
+
+\bibitem[Diniz~Junior and Domingos~da Silva, 2015]{TR_CLEAN_CODE_IMPORTANCIA}
+Diniz~Junior, J. and Domingos~da Silva, D. (2015).
+\newblock A importância do código limpo na perspectiva dos desenvolvedores e
+  empresas de software.
+\newblock {\em USP Digital}.
+
+\bibitem[Fowler et~al., 1999]{MARTIN_FOWLER_REFACTORING}
+Fowler, M., Beck, K., Brant, J., Opdyke, W., and Roberts, D. (July 8, 1999).
+\newblock {\em Refactoring: Improving the Design of Existing Code.}
+\newblock Addison-Wesley Professional, New York.
+
+\bibitem[Hunt and Thomas, 1999]{THE_PRAGMATIC_PROGRAMMER}
+Hunt, A. and Thomas, D. (1999).
+\newblock {\em The Pragmatic Programmer: From Journeyman to Master}.
+\newblock Addison-Wesley Professional, 1 edition edition.
+
+\bibitem[Hunt and Thomas, 2004]{KEEP_IT_DRY_SHY}
+Hunt, A. and Thomas, D. (2004).
+\newblock Keep it dry, shy, and tell the other guy.
+\newblock Technical report, The Pragmatic Programmers.
+
+\bibitem[Jeffries, 2017]{CLEAN_CODE_TOO_MUCH_OF_A_GOOD_THING}
+Jeffries, R.~E. (2017).
+\newblock Clean code: Too much of a good thing?
+\newblock https://ronjeffries.com/xprog/articles/too-much-of-a-good-thing/.
+
+\bibitem[Jenkins, 2018]{JENKINS}
+Jenkins (2018).
+\newblock Jenkins.
+\newblock \texttt{https://jenkins.io/}.
+
+\bibitem[Larman, 2004]{CRAIG_LARMAN}
+Larman, C. (2004).
+\newblock {\em Applying UML and Patterns: An Introduction to Object-Oriented
+  Analysis and Design and Iterative Development}.
+\newblock Prentice Hall, 3rd edition edition.
+
+\bibitem[Martin, 2000]{THE_PRINCIPLES_OF_OOD}
+Martin, R.~C. (2000).
+\newblock The principles of ood.
+\newblock http://butunclebob.com//ArticleS.UncleBob.PrinciplesOfOod.
+
+\bibitem[Martin, 2002]{ROBERT_MARTIN_AGILE_SW_DEV_PPP}
+Martin, R.~C. (2002).
+\newblock {\em Agile Software Development, Principles, Patterns, and
+  Practices}.
+\newblock Pearson, 1th edition.
+
+\bibitem[Martin, 2008]{ROBERT_MARTIN_CLEAN_CODE}
+Martin, R.~C. (2008).
+\newblock {\em Clean Code: A Handbook of Agile Software Craftsmanship}.
+\newblock Prentice Hall, 1th edition.
+
+\bibitem[Martin, 2017]{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}
+Martin, R.~C. (2017).
+\newblock {\em Clean Architecture: A Craftsman's Guide to Software Structure
+  and Design (Robert C. Martin Series)}.
+\newblock Prentice Hall, 1th edition.
+
+\bibitem[Max~Kanat, 2012]{CODE_SIMPLICITY}
+Max~Kanat, A. (2012).
+\newblock {\em Code Simplicity}.
+\newblock O'Reilly Media.
+
+\bibitem[McConnell, 2004]{CODE_COMPLETE_2}
+McConnell, S. (2004).
+\newblock {\em Code Complete: A Practical Handbook of Software Construction,
+  Second Edition}.
+\newblock Microsoft Press, 2th edition.
+
+\bibitem[MicroFocus, 2003]{FORTIFY}
+MicroFocus (2003).
+\newblock Fortify inc.
+\newblock
+  \texttt{https://software.microfocus.com/en-us/solutions/application-security}.
+
+\bibitem[Nedre, 2011]{AGILE_X_LEAN}
+Nedre, N. (2011).
+\newblock How to choose between agile and lean, scrum and kanban — which
+  methodology is the best?
+\newblock
+  \texttt{"https://realtimeboard.com/blog/choose-between-agile-lean-scrum-kanban"}.
+
+\bibitem[Niralem et~al., 2017]{TR_QC_TECHNICAL_DEBT}
+Niralem, S., Kawati, V., and G.R, S. (2017).
+\newblock Quality code: Eliminating technical debt.
+\newblock {\em Imperial Journal of Interdisciplinary Research (IJIR)}.
+
+\bibitem[OWASP, 2003]{OWASP}
+OWASP, T. O. W. A. S.~P. (2003).
+\newblock Fortify inc.
+\newblock \texttt{https://www.owasp.org/index.php}.
+
+\bibitem[PMD, 2018]{PMD}
+PMD (2018).
+\newblock Pmd - an extensible cross-language static code analyzer.
+\newblock https://pmd.github.io/.
+
+\bibitem[PRODANOV, 2013]{METOLOGIA}
+PRODANOV, Cleber C.;~FREITAS, E.~C. (2013).
+\newblock Metodologia do trabalho científico: Métodos e técnicas de pesquisa
+  e do trabalho acadêmico.
+\newblock Novo Hamburgo: Ed. Feevale, 2013. Livro eletrônico.
+
+\bibitem[Professional, 2002]{TDD_EXAMPLE}
+Professional, A.-W. (2002).
+\newblock {\em Test Driven Development: By Example}.
+\newblock Addison-Wesley Professional, 1st edition edition.
+
+\bibitem[Pugh and Hovemeyer, 2006]{FINDBUGS}
+Pugh, B. and Hovemeyer, D. (2006).
+\newblock Findbugs™ - find bugs in java programs.
+\newblock http://findbugs.sourceforge.net/.
+
+\bibitem[Research and Technologies, 2017]{COLEMANPARKES_AGILE_2017}
+Research, C.~P. and Technologies, C. (2017).
+\newblock Accelerating velocity and customer value with agile and devops.
+\newblock Technical report, CA Technologies.
+
+\bibitem[Riel~J, 1996]{GOD_CLASS}
+Riel~J, A. (1996).
+\newblock {\em Object-Oriented Design Heuristics}.
+\newblock Addison-Wesley Professional, 1 edition edition.
+
+\bibitem[Ries, 2011]{ERICRIES_THELEAN}
+Ries, E. (c2011.).
+\newblock {\em The Lean Startup: How Today's Entrepreneurs Use Continuous
+  Innovation to Create Radically Successful Businesses}.
+\newblock Crown Business, New York, 1st ed. edition.
+
+\bibitem[Sedano, 2016]{CODE_READABILITY_TESTING_STUDY}
+Sedano, T. (2016).
+\newblock Code readability testing, an empirical study.
+\newblock {\em Carnegie Mellon Unveristy - Silicon Valley Campus}.
+
+\bibitem[Sierra et~al., 2004]{HEADFIRST_DESIGN_PATTERN}
+Sierra, K., Bates, B., Robson, E., and Freeman, E. (2004).
+\newblock {\em Head First Design Patterns}.
+\newblock O'Reilly Media, Inc.
+
+\bibitem[SonarSource, 2018]{SONAR}
+SonarSource (2008-2018).
+\newblock Sonarqube® software.
+\newblock https://www.sonarqube.org/.
+
+\bibitem[Thomaz~Almeida and Machini~de Miranda, 2015]{TR_CLEAN_CODE_INTRODUCAO}
+Thomaz~Almeida, L. and Machini~de Miranda, J. (2015).
+\newblock Visão introdutória sobre os conceitos de código limpo.
+\newblock {\em Revista semana acadêmica}.
+
+\bibitem[Wells, 2009]{AGILE_WORKING_PROCESS}
+Wells, D. (2009).
+\newblock Working software.
+\newblock Technical report, Agile-Process.org.
+\newblock http://www.agile-process.org/working.html.
+
+\bibitem[Yamashita and Moonen,
+  2012]{CODE_SMELLS_REFLECT_IMPORTANT_MAINTAINABILITY_ASPECTS}
+Yamashita, A. and Moonen, L. (2012).
+\newblock Do code smells reflect important maintainability aspects?.
+\newblock {\em 28th IEEE International Conference on Software Maintenance
+  (ICSM)}.
+
+\end{thebibliography}

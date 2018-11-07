@@ -1,8 +1,8 @@
 \documentclass[12pt]{article}
 \usepackage{sbc-template}
 \usepackage{graphicx,url}
-%\usepackage[brazil]{babel}  
-\usepackage[utf8]{inputenc} 
+%\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{makecell}
@@ -13,7 +13,7 @@
 \definecolor{cgreen}{rgb}{0.25,0.5,0.35} % comments
 \definecolor{cblue}{rgb}{0.25,0.35,0.75} % javadoc
 \definecolor{cgray}{rgb}{0.5,0.5,0.5}
-\definecolor{cmauve}{rgb}{0.58,0,0.82} 
+\definecolor{cmauve}{rgb}{0.58,0,0.82}
 
 % https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
 \lstset{
@@ -44,21 +44,21 @@
 \address{
 	Universidade do Vale do Rio dos Sinos
  (UNISINOS)\\
- São Leopoldo -- RS -- Brazil 
+ São Leopoldo -- RS -- Brazil
 \email{jcbrasileiro@hotmail.com}
 }
 
-\begin{document} 
+\begin{document}
 
 
 \maketitle
 
-  
-\begin{resumo} 
-Os métodos de desenvolvimento de software ágil têm se tornado uma das principais abordagens no desenvolvimento de software, trazendo um grande impacto na engenharia de software, aumentando e alterando a percepção e o conceito de qualidade na codificação e na entrega de códigos.
+
+\begin{resumo}
+Os métodos de desenvolvimento de software ágil têm se tornado uma das principais abordagens no desenvolvimento de software, trazendo um grande impacto na engenharia de software, aumentando e alterando a percepção e o conceito de qualidade, na codificação e na entrega de códigos.
 Saber como utilizar conceitos e princípios do \textit{design} orientado a objeto (OOPD), \textit{CLEAN CODE} - não excludente, produção de testes unitários e/ou de integração - para aumentar a produtividade são extremamente importantes.
-Muitas das falhas são por falta de boas práticas mais básicas de programação, tais problemas, embora não correspondam necessariamente a bugs, dificultam a leitura do código, o debug, novas implementações ou qualquer futura manutenção, diminuindo a efetividade na fase do desenvolvimento.
-Este artigo corrobora com a aplicação desses conceitos e define uma melhor estratégia para alcançar um desenvolvimento mais eficaz e eficiente, produzindo códigos com alta qualidade e alto grau de manutenabilidade, com o objetivo geral de definir uma estratégia de codificação, contendo ações necessárias para maximizar e monitorar a codificação, visando um código com alta qualidade e manunenabilidade, utilizando método de pesquisa quantitativas baseadas em métricas passiveis de serem coletadas e monitoradas através de analises estáticas de código (\textit{automatic code-review}) junto com métricas qualitativas através de lições aprendidas, projetos   bem sucedidos e alguns \textit{insights} sobre as melhores soluções e \textit{designs}, aplicado a alguns estudos de casos, simulações de erros ou de problemas, trechos ou demais exemplos de código a serem utilizados nesse artigo. 
+Muitas das falhas são por falta de boas práticas mais básicas de programação, tais problemas, embora não correspondam necessariamente a bugs, dificultam a leitura do código, do debug, de novas implementações ou qualquer futura manutenção, diminuindo a efetividade na fase do desenvolvimento.
+Esse artigo corrobora com a aplicação desses conceitos e define uma melhor estratégia para alcançar um desenvolvimento mais eficaz e eficiente, produzindo códigos com alta qualidade e alto grau de manutenabilidade, com o objetivo geral de definir uma estratégia de codificação, contendo ações necessárias para maximizar e monitorar a codificação, visando um código com alta qualidade e manunenabilidade. O presente etudo, utiliza método de pesquisa quantitativa baseada em métricas passíveis de serem coletadas e monitoradas por meio de analises estáticas de código (\textit{automatic code-review}) , junto com métricas qualitativas por meio de lições aprendidas, projetos   bem sucedidos e alguns \textit{insights} sobre as melhores soluções e \textit{designs}, aplicado a alguns estudos de casos, simulações de erros ou de problemas, trechos ou demais exemplos de código a serem utilizados nesse artigo.
 \end{resumo}
 
 
@@ -71,40 +71,40 @@ This article corroborates with the application of these concepts and defines a b
 
 \textit{Palavras-chaves: clean-code, software development, object-oriented design principles, test driven development (TDD) }
 
-\newpage 
-\tableofcontents
-\newpage
+%\newpage
+%\tableofcontents
+%\newpage
 
 \part{INTRODUÇÃO}
 
 %1º e 2º parágrafo: apresentação do tema dentro de um contexto.
- Uma das mudanças mais impactantes no processo de desenvolvimento de software das últimas décadas, foi a concepção e absorção das metodologias ágeis de software, seja \textit{SCRUM}, \textit{Extreme Programming} (XP), \textit{Test Driven Development} (TDD), \textit{Lean Software Development}, \textit{Kanban}, etc, todas foram criadas a partir da filosofia \textit{AGILE} \cite{AGILE_X_LEAN}.
- 
- O manifesto \textit{Agile} \cite{MANISFESTOAGILE} surgido a partir do esforço de várias pessoas que lidavam com o processo de software na década de 1990, com o objetivo de definir uma abordagem mais efetiva e eficiente para o desenvolvimento de software. Apesar dos conceitos já existirem a quase 20 anos, a importância e a implementação dessas ideias ainda são muito pouco exploradas no Brasil, segundo o instituto Coleman Parkes Research \cite{COLEMANPARKES_AGILE_2017}, durante uma pesquisa, envolvendo cerca de 1.770 executivos de tecnologia da informação em 21 países, incluindo 76 brasileiros, mostra que somente 6\% das empresas têm utilizado fortemente essa filosofia com o objetivo de "transformar toda a organização para abranger os princípios de agilidade".
+ Uma das mudanças mais impactantes no processo de desenvolvimento de software das últimas décadas, foi a concepção e absorção das metodologias ágeis de software, seja \textit{SCRUM}, \textit{Extreme Programming} (XP), \textit{Test Driven Development} (TDD), \textit{Lean Software Development}, \textit{Kanban}, etc., todas foram criadas a partir da filosofia \textit{AGILE} \cite{AGILE_X_LEAN}.
 
- A partir dessa nova abordagem de gerenciar software, a importância da qualidade evoluiu e alcançou novos pontos de vistas, aumentando significativamente tanto na concepção, quanto no decorrer das outras fases, incluindo durante o desenvolvimento, e não mais apenas no final com um simples objetivo de execução do software \cite{WATERFALL_MODEL}.
- 
- Um das grandes mudanças foi a inclusão e a utilização do conceito de \textbf{MPV}, sigla de \textit{Minimum Viable Product}, que significa Produto Mínimo Viável – conceito popularizado por Eric Ries \cite{ERICRIES_THELEAN} - trazendo a importância de entregar e assegurar o sistema de modo incremental, incluindo progressivamente funcionalidades importantes para o cliente, ou o negócio, ressaltando não apenas garantir um software útil, mas também visando minimizar a maleabilidade do ecossistema do negócio, seja as possibilidades de mudanças, tanto de prioridades de funções, técnicas ou mesmo do próprio objetivo fim. A adoção desses pequenos entregáveis, gerou e exigiu um aumento na maturidade no desenvolvimento, criando a necessidade de gerar artefatos que evidenciassem e garantissem, desdo inicio, dois grandes aspectos: (i) Qualidade e (ii) a garantia que cada entregável operasse corretamente conforme evolução do proprio software \cite{AGILE_WORKING_PROCESS}.
+ O manifesto \textit{Agile} \cite{MANISFESTOAGILE} surgiu a partir do esforço de várias pessoas que lidavam com o processo de software na década de 1990, com o objetivo de definir uma abordagem mais efetiva e eficiente para o desenvolvimento de software. Apesar dos conceitos já existirem há quase 20 anos, a importância e a implementação dessas ideias ainda são muito pouco exploradas no Brasil. Segundo o instituto Coleman Parkes Research \cite{COLEMANPARKES_AGILE_2017}, durante uma pesquisa envolvendo cerca de 1.770 executivos de tecnologia da informação, em 21 países, incluindo 76 brasileiros, mostra que somente 6\% das empresas têm utilizado fortemente essa filosofia com o objetivo de "transformar toda a organização para abranger os princípios de agilidade".
 
-Max Kanat-Alexander \cite{CODE_SIMPLICITY} resume sinteticamente uma interpretação da importância da qualidade do código/design: 
+ A partir dessa nova abordagem de gerenciar software, a importância da qualidade evoluiu e alcançou novos pontos de vistas, aumentando, significativamente tanto na concepção, quanto no decorrer das outras fases, incluindo durante o desenvolvimento e não mais apenas no final, com um simples objetivo de execução do software \cite{WATERFALL_MODEL}.
+
+ Uma das grandes mudanças foi a inclusão e a utilização do conceito de \textbf{MPV}, sigla de \textit{Minimum Viable Product}, que significa Produto Mínimo Viável – conceito popularizado por Eric Ries \cite{ERICRIES_THELEAN} - trazendo a importância de entregar e assegurar o sistema de modo incremental, incluindo progressivamente funcionalidades importantes para o cliente, ou o negócio, ressaltando não apenas garantir um software útil, mas também visando minimizar a maleabilidade do ecossistema do negócio, seja as possibilidades de mudanças, tanto de prioridades de funções, técnicas ou mesmo do próprio objetivo fim. A adoção desses pequenos entregáveis, gerou e exigi um aumento na maturidade no desenvolvimento, criando a necessidade de gerar artefatos que evidenciassem e garantissem, desde o inicio, dois grandes aspectos: (i) Qualidade e (ii) a garantia que cada entregáveis operasse corretamente, conforme evolução do proprio software \cite{AGILE_WORKING_PROCESS}.
+
+Max Kanat-Alexander \cite{CODE_SIMPLICITY} resume sinteticamente uma interpretação da importância da qualidade do código/design:
 \begin{quote}
  "É mais importante reduzir o esforço de manutenção do que reduzir o esforço de implementação".
 \end{quote}
 
-Max Kanat-Alexander \cite{CODE_SIMPLICITY} também reforça as consequências de ignorar o fato de existir um futuro, e cair no erro de criado software que "apenas funcionam no presente", a partir disso menciona uma regra importante para a qualidade: 
+Max Kanat-Alexander \cite{CODE_SIMPLICITY} também reforça as consequências de ignorar o fato de existir um futuro, e cair no erro de criar software que "apenas funcionam no presente". A partir disso, menciona uma regra importante para a qualidade:
 \begin{quote}
  "O nível de qualidade do seu projeto deve ser proporcional ao tempo do futuro em que seu sistema continuará a ajudar as pessoas".
-\end{quote} 
+\end{quote}
 
-Steve McConnell \cite{CODE_COMPLETE_2} deixa claro a ideia de qualidade de um código limpo, sendo uma parte principal, e não uma parte opcional no desenvolvimento, reforçando a importância dos aspectos de um código bem feito (capacidade de extensão, código testavel, fácil compreensão, alta coesão, desacoplamento, entre outros).
+Steve McConnell \cite{CODE_COMPLETE_2} deixa claro a ideia de qualidade de um código limpo, sendo uma parte principal e não uma parte opcional no desenvolvimento, reforçando a importância dos aspectos de um código bem feito (capacidade de extensão, código testavel, fácil compreensão, alta coesão, desacoplamento, entre outros).
 
-Em um artigo ainda em 2005, Richard C. Martin \cite{THE_PRINCIPLES_OF_OOD} aborda os conceitos e a importância do que é \textit{design} orientado a objetos, seus benefícios e ainda seus custos.
-Ainda, segundo o author Richard C. Martin \cite{THE_PRINCIPLES_OF_OOD}, essas simples pontos, por mais óbvias e bobas que possam parecer em tempos aonde praticamente todos os desenvolvedores de software estão usando uma linguagem orientada a objetos de algum tipo, ressaltam a importância da questão, evidenciando um cenário aonde a maioria usa essas línguas sem saber o por quê, e sem saber como tirar o máximo proveito delas.
-	 
+Em um artigo publicado em 2005, Richard C. Martin \cite{THE_PRINCIPLES_OF_OOD} aborda os conceitos e a importância do que é \textit{design} orientado a objetos, seus benefícios e ainda seus custos.
+Ainda, segundo o author Richard C. Martin \cite{THE_PRINCIPLES_OF_OOD}, esses simples perguntas por mais óbvios e bobos que possam parecer em tempos onde praticamente todos os desenvolvedores de software estão usando uma linguagem orientada a objetos de algum tipo, ressaltam a importância da questão, evidenciando um cenário em que a maioria usa essas línguas sem saber o por quê, e sem saber como tirar o máximo proveito delas.
+
 
 %3º parágrafo: delimitação do tema, apresentado através do problema de pesquisa do seu TCC.
 %-- Código ruim e "Ice cream" problem
-A partir dessas novas perpectivas e preocupações, e visando amadurecer a qualidade continua no processo de desenvolvimento foi identificado um grande problema na quantidade de esforço para manutenção de códigos com baixa extensibilidade e alto acoplamento, junto com uma alta taxa de “code smells”, termo criado por Kent Beck em conjuto de Martin Fowler \cite{MARTIN_FOWLER_REFACTORING}, e níveis muito baixos de qualidade de \textit{design}/código.
+A partir dessas novas perpectivas e preocupações, e visando amadurecer a qualidade contínua no processo de desenvolvimento, foi identificado um grande problema na quantidade de esforço para manutenção de códigos com baixa extensibilidade e alto acoplamento, junto com uma alta taxa de “code smells”, termo criado por Kent Beck, em conjuto com Martin Fowler \cite{MARTIN_FOWLER_REFACTORING}, e níveis muito baixos de qualidade de \textit{design}/código.
 
 %4º parágrafo: apresente possíveis respostas para o problema de pesquisa levantado, ou seja, as hipóteses.
 %Aplicação das principios OO e CLEAN CODE.
@@ -113,47 +113,47 @@ A partir dessas novas perpectivas e preocupações, e visando amadurecer a quali
 
 %5º parágrafo: em poucas palavras, fale sobre o objetivo geral do trabalho e também dos específicos.
 %Eles são ingredientes fundamentais para o trabalho.
-A finalidade desse trabalho foi aplicar os conceitos do OODP (\textit{Object Oriented Design Principles}), \textit{CLEAN CODE} e \textit{AGILE}, sendo assim, o objetivo geral foi analisar uma estratégia para produção de códigos com qualidade. 
+A finalidade desse trabalho foi aplicar os conceitos do OODP (\textit{Object Oriented Design Principles}), \textit{CLEAN CODE} e \textit{AGILE}, sendo assim, o objetivo geral foi analisar uma estratégia para produção de códigos com qualidade.
 
-A partir disso para alcançar o objetivo geral foram definidos os seguintes objetivos específicos: 
+A partir disso, para alcançar o objetivo geral, foram definidos os seguintes objetivos específicos:
 (i) Identificar a correta aplicação dos conceitos de OOPD/\textit{CLEAN CODE}
 ,(ii) identificar as melhores práticas para a produção de código eficiente
 ,(iii) aplicar as melhores práticas identificadas
 ,(iv) propor uma estratégia para aumentar a eficiência na codificação
 .
 
-Este trabalho não incluiu 
-(i) aprodundar nos conceitos relacionados, mas apenas uma apresentação rápida do seu entendimento. 
+Esse trabalho não incluiu
+(i) Aprofundar em detalhes nos conceitos relacionados, mas apenas abordar uma rápida do seu entendimento.
 
 
 %6º parágrafo: apresente a relevância do seu trabalho acadêmico, identificando a importância dele para a sociedade ou comunidade %científica. Isso é o que chamamos de justificativa.
-O presente trabalho justifica-se por uma forte necessidade de ressaltar ao desenvolvedor, a responsabilidade direta pela produção do artefato final da fase de desenvolvimento (código-fonte)\cite{TR_CLEAN_CODE_IMPORTANCIA}, não apenas em relação ao presente, mas também quanto ao seu futuro, maximizar a rapidez de entendimento do código, ou sua possivel extensão. Também inclui evidenciar a importância e a necessidade de conhecer, estudar e aplicar os conceitos de OOPD, e/ou do CLEAN CODE, que por sua vez, trouxe uma mudança de paradigma de como codificar software, como assegurar, minimizar e identificar impactos decorrentes de mudanças\cite{CODE_SIMPLICITY}.
-Também visa, da perspectiva da empresa, evidenciando que diante um código com qualidade, código melhor estruturado, bem testado, fácil absorção e entendimento, a sua manutenção será mais eficiente e rápida, fazendo do desenvolvimento mais eficaz e eficiente, assim, gerando mais produtividade.
+O presente trabalho justifica-se por uma forte necessidade de ressaltar ao desenvolvedor, a responsabilidade direta pela produção do artefato final da fase de desenvolvimento (código-fonte)\cite{TR_CLEAN_CODE_IMPORTANCIA}, não apenas em relação ao presente, mas também quanto ao seu futuro, maximizando a rapidez de entendimento do código, ou sua possivel extensão. O estudo também inclui evidenciar a importância e a necessidade de conhecer, estudar e aplicar os conceitos de OOPD, e/ou do CLEAN CODE que, por sua vez, trouxe uma mudança de paradigma de como codificar software, como assegurar, minimizar e identificar impactos decorrentes de mudanças\cite{CODE_SIMPLICITY}.
+Também visa, da perspectiva da empresa, evidenciando que diante de um código com qualidade, melhor estruturado, bem testado, de fácil absorção e entendimento, a sua manutenção será mais eficiente e rápida, fazendo do desenvolvimento mais eficaz e eficiente, assim, gerando mais produtividade.
 
 %7º parágrafo: descreva, em poucas palavras, qual metodologia foi utilizada. Foi pesquisa bibliográfica ou de campo?
 %Você deve especificar o procedimento de forma concisa.
-O plano de pesquisa desse trabalho utiliza uma abordagem mista utilizando de métricas quantitativas e qualitativas, de natureza aplicada, afim de determinar uma estratégia para maximizar a qualidade de código, explorando técnicas, conceitos e praticas. Utilizando do método de pesquisa estudo de caso, através de cenários, reais, baseados em cenários, ou simulação do problema, para analisar os resultados objetivos a partir. 
+O plano de pesquisa desse trabalho utiliza uma abordagem mista, utilizando de métricas quantitativas e qualitativas, de natureza aplicada, afim de determinar uma estratégia para maximizar a qualidade de código, explorando técnicas, conceitos e práticas. Utilizando do método de pesquisa estudo de caso, por meio de cenários reais, baseados em cenários, ou simulação do problema, para analisar os resultados obtidos.
 
 %8º parágrafo: apresente a estrutura do trabalho, ou seja, como ele está dividido em capítulos. Lembre-se de falar, %resumidamente, sobre o que se trata cada capitulo.
 O presente trabalho foi estruturado em 7 capítulos.
-O capítulo 1, apresenta a introdução, descrevendo o contexto, problema de pesquisa e objetivos.
-O capítulo 2, apresenta a revisão bibliografia, contêm os pricipais conceitos relacionados.
-O capítulo 3, apresenta os trabalhos relacionados.
-O capítulo 4, apresenta a metodologia de pesquisa utilizada.
-O capítulo 5, apresenta o entendimento do problema.
-O capítulo 6, apresenta a concepção da solução proposta.
-O capítulo 7, apresenta a avaliação e os resultados alcançados.
-O capítulo 8, apresenta os trabalhos futuros.
-Por final, o capítulo 9, é apresentado a conclusão e as considerações finais deste trabalho.
+O capítulo um apresenta a introdução, descrevendo o contexto, problema de pesquisa e objetivos.
+O capítulo dois apresenta a revisão bibliográfia, contendo os pricipais conceitos relacionados.
+O capítulo três apresenta os trabalhos relacionados.
+O capítulo quatro apresenta a metodologia de pesquisa utilizada.
+O capítulo cinco apresenta o entendimento do problema.
+O capítulo seis apresenta a concepção da solução proposta.
+O capítulo sete apresenta a avaliação e os resultados alcançados.
+O capítulo oito apresenta os trabalhos futuros.
+E, por final, no capítulo nove é apresentado a conclusão e as considerações finais desse trabalho.
 
 \part{REVISÃO BIBLIOGRÁFICA} \label{sec:revisaobibliografica}
 \section{\textit{Clean Code}} \label{sec:cleancode}
 
-"Clean code" \cite{ROBERT_MARTIN_CLEAN_CODE} é um conceito subjetivo, que de modo muito generico, significa código bem feito, incluindo saber transformar um "código ruim" em um "código bom", ou o conhecimento da diferença entre ambos, assim como escrever um "código bom". Robert C. Martin \cite{ROBERT_MARTIN_CLEAN_CODE} debate os conceitos do que é "certo" e o que é "errado" na codificação.
+"Clean code" \cite{ROBERT_MARTIN_CLEAN_CODE} é um conceito subjetivo que, de modo muito genérico, significa código bem feito, incluindo saber transformar um "código ruim" em um "código bom", ou o conhecimento da diferença entre ambos, assim como escrever um "código bom". Robert C. Martin \cite{ROBERT_MARTIN_CLEAN_CODE} debate os conceitos do que é "certo" e o que é "errado" na codificação.
 
-É destacado pontos importantes para alcançar o nível de qualidade como principios, padrões, e boas práticas, passando por estudos de casos de diversos tipos e complexidades.
+É destacado pontos importantes para alcançar o nível de qualidade como princípios, padrões e boas práticas, passando por estudos de casos de diversos tipos e complexidades.
 
-Inclui também uma base de conhecimento que descreve e explica o racícinio utilizado durante as leituras, as escritas e durante a aplicação do "clean code", assim como:
+Inclui também uma base de conhecimento que descreve e explica o raciocínio utilizado durante as leituras, as escritas e durante a aplicação do "clean code", assim como:
 \begin{itemize}
  \item utilização de nomes significativos,
  \item codificação de funções pequenas e com objetivos claros,
@@ -161,27 +161,27 @@ Inclui também uma base de conhecimento que descreve e explica o racícinio util
  \item formatação de código,
  \item a importância de objetivar um \textit{design}/sistema testavel \footnote{Um sistema que é testado de forma abrangente e passa todos os seus testes o tempo todo é um sistema testável. Essa é uma declaração óbvia, mas importante. Sistemas que não são testáveis
 não são verificáveis. Provavelmente, um sistema que não pode ser verificado nunca deve ser implantado},
- \item entre outros pontos. 
+ \item entre outros pontos.
 \end{itemize}
-Robert C. Martin \cite{ROBERT_MARTIN_CLEAN_CODE} também destaca o esforço necessario para absorver o conhecimento, e conhecer o "clean code" \cite{ROBERT_MARTIN_CLEAN_CODE}:
+Robert C. Martin \cite{ROBERT_MARTIN_CLEAN_CODE} também destaca o esforço necessário para absorver o conhecimento e conhecer o "clean code" \cite{ROBERT_MARTIN_CLEAN_CODE}:
 
 \begin{quotation}
 \textit{"Aprender a escrever um código limpo é um trabalho árduo. Exige mais do que apenas o conhecimento de princípios e padrões. Você deve suar sobre ele. Você deve pratica-lo você mesmo, e assistir você falha. Você deve observar os outros praticando e falhar. Você deve vê-los tropeçar e siga seus passos. Você deve vê-los agonizantes sobre as decisões e ver o preço que pagam fazendo essas decisões do jeito errado." }
 \end{quotation}
 
 \section{\textit{Object-Oriented Design Principles (OODP)}} \label{sec:oopd}
- 
+
  Richard C. Marti \cite{ROBERT_MARTIN_AGILE_SW_DEV_PPP} afirma que os principios de \textit{design} orientado a objeto, tem como objetivo ajudar os desenvolvedores a eliminar \textit{"design smell"} \footnote{\textit{"Desing smell"}\ \cite{ROBERT_MARTIN_AGILE_SW_DEV_PPP} é um sintoma, algo mensurável, subjetivamente se não objetivamente, que normalmente, é o resultado de uma ou mais violações aos princípios.} e construir melhores soluções para o atual problema/"feature".
 
 \subsection{\textit{S.O.L.I.D principles}} \label{sec:solid}
 
- Conceitos apresentendo iniciamente em 2002 \cite{ROBERT_MARTIN_AGILE_SW_DEV_PPP}, como parte do processo "agile design":
- 
+ Conceitos apresentendos iniciamente em 2002 \cite{ROBERT_MARTIN_AGILE_SW_DEV_PPP}, como parte do processo "agile design":
+
  \begin{quote}
-\textit{" É a aplicação contínua de princípios, padrões e práticas para melhorar a estrutura e a legibilidade do software. É a dedicação de permanecer o design do sistema tão simples, limpa e expressiva quanto possível a todo hora. "}
+\textit{"É a aplicação contínua de princípios, padrões e práticas para melhorar a estrutura e a legibilidade do software. É a dedicação de permanecer o design do sistema tão simples, limpa e expressiva quanto possível a todo hora."}
  \end{quote}
 
- Posteriormente, em 2004, estes cinco princípios tornou conhecido pelo acrónimo "SOLID", após Michael Feathers reorganizar as sequencia dos itens. 
+ Posteriormente, em 2004, estes cinco princípios tornaram-se conhecidos pelo acrónimo "SOLID", após Michael Feathers reorganizar a sequência dos itens:
 
 \begin{itemize}
 	\item \textit{\textbf{SRP} - Single responsibility principle}
@@ -197,26 +197,26 @@ Robert C. Martin \cite{ROBERT_MARTIN_CLEAN_CODE} também destaca o esforço nece
 	\textit{"A classe deve ter apenas uma razão para mudar."}
 \end{quote}
 
-Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, \textbf{Single responsibility principle (SRP)}\footnote{\textbf{SRP} foi inicialmente introduzida por Tom DeMarco \cite{SASS_SRP}.} é um conceito genérico, que considera as ideias referente as razões para mudar ou alterar uma classe como uma responsabilidade. 
+Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, \textbf{Single responsibility principle (SRP)}\footnote{\textbf{SRP} foi inicialmente introduzida por Tom DeMarco \cite{SASS_SRP}.} é um conceito genérico, que considera as ideias referente as razões para mudar ou alterar uma classe como uma responsabilidade.
 
-Este princípio afirma que, se tivermos duas ou mais razões, ou responsabilidades, para mudar uma classe, há uma grande probabilidade da necessidade de dividir essa funcionalidade em duas classes distintas. Sendo assim, cada classe irá lidar com apenas uma responsabilidade e no futuro, se precisarmos adicionar um novo comportamento, deverá ser adicionado na classe especifica que mais se adequa a essa mudança.
+Esse princípio afirma que, se tivermos duas ou mais razões, ou responsabilidades para mudar uma classe, há uma grande probabilidade da necessidade de dividir essa funcionalidade em duas classes distintas. Sendo assim, cada classe irá lidar com apenas uma responsabilidade e no futuro, se precisarmos adicionar um novo comportamento, deverá ser adicionado na classe específica que mais se adequa a essa mudança.
 
-Quando é necessário realizar uma alteração em uma classe que possuiu uma sobrecarga comportamentos, a alteração pode afetar inúmeras outras funcionalidade de outras classes.
+Quando é necessário realizar uma alteração em uma classe que possuiu uma sobrecarga comportamentos, a alteração pode afetar inúmeras outras funcionalidades de outras classes.
 
 \begin{lstlisting}[caption=Exemplo em conformidade ao SRP,language=java]
 public interface RelatorioCliente{
 	RelatorioClienteDTO clientesPendentes();
-	RelatorioClienteDTO clientesSemMovimentacao(Intervalo ref);	
+	RelatorioClienteDTO clientesSemMovimentacao(Intervalo ref);
 	RelatorioClienteDTO clientesComMovimentacao(Intervalo ref);
-	RelatorioClienteDTO clientes(Filtro filtro);		
+	RelatorioClienteDTO clientes(Filtro filtro);
 }
 \end{lstlisting}
 
-Esse principio mostra a importância de pensar em termos de responsabilidades, ajuda a projetar melhor a aplicação, questionar a lógica ou o comportamento a ser adicionado deverá viver na classe em questão ou não, adicionar uma nova classe para implementar as novas necessidades.
+Esse princípio mostra a importância de pensar em termos de responsabilidades, ajuda a projetar melhor a aplicação, questionar se lógica ou o comportamento a ser adicionado deverá viver na classe em questão ou não e adicionar uma nova classe para implementar as novas necessidades.
 
-Dividir as grandes classes em menores evita o problema conhecido como "\textit{God Class}"\footnote{"\textit{God class}", sendo descrito como um objeto que controla muito outros objetos, que cresceu muito além de qualquer lógica, se tornando "uma classe que controla tudo".}\cite{GOD_CLASS}, para o português "classe deus". 
+Dividir as grandes classes em menores evita o problema conhecido como "\textit{God Class}"\footnote{"\textit{God class}", sendo descrito como um objeto que controla muito outros objetos, que cresceu muito além de qualquer lógica, se tornando "uma classe que controla tudo".}\cite{GOD_CLASS}, para o português "classe deus".
 
-% Sua função é bombear o sangue oxigenado (arterial) proveniente dos pulmões para todo o corpo 
+% Sua função é bombear o sangue oxigenado (arterial) proveniente dos pulmões para todo o corpo
 % e
 % direcionar o sangue desoxigenado (venoso), que retornou ao coração, até os pulmões, onde deve ser enriquecido com oxigênio novamente.
 
@@ -268,14 +268,14 @@ public interface GenericDAOQuery{
 \subsubsection{OCP - Open closed principle}
 
 \begin{quote}
-	\textit{"Entidades de software (classes, módulos, funções..) devem estar abertas para extensão, mas fechadas para modificação."}	
+	\textit{"Entidades de software (classes, módulos, funções..) devem estar abertas para extensão, mas fechadas para modificação."}
 \end{quote}
 
-Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, com base nesse principio, é necessário considerar ao criar as classes, certificar de que quando precisar estender seu comportamento, não precisará mudar a classe, mas estende-la. O mesmo princípio pode ser aplicado para módulos, pacotes, bibliotecas.
+Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, com base nesse princípio, é necessário considerar ao criar as classes, certificar de que quando precisar estender seu comportamento, não precisará mudar a classe, mas estende-la. O mesmo princípio pode ser aplicado para módulos, pacotes e bibliotecas.
 
-Se você tem uma biblioteca contendo um conjunto de classes, há muitos motivos pelos quais você preferirá estende-la sem alterar o código que já estava escrito (compatibilidade com versões anteriores, teste de regressão, etc... ). 
+Se você tem uma biblioteca contendo um conjunto de classes, há muitos motivos pelos quais você preferirá estende-la sem alterar o código que já estava escrito (compatibilidade com versões anteriores, teste de regressão, etc.).
 
-Ao se referir às classes, \textbf{OCP} pode ser assegurado pelo uso de classes abstratas, aonde as classes concretas implementam seu comportamento. Isso exigirá que as classes concretas estendam algum comportamento especifico das abstratas em vez de altera-las. Alguns exemplos e casos específicos deste são os \textit{design pattern}: (i) \textit{Template Pattern} e (ii) \textit{Strategy Pattern}.
+Ao se referir às classes, \textbf{OCP} pode ser assegurado pelo uso de classes abstratas das quais as classes concretas implementam seu comportamento. Isso exigirá que as classes concretas estendam algum comportamento específico das abstratas, em vez de altera-las. Alguns exemplos e casos específicos deste são os \textit{design pattern}: (i) \textit{Template Pattern} e (ii) \textit{Strategy Pattern}.
 
 \begin{lstlisting}[caption=Exemplo em conformidade ao OCP,language=java]
 class Pessoa {
@@ -283,13 +283,13 @@ class Pessoa {
 	return exporter.export(this);
  }
 }
- 
+
 interface PessoaExporter { boolean export(Pessoa pessoa); }
 
 class PessoaExporterXML implements PessoaExporter  {
  @Override
  public boolean export(Pessoa pessoa) {/* export to XML */}
-} 
+}
 \end{lstlisting}
 
 \begin{lstlisting}[caption=Exemplo de violação ao OCP,language=java]
@@ -312,10 +312,10 @@ public class FornecedorCadastroWS{
 
 \subsubsection{LSP - Liskov substitution principle}
 \begin{quote}
-	\textit{"Subtipos \footnote{Também conhecidas como "Classes derivadas".} devem ser substituíveis por suas classes base."}\footnote{Barbara Liskov escreveu em seu primeiro artigo em 1988, \textit{"What is wanted here is something like the following substitution property: If for each object $ o_1 $ of type S there is an object $ o_2 $ of type T such that for allprograms Pdefined in terms of T, the behavior of P is unchanged when $ o_1 $ is substituted for $ o_2 $ then S is a subtype of T."} }	
+	\textit{"Subtipos \footnote{Também conhecidas como "Classes derivadas".} devem ser substituíveis por suas classes base."}\footnote{Barbara Liskov escreveu em seu primeiro artigo em 1988, \textit{"What is wanted here is something like the following substitution property: If for each object $ o_1 $ of type S there is an object $ o_2 $ of type T such that for allprograms Pdefined in terms of T, the behavior of P is unchanged when $ o_1 $ is substituted for $ o_2 $ then S is a subtype of T."} }
 \end{quote}
 
-Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, este princípio é apenas uma extensão do \textbf{OCP} em termos de comportamento, aonde deverá ser garantido que novas classes derivadas estejam estendendo as classes base sem alterar seu comportamento. As novas classes derivadas devem ser capazes de substituir as classes base sem qualquer alteração no código.
+Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, este princípio é apenas uma extensão do \textbf{OCP} em termos de comportamento, no qual deverá ser garantido que novas classes derivadas estejam estendendo as classes base sem alterar seu comportamento. As novas classes derivadas devem ser capazes de substituir as classes base sem qualquer alteração no código.
 
 \begin{lstlisting}[caption=Exemplo em conformidade ao LSP,language=java]
 interface Quackable {String reproduzirSom();}
@@ -352,16 +352,16 @@ class PatoMain{
 
 \subsubsection{ISP - Interface segregation principle}
 \begin{quote}
-	\textit{"Muitas interfaces específicas são melhores do que uma interface com propósito genérico."}	
+	\textit{"Muitas interfaces específicas são melhores do que uma interface com propósito genérico."}
 \end{quote}
 
-Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, este princípio ensina a forma de criar interfaces. Quando é necessário criar interfaces, é necessário adicionar apenas métodos que são utilizados ou extremamente obrigatórios. É necessário analisar, ao adicionar métodos incorretamente, ou que não deveriam estar na interface, as classes que implementam a interface terão que implementar esses métodos. 
+Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, este princípio ensina a forma de criar interfaces. Quando necessário é importante adicionar apenas métodos que são utilizados ou extremamente obrigatórios para o atual comportamente da mesma. Sendo fundamental analisar, se serão adicionados novos métodos ou se é mais adequado mover para uma nova interface, pois as classes que implementam essa interface terão de implementar esses métodos.
 
-Um exemplo educacional, ao criarmos uma interface chamada \textbf{Pato} e adicionar um segundo método \textbf{voar}, todos as classes terão que implementar esse novo comportamento, porém se um \textbf{Pato} é um robô ou um pato de brinquedo não obrigatoriamente eles irão precisar desse método.
+Um exemplo educacional, ao criarmos uma interface chamada \textbf{Pato} e adicionar um segundo método \textbf{voar}, todos as classes terão que implementar esse novo comportamento, porém, se um \textbf{Pato} é um robô ou um pato de brinquedo não obrigatoriamente eles irão precisar desse método.
 
 Conclusão para o exemplo, interfaces que contêm métodos que não são específicos são chamadas \textit{polluted interfaces} ou \textit{fat interfaces}, e essa característica deve ser evitada, classes não devem implementar métodos que não são utilizados. A aplicação do \textbf{ISP} proporciona um baixo acoplamento e alta coesão.
 
-Ao falar sobre o acoplamento, a coesão também é mencionada. A alta coesão significa manter coisas similares e relacionadas. A união de coesão e acoplamento é o design ortogonal.A ideia é manter seus componentes focados e tentar minimizar as dependências entre eles.
+Ao falar sobre o acoplamento, a coesão também é mencionada. A alta coesão significa manter coisas similares e relacionadas. A união de coesão e acoplamento é o design ortogonal. A ideia é manter seus componentes focados e tentar minimizar as dependências entre eles.
 
 \begin{lstlisting}[caption=Exemplo de violação ao ISP,language=java]
 interface Pato {
@@ -408,25 +408,25 @@ class PatoBorracha implements PatoSonoro{
 \subsubsection{DIP - Dependency Inversion principle}
 \begin{quote}
 	\textit{A - Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender de abstrações.}
-	
-	\textit{B -  Abstrações não devem depender de detalhes. Detalhes devem depender de abstrações.}	
+
+	\textit{B -  Abstrações não devem depender de detalhes. Detalhes devem depender de abstrações.}
 \end{quote}
 
-Segundo Richard C. Martin, \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE}, afirma que devemos desacoplar módulos de alto nível de módulos de baixo nível, introduzindo uma camada de abstração entre classes de alto nível e classes de baixo nível. Ivertendo a dependência: em vez de escrever nossas abstrações com base nos detalhes, devemos escrever os detalhes com base em abstrações.
+Segundo Richard C. Martin \cite{ROBERT_MARTIN_THE_CLEAN_ARCHITECTURE} afirma, devemos desacoplar módulos de alto nível de módulos de baixo nível, introduzindo uma camada de abstração entre classes de alto nível e classes de baixo nível. Invertendo a dependência: em vez de escrever nossas abstrações com base nos detalhes, devemos escrever os detalhes com base em abstrações.
 
-Inversão de Dependência ou Inversão de Controle, são melhores termos de conhecimento referentes à forma como as dependências são realizadas. Na maneira clássica, quando um módulo de software (classe, estrutura, ) precisa de algum outro módulo, ele inicializa e mantém uma referência direta a ele. Isso fará com que os 2 módulos estejam altamente acoplados. Para desacoplá-los, o primeiro módulo fornecerá uma referencia (uma propriedade, parâmetro, ) e um módulo externo que controle as dependências injetará a referência ao segundo.
+Inversão de Dependência ou Inversão de Controle, são melhores termos de conhecimento referentes à forma como as dependências são realizadas. Na maneira clássica, quando um módulo de software (classe, estrutura) precisa de algum outro módulo, ele inicializa e mantém uma referência direta a ele. Isso fará com que os 2 módulos estejam altamente acoplados. Para desacoplá-los, o primeiro módulo fornecerá uma referência (uma propriedade, parâmetro) e um módulo externo que controle as dependências injetará a referência ao segundo.
 
 Ao aplicar \textbf{DIP}, os módulos podem ser facilmente alterados por outros módulos apenas mudando o módulo de dependência (implementação).
 
 \subsection{\textit{General Responsibility Assignment Software Principles (GRASP)}} \label{sec:grasp}
 
 Segundo \cite{CRAIG_LARMAN} os padrões GRASP englobam uma série de princípios baseados em conceitos de Orientação a Objetos. Partindo de análises que procuram definir quais as obrigações dos diferentes tipos de objetos em uma aplicação, estes patterns disponibilizam uma série de recomendações que procuram favorecer a obtenção de sistemas melhor estruturados.
-Ainda segundo o autor GRASP procuram fornecer diretrizes para a construção de aplicações bem estruturadas e que possam ser facilmente adaptáveis diante da necessidade de mudanças. A consequência direta das recomendações propostas por estes patterns é um código melhor organizado, de fácil manutenção e ainda, capaz de ser compreendido por diferentes desenvolvedores sem grandes dificuldades.
+Ainda segundo o autor, GRASP procuram fornecer diretrizes para a construção de aplicações bem estruturadas e que possam ser facilmente adaptáveis diante da necessidade de mudanças. A consequência direta das recomendações propostas por estes patterns é um código melhor organizado, de fácil manutenção e ainda, capaz de ser compreendido por diferentes desenvolvedores sem grandes dificuldades.
 
-Craig Larman, afirma que "a ferramenta crucial de projeto para desenvolvimento de software é uma mente bem educada em princípios de projeto. Não é UML ou qualquer outra tecnologia". \cite{CRAIG_LARMAN} Assim, GRASP é definido como um conjunto de ferramentas mentais, um auxílio de aprendizagem para ajudar no projeto de software orientado a objetos.
+Craig Larman afirma que, "a ferramenta crucial de projeto para desenvolvimento de software é uma mente bem educada em princípios de projeto. Não é UML ou qualquer outra tecnologia". \cite{CRAIG_LARMAN} Assim, GRASP é definido como um conjunto de ferramentas mentais, um auxílio de aprendizagem para ajudar no projeto de software orientado a objetos.
 
 \begin{itemize}
-	\item Controller	
+	\item Controller
 	\item Creator
 	\item Indirection
 	\item Information Expert
@@ -439,12 +439,12 @@ Craig Larman, afirma que "a ferramenta crucial de projeto para desenvolvimento d
 
 
 \subsubsection{Controller} \label{sec:grasp}
-	
-Segundo \cite{CRAIG_LARMAN} Craig Larman, o padrão controlador atribui a responsabilidade de manipular eventos do sistema para uma classe que não seja de interface do usuário (UI) que representa o cenário global ou cenário de caso de uso. Um objeto controlador é um objeto de interface não-usuário, responsável por receber ou manipular um evento do sistema.
+
+Segundo \cite{CRAIG_LARMAN} Craig Larman, o padrão controlador atribui a responsabilidade de manipular eventos do sistema para uma classe que não seja de interface do usuário (UI), que representa o cenário global ou cenário de caso de uso. Um objeto controlador é um objeto de interface não-usuário, responsável por receber ou manipular um evento do sistema.
 
 Um caso de uso controlador deve ser usado para lidar com todos os eventos de casos de uso e pode ser usado para mais de um caso de uso (por exemplo, para casos de uso como Criar usuário e Excluir usuário, pode ter um único UserController, em vez de dois casos de uso controllers separados).
 
-É definido como o primeiro objeto além da camada UI que recebe e coordena ("controla") operações do sistema. O controlador deve delegar o trabalho que precisa ser feito para outros objetos; ele coordena ou controla a atividade. Ele não deve fazer muito trabalho por si próprio. O Controller GRASP pode ser considerado uma parte da camada de aplicação/serviço [2] (assumindo que a aplicação tenha feito uma distinção explícita entre a camada de aplicativo/serviço e a camada de domínio em um sistema orientado a objetos com camadas comuns em uma arquitetura lógica do sistema de informações).
+É definido como o primeiro objeto além da camada UI que recebe e coordena ("controla") operações do sistema. O controlador deve delegar o trabalho que precisa ser feito para outros objetos; ele coordena ou controla a atividade. Ele não deve fazer muito trabalho por si próprio. O Controller GRASP pode ser considerado uma parte da camada de aplicação/serviço [2] (assumindo que a aplicação tenha feito uma distinção explícita entre a camada de aplicativo/serviço e a camada de domínio em um sistema orientado a objetos com camadas comuns, em uma arquitetura lógica do sistema de informações).
 
 \subsubsection{Creator}
 
@@ -459,23 +459,23 @@ Instâncias de B têm as informações de inicialização das instâncias de A e
 
 \subsubsection{Indirection} \label{sec:grasp}
 
-Segundo \cite{CRAIG_LARMAN}, indireção suporta baixo acoplamento (e potencial de reutilização) entre dois elementos, atribuindo a objeto intermediário a responsabilidade de ser o mediador entre eles. Um exemplo é a introdução do componente controlador para mediação entre dados (modelo) e sua representação (visualização) no padrão MVC.
+Segundo \cite{CRAIG_LARMAN}, indireção suporta baixo acoplamento (e potencial de reutilização) entre dois elementos, atribuindo ao objeto intermediário a responsabilidade de ser o mediador entre eles. Um exemplo é a introdução do componente controlador para mediação entre dados (modelo) e sua representação (visualização) no padrão MVC.
 
 \subsubsection{Information Expert} \label{sec:grasp}
-	
-Segundo \cite{CRAIG_LARMAN}, especialista na informação é um princípio utilizado para determinar onde delegar responsabilidades. Essas responsabilidades incluem métodos, campos computados, e assim em diante.
+
+Segundo \cite{CRAIG_LARMAN}, especialista na informação é um princípio utilizado para determinar onde delegar responsabilidades. Essas responsabilidades incluem métodos, campos computados, e assim por diante.
 
 Usando o princípio information expert, uma abordagem geral para atribuir responsabilidades é olhar para uma determinada responsabilidade, determinar a informação necessária para cumpri-la e depois determinar onde essa informação está armazenada.
 
-Information expert guia a colocará a responsabilidade na classe com a maioria das informações necessárias para cumpri-la.
+Information expert guia colocar a responsabilidade na classe com a maioria das informações necessárias para cumpri-la.
 
 \subsubsection{High Cohesion} \label{sec:grasp}
 
-Segundo \cite{CRAIG_LARMAN} a alta coesão é um padrão avaliativo que tenta manter os objetos adequadamente focados, gerenciáveis e compreensíveis. A alta coesão é geralmente utilizada em suporte de baixo acoplamento. A alta coesão significa que as responsabilidades de um determinado elemento estão fortemente relacionadas e altamente focadas. A quebra de programas em classes e subsistemas é um exemplo de atividades que aumentam as propriedades coesivas de um sistema. Alternativamente, a baixa coesão é uma situação em que um determinado elemento tem muitas responsabilidades distintas, não relacionadas. Elementos com baixa coesão muitas vezes sofrem de ser difíceis de entender, reutilizar, manter e são avessos à mudança.
+Segundo \cite{CRAIG_LARMAN}, a alta coesão é um padrão avaliativo que tenta manter os objetos adequadamente focados, gerenciáveis e compreensíveis. A alta coesão é geralmente utilizada em suporte de baixo acoplamento. A alta coesão significa que as responsabilidades de um determinado elemento estão fortemente relacionadas e altamente focadas. A quebra de programas em classes e subsistemas é um exemplo de atividades que aumentam as propriedades coesivas de um sistema. Alternativamente, a baixa coesão é uma situação em que um determinado elemento tem muitas responsabilidades distintas, não relacionadas. Elementos com baixa coesão muitas vezes sofrem de ser difíceis de entender, reutilizar, manter e são avessos à mudança.
 
 \subsubsection{Low Coupling} \label{sec:grasp}
 
-Segundo \cite{CRAIG_LARMAN} o acoplamento é uma medida de quão forte um elemento está conectado, tem conhecimento ou depende de outros elementos. O baixo acoplamento é um padrão de avaliação que determina como atribuir responsabilidades de suporte:
+Segundo \cite{CRAIG_LARMAN}, o acoplamento é uma medida de quão forte um elemento está conectado e tem conhecimento ou depende de outros elementos. O baixo acoplamento é um padrão de avaliação que determina como atribuir responsabilidades de suporte:
 
 menor dependência entre as classes,
 mudança em uma classe com menor impacto em outras,
@@ -483,16 +483,16 @@ maior potencial de reutilização.
 
 \subsubsection{Polymorphism} \label{sec:grasp}
 
-Segundo \cite{CRAIG_LARMAN} o princípio do polimorfismo, a responsabilidade de definir a variação dos comportamentos com base no tipo é atribuída ao tipo para o qual essa variação ocorre. Isto é conseguido utilizando operações polimórficas. O usuário do tipo deve usar operações polimórficas em vez de ramificações explícitas com base no tipo.
+Segundo \cite{CRAIG_LARMAN}, o princípio do polimorfismo, a responsabilidade de definir a variação dos comportamentos com base no tipo é atribuída ao tipo para o qual essa variação ocorre. Isto é conseguido utilizando operações polimórficas. O usuário do tipo deve usar operações polimórficas em vez de ramificações explícitas com base no tipo.
 
 
 \subsubsection{Protected Variations} \label{sec:grasp}
 
-Segundo \cite{CRAIG_LARMAN} o padrão variações protegidas protege elementos das variações em outros elementos (objetos, sistemas, subsistemas) envolvendo o foco de instabilidade com uma interface e usando polimorfismo para criar várias implementações desta interface.
+Segundo \cite{CRAIG_LARMAN}, o padrão variações protegidas protege elementos das variações em outros elementos (objetos, sistemas, subsistemas), envolvendo o foco de instabilidade com uma interface e usando polimorfismo para criar várias implementações desta interface.
 
 \subsubsection{Pure Fabrication} \label{sec:grasp}
 
-Segundo \cite{CRAIG_LARMAN} Uma fabricação/invenção pura é uma classe artificial que não representa um conceito no domínio do problema, especialmente feito para conseguir baixo acoplamento, alta coesão e o potencial de reutilização derivado (quando uma solução apresentada pelo padrão information expert não é). Esse tipo de classe é chamado de "serviço" em padrão orientado a domínio.
+Segundo \cite{CRAIG_LARMAN}, uma fabricação/invenção pura é uma classe artificial que não representa um conceito no domínio do problema, especialmente feito para conseguir baixo acoplamento, alta coesão e o potencial de reutilização derivado (quando uma solução apresentada pelo padrão information expert não é). Esse tipo de classe é chamado de "serviço" em padrão orientado a domínio.
 
 
 \subsection{\textit{Favor Composition over Inheritance.}} \label{sec:favor_composition}
@@ -500,7 +500,7 @@ Segundo \cite{CRAIG_LARMAN} Uma fabricação/invenção pura é uma classe artif
 \textit{"Uma relação "HAS-A" pode ser melhor do que "IS-A"."}\cite{HEADFIRST_DESIGN_PATTERN}
 \end{quote}
 
-Criar sistemas usando a composição permite muito mais flexibilidade, permite uma maior facilidade na implementação, permite que você altere o comportamento em tempo de execução, desde que o objeto que você está compondo implementa a interface de comportamento correta. 
+Criar sistemas usando a composição permite muito mais flexibilidade, permite uma maior facilidade na implementação, permite que você altere o comportamento em tempo de execução, desde que o objeto que você está compondo implementa a interface de comportamento correta.
 
 
 \subsection{\textit{Law of Demeter principles}} \label{sec:law_of_demeter}
@@ -514,7 +514,7 @@ Na classe C, para todos os métodos M definidos em C, todos os objetos com o qua
 
 Objetos criados por M, por métodos que M invoca ou objetos de escopo global na classe são considerados argumentos de M.
 
-Esta lei tem dois propósitos primários:
+Essa lei tem dois propósitos primários:
 
     Simplificar modificações;
     Simplificar a complexidade da programação.
@@ -525,19 +525,19 @@ Esta lei tem dois propósitos primários:
 \subsection{\textit{Don't Repeat Yourself (DRY)}} \label{sec:dey}
 
 \begin{quote}
-\textit{Cada parte do conhecimento deve ter uma representação única, não ambígua e definitiva dentro do sistema.}
+\textit{"Cada parte do conhecimento deve ter uma representação única, não ambígua e definitiva dentro do sistema."}
 \end{quote}
 
 % https://www.infoq.com/br/news/2012/07/DRY-acoplamento-duplicacao
-Segundo os autores Andy Hunt e Dave Thomas \cite{KEEP_IT_DRY_SHY} o principio DRY \cite{THE_PRAGMATIC_PROGRAMMER}, abreviação do inglês \textit{"Don't Repeat Yourself"} ("Não se Repita"), tem como ideal manter as representações de qualquer ideia, qualquer pedaço de conhecimento de um sistema em apenas um lugar.
-Define centralizar, não necessariamente, por acabar com cópias físicas de código, mas visa existir apenas uma representação deverá ser a fonte definitiva.
-Ainda, segundo o autor \cite{KEEP_IT_DRY_SHY}, idealmente, o sistema deverá automaticamente gerar as copias a partir da fonte definitiva, desse modo quando houver uma mudança de código, só precisará realizar em único ponto, minimizando o desastre de inconsistências e potenciais bugs difíceis de encontrar por ambiguidade no código. 
+Segundo os autores Andy Hunt e Dave Thomas \cite{KEEP_IT_DRY_SHY}, o princípio DRY \cite{THE_PRAGMATIC_PROGRAMMER}, abreviação do inglês \textit{"Don't Repeat Yourself"} ("Não se Repita"), tem como ideal manter as representações de qualquer ideia, qualquer pedaço de conhecimento de um sistema em apenas um lugar.
+Define centralizar, não necessariamente, por acabar com cópias físicas de código, mas visa existir apenas uma representação que deverá ser a fonte definitiva.
+Ainda, segundo o autor \cite{KEEP_IT_DRY_SHY}, idealmente, o sistema deverá automaticamente gerar as cópias a partir da fonte definitiva, desse modo, quando houver uma mudança de código, só precisará realizar em único ponto, minimizando o desastre de inconsistências e potenciais bugs, difíceis de encontrar por ambiguidade no código.
 
-DRY aplica-se ao especialmente ao código, mas também a qualquer outra parte do sistema e paravida diária dos desenvolvedores - processos de construção, documentação, esquema de banco de dados, código comentários, e assim por diante.
+DRY aplica-se especialmente ao código, mas também a qualquer outra parte do sistema e para vida diária dos desenvolvedores - processos de construção, documentação, esquema de banco de dados, código comentários, e assim por diante.
 
 \section{\textsl{Test-driven development (TDD)}} \label{sec:tdd}
 
-Kwent Back \cite{TDD_EXAMPLE} define \textit{test-driven development} (TDD) como uma abordagem evolutiva para o desenvolvimento, combinando o \textit{test-first development } onde escreve um teste primeiro, e em seguida, produz um código de produção que contemple o objetivo do teste, e realiza refatorações. Ainda segundo Kwent Back um principal objetivo do TDD é uma visão aonde o objetivo é a especificação e não a validação, uma forma de pensar em seus requisitos ou no \textit{design} antes de escrever seu código funcional (implica e determina que o TDD como um importante requisito ágil e uma técnica de \textit{design} ágil). Outra visão é que TDD é uma técnica de programação, Como diz Ron Jeffries \cite{CLEAN_CODE_TOO_MUCH_OF_A_GOOD_THING}, o objetivo do TDD é escrever um código limpo que funciona.
+Kwent Back \cite{TDD_EXAMPLE} define \textit{test-driven development} (TDD) como uma abordagem evolutiva para o desenvolvimento, combinando o \textit{test-first development } onde escreve um teste primeiro e, em seguida, produz um código de produção que contemple o objetivo do teste e realiza refatorações. Ainda, segundo Kwent Back\cite{TDD_EXAMPLE}, um principal objetivo do TDD é uma visão da qual o objetivo é a especificação e não a validação, uma forma de pensar em seus requisitos ou no \textit{design}, antes de escrever seu código funcional (implica e determina que o TDD como um importante requisito ágil e uma técnica de \textit{design} ágil). Outra visão é que TDD é uma técnica de programação. Como diz Ron Jeffries \cite{CLEAN_CODE_TOO_MUCH_OF_A_GOOD_THING}, o objetivo do TDD é escrever um código limpo que funciona.
 
 % https://www.sharelatex.com/learn/Inserting_Images
 
@@ -557,44 +557,44 @@ Kwent Back \cite{TDD_EXAMPLE} define \textit{test-driven development} (TDD) como
 
 \part{Trabalhos Relacionados} \label{sec:trabalhosrelacionados}
 
-Com o objetivo de entender e levantar os diversos problema de design e manutenabilidade de código, foram analisadas diversas inciativas e estudos relacionados que utilizam ou exploram os conceito e objetivam a qualidade de código referente a esse trabalho.
-Com isso, os principais trabalhos analisados foram: (i) trabalho de \cite{TR_CLEAN_CODE_INTRODUCAO} que explora os conceitos do CLEAN CODE, explicar e apresenta com mais detalhes algumas técnicas a serem utilizadas.
+Com o objetivo de entender e levantar os diversos problemas de design e manutenabilidade de código, foram analisadas diversas iniciativas e estudos relacionados que utilizam ou exploram os conceitos, objectivando a qualidade de código referente a esse trabalho.
+Com isso, os principais trabalhos analisados foram: (i) trabalho de \cite{TR_CLEAN_CODE_INTRODUCAO} que explora os conceitos do CLEAN CODE, explicar e apresentar com mais detalhes algumas técnicas a serem utilizadas.
 
  (ii) \cite{TR_CLEAN_CODE_IMPORTANCIA} enfatiza por meio de exemplos a importância da aplicação do
-Código Limpo com a finalidade de se obter um sistema robusto com poucos erros e alta manutenibilidade. Destacando ainda o quanto um código ruim pode custar às empresas e diminuir drasticamente a produtividade dos desenvolvedores através de um pequeno experimento, por fim, analisa estatisticamente as vantagens do código limpo comparado a um código convencional, concluindo que a partir dos resultados observados, os mesmos, sugerem que as técnicas, quando aplicadas disciplinadamente, podem aumentar a produtividade dos desenvolvedores, visto que o índice de manutenibilidade, a legibilidade e o tempo de manutenção são melhores.
- 
- (iii) \cite{TR_QC_TECHNICAL_DEBT} fala sobre a dívida técnica, se referir a qualquer projeto de sistema, arquitetura, desenvolvimento dentro da base de código, é uma solução de curto prazo para qualquer trabalho específico, que é aplicado antes da solução completa ou adequada para
-qualquer trabalho, como dizendo que não é uma solução a longo prazo para qualquer trabalho específico. É uma espécie de solução que é encaminhado pelos não especialistas para o conclusão ou entrega do produto, mas é atraídos pelos especialistas que podem comprometer a qualidade do produto.
+Código Limpo com a finalidade de se obter um sistema robusto com poucos erros e alta manutenibilidade. Destacando ainda o quanto um código ruim pode custar às empresas e diminuir drasticamente a produtividade dos desenvolvedores por meio de um pequeno experimento. Por fim, analisa estatisticamente as vantagens do código limpo comparado a um código convencional, concluindo que a partir dos resultados observados, os mesmos, sugerem que as técnicas, quando aplicadas disciplinadamente, podem aumentar a produtividade dos desenvolvedores, visto que o índice de manutenibilidade, a legibilidade e o tempo de manutenção são melhores.
 
- (iv) \cite{TR_CLEAN_CODE_METRICA} um mapeamento entre um conjunto de métricas de código-fonte, com o objetivo de facilitar a detecção de trechos de código com potencial de melhorias, apresenta uma maneira de interpretar as métricas.
+ (iii) \cite{TR_QC_TECHNICAL_DEBT} fala sobre a dívida técnica se referir a qualquer projeto de sistema, arquitetura, desenvolvimento dentro da base de código, ser uma solução de curto prazo para qualquer trabalho específico, que é aplicado antes da solução completa ou adequada para
+qualquer trabalho, como dizendo que não é uma solução a longo prazo para qualquer trabalho específico. É uma espécie de solução que é encaminhada pelos não especialistas para o conclusão ou entrega do produto, mas é atraída pelos especialistas que podem comprometer a qualidade do produto.
+
+ (iv) \cite{TR_CLEAN_CODE_METRICA} um mapeamento entre um conjunto de métricas de código-fonte, com o objetivo de facilitar a detecção de trechos de código com potencial de melhorias, apresentando uma maneira de interpretar as métricas.
 
  (v) \cite{CODE_READABILITY_TESTING_STUDY} demonstra
 como o teste de legibilidade do código melhora a capacidade dos programadores
-para escrever código legível, e identificar correções. Apresenta uma comparação de tecnicas e conclui com resultados positivos, relatando que as técnicas valem seu tempo investido e articula como os testes podem alterar positivamente seus hábitos de programação.
- 
- (vi) \cite{CODE_SMELLS_REFLECT_IMPORTANT_MAINTAINABILITY_ASPECTS} esse artigo apresenta uma importante analisa sobre "code smell", sendo apresentado um relatório sobre um estudo empírico que investiga a extensão que os "code smell" refletem e afetam a capacidade de manutenção.
+para escrever código legível, e identificar correções. Apresenta uma comparação de técnicas e conclui com resultados positivos, relatando que as técnicas valem seu tempo investido e articula como os testes podem alterar, positivamente, seus hábitos de programação.
+
+ (vi) \cite{CODE_SMELLS_REFLECT_IMPORTANT_MAINTAINABILITY_ASPECTS} esse artigo apresenta uma importante análisa sobre "code smell", sendo apresentado um relatório sobre um estudo empírico que investiga a extensão que os "code smell" refletem e afetam a capacidade de manutenção.
 
 \part{Metodologia de Pesquisa} \label{sec:metodologia_Pesquisa}
 
-Esta pesquisa possui caráter qualitativo, e quantitativo em relação a sua abordagem e coleta de dados, utilizando de métricas em ambos os tipos. Conforme Prodanov e Freitas \cite{METOLOGIA}, a pesquisa quantitativa  considera que tudo pode ser quantificável, traduzido em números opiniões e informações para classificá-las e analisá-las. Dessa forma, buscando métricas para serem monitoradas afim de determinar a qualidade do código em relação ao objetiva desse trabalho.
+Essa pesquisa possui caráter qualitativo e quantitativo em relação a sua abordagem e coleta de dados, utilizando de métricas em ambos os tipos. Conforme Prodanov e Freitas \cite{METOLOGIA}, a pesquisa quantitativa  considera que tudo pode ser quantificável, traduzido em números, opiniões e informações para classificá-las e analisá-las. Dessa forma, buscando métricas para serem monitoradas afim de determinar a qualidade do código em relação ao objetivo desse trabalho.
 
-Também considerando um caráter quantitativo como abordagem e coleta de dados conforme autores Prodanov e Freitas \cite{METOLOGIA} considerando a relação dinâmica entre o mundo real e um  vínculo  indissociável  entre  o  mundo  objetivo e  a  subjetividade  do  sujeito  que  não  pode  ser  traduzido  em  números
-exploratório. Com base nisso será analisados os resultados a fim de determinar uma forma não numericamente representativa as melhores práticas, recomendações para a codificação. Assim seguindo o autor, como pesquisa qualitativa há um contato direto do pesquisador com a situação estudada, esse trabalho visa entender a perspectiva no decorrer da aplicação, e apresentar as experiências e percepções.
+Também considerando um caráter quantitativo como abordagem e coleta de dados conforme autores Prodanov e Freitas \cite{METOLOGIA}, considerando a relação dinâmica entre o mundo real e um  vínculo  indissociável  entre  o  mundo  objetivo e  a  subjetividade  do  sujeito  que  não  pode  ser  traduzido  em  números
+exploratório. Com base nisso serão analisados os resultados a fim de determinar uma forma não numericamente representativa as melhores práticas e recomendações para a codificação, assim seguindo o autor, como pesquisa qualitativa há um contato direto do pesquisador com a situação estudada, esse trabalho visa entender a perspectiva no decorrer da aplicação e apresentar as experiências e percepções.
 
-Em relação a natureza, o mesmo será aplicada, conforme Prodanov e Freitas \cite{METOLOGIA}, objetivando gerar conhecimentos para aplicação prática dirigidos à solução de problemas específicos. Com objetivo exploratório descritivo, do ponto de vista dos procedimentos técnicos, o dados serão obtidos a partir de estudo de caso, aonde "envolve  o  estudo  profundo  e  exaustivo  de  um  ou  poucos  objetos  de  maneira  que  permita  o  seu  amplo  e  detalhado  conhecimento." \cite{METOLOGIA}. Utilizando de trechos de códigos ou \textit{design} e/ou problemas que representam o problema citado nesse trabalho.
+Em relação a natureza, 	a mesmo será aplicada, conforme Prodanov e Freitas \cite{METOLOGIA}, objetivando gerar conhecimentos para aplicação prática dirigidos à solução de problemas específicos. Com objetivo exploratório descritivo, do ponto de vista dos procedimentos técnicos, os dados serão obtidos a partir de estudo de caso, na qual "envolve  o  estudo  profundo  e  exaustivo  de  um  ou  poucos  objetos  de  maneira  que  permita  o  seu  amplo  e  detalhado  conhecimento." \cite{METOLOGIA}. Utilizando de trechos de códigos ou \textit{design} e/ou problemas que representam o problema citado nesse trabalho.
 
 \part{Entendimento do problema} \label{sec:problema}
 
-Existem alguns pontos importantes que tornam díficil trabalhar com software \cite{MARTIN_FOWLER_REFACTORING}:
+Existem alguns pontos importantes que tornam difícil trabalhar com software \cite{MARTIN_FOWLER_REFACTORING}:
 
 \begin{itemize}
- \item Programas dificies de ler, são dificeis de modificar.
- \item Programas com lógica dupilcada são dificies de modificar.
- \item Programas com lógicas condicionais díficeis tornam o software díficil.
- \item Programas que requerem comportamentos adicionais e exigem mudanças no código corrente, são díficeis de modificar.
-\end{itemize} 
+ \item Programas difícieis de ler, são difícieis de modificar.
+ \item Programas com lógica dupilcada são difícieis de modificar.
+ \item Programas com lógicas condicionais difícieis tornam o software difícil.
+ \item Programas que requerem comportamentos adicionais e exigem mudanças no código corrente, são difícieis de modificar.
+\end{itemize}
 
-Em consideração aos itens descritos, é possivel identificar inúmeros pontos durante o desenvolvimento, itens que possuem uma forte relação com os itens citados, e muitos tendem a representar uma clara violações a muitos dos principios presente nesse trabalho, e assim, tornando a manutenção, uma tarefa mais dificil:
+Em consideração aos itens descritos, é possível identificar inúmeros pontos durante o desenvolvimento, itens que possuem uma forte relação com os itens citados, e muitos tendem a representar uma clara violação a muitos dos princípios presentes nesse trabalho, e assim, tornando a manutenção, uma tarefa mais difícil:
 
 \begin{itemize}
  \item Classe com muitas responsabilidades (GOD CLASS).
@@ -604,9 +604,9 @@ Em consideração aos itens descritos, é possivel identificar inúmeros pontos 
  \item Código redundante
  \item Alto acoplamento
  \item Métodos adicionados sem necessidade.
- \item Metodos com muitos laços 
-\end{itemize} 
-	
+ \item Métodos com muitos laços
+\end{itemize}
+
 \part{Concepção da solução proposta} \label{sec:concepcao}
 
 A solução proposta é composta dos seguintes itens:
@@ -615,10 +615,10 @@ A solução proposta é composta dos seguintes itens:
  \item Análise de código estático (\textit{Static Code Analysis}).
  \item Gerenciamento da qualidade de código.
  \item Utilização de métricas de qualidade de código.
-\end{itemize} 
+\end{itemize}
 
 \section{Análise de código estático (\textit{Static Code Analysis})} \label{sec:staticcodeanalysis}
-Brian Chess e Jacob West explicam \cite{SECURE_PROGRAMMING_STATIC_ANALYSIS} os pontos mais importantes na utilização dessa analise, e as diferentes categorias de análise estática :
+Brian Chess e Jacob West explicam \cite{SECURE_PROGRAMMING_STATIC_ANALYSIS} os pontos mais importantes na utilização dessa análise, e as diferentes categorias de análise estática :
 
 \begin{itemize}
  \item Verificação de tipo
@@ -627,29 +627,29 @@ Brian Chess e Jacob West explicam \cite{SECURE_PROGRAMMING_STATIC_ANALYSIS} os p
  \item Verificação do programa e verificação de propriedades
  \item Verificação de potenciais BUGS
  \item Revisão de segurança
-\end{itemize} 
+\end{itemize}
 
-A utilização análise da qualidade do código fonte é uma parte essencial no processo de qualidade contínua, juntamente com testes automatizados, é o elemento-chave para fornecer um software confiável, e principalmente, uma base quantitativa em conjunto com uma base historica de métricas do software. 
+A utilização análise da qualidade do código fonte é uma parte essencial no processo de qualidade contínua, juntamente com testes automatizados, é o elemento-chave para fornecer um software confiável e, principalmente, uma base quantitativa em conjunto com uma base histórica de métricas do software.
 
-As ferramentas de análise de código estático (SCA) são amplamente usadas no desenvolvimento \cite{SECURE_PROGRAMMING_STATIC_ANALYSIS} e cada ferramenta tem seu próprio recurso, propósito e objetivo, o que ajuda a aumentar a qualidade do código. 
+As ferramentas de análise de código estático (SCA) são amplamente usadas no desenvolvimento \cite{SECURE_PROGRAMMING_STATIC_ANALYSIS} e cada ferramenta tem seu próprio recurso, propósito e objetivo, o que ajuda a aumentar a qualidade do código.
 
 \subsection{PMD} \label{sec:pmd}
-	O PMD é uma ferramenta extremamente útil para analisar o código-fonte, podendo verificar o código-fonte a procura de possíveis problemas, possíveis bugs, códigos não usados e sub-ótimos, expressões complicadas e códigos duplicados \cite{PMD}, a tabela \ref{table:PMD:rules} mostra o conjunto de regras, que podemos analisar no código.
+	O PMD é uma ferramenta extremamente útil para analisar o código-fonte, podendo verificar o código-fonte à procura de possíveis problemas, possíveis bugs, códigos não usados e sub-ótimos, expressões complicadas e códigos duplicados \cite{PMD}. A tabela \ref{table:PMD:rules} mostra o conjunto de regras, que podemos analisar no código.
 
 \begin{table}[h!]
- \begin{tabular}{| c | c | c |} 
+ \begin{tabular}{| c | c | c |}
  \hline
  REGRA & DESCRIÇÃO & EXEMPLO \\ [0.5ex]
  \hline\hline
-  
+
 \hline Basic &
-\makecell{Regras básicas gerais.} & 
+\makecell{Regras básicas gerais.} &
 \makecell{Blocos try ou \\ catch vazios, usar \\ return desnecessariamente, etc. } \\
-\hline Braces & 
+\hline Braces &
 \makecell{Regras  relacionadas \\ ao  uso  de chaves.} &
 \makecell{Ifs, whiles \\ e loops devem \\ possuir chaves.} \\
 \hline Controversial &
-\makecell{Regras de aplicação geral,\\ mas de aplicação controversa.} & 
+\makecell{Regras de aplicação geral,\\ mas de aplicação controversa.} &
 \makecell{Presença de construtor desnecessário, \\ atribuição de null \\ a uma variável etc.} \\
 \hline Coupling &
 \makecell{Regras relacionadas \\ ao acoplamento \\ entre objetos e pacotes.} &
@@ -675,7 +675,7 @@ As ferramentas de análise de código estático (SCA) são amplamente usadas no 
 \hline \makecell{Unused code} &
 \makecell{Regras que  detectam \\ código não utilizado.} &
 \makecell{Campos privados, \\ variáveis  locais \\ e  parâmetros de métodos não usados.} \\
-[1ex] 
+[1ex]
 \hline
 \end{tabular}
 \caption{Alguns dos principais tipos de regras implementadas no PMD\cite{PMD}.}
@@ -687,67 +687,66 @@ As ferramentas de análise de código estático (SCA) são amplamente usadas no 
 Ele analisa o código de byte Java, principalmente .classes para encontrar qualquer falha de projeto e possíveis bugs. Ele precisa de código compilado para contornar e, eventualmente, será rápido, já que funciona em nível de código de bytes.
 
 \begin{table}[h!]
- \begin{tabular}{| c | c |} 
+ \begin{tabular}{| c | c |}
  \hline
  REGRA & DESCRIÇÃO \\ [0.5ex]
   \hline\hline
   \hline \makecell{CN:\\ Class implements\\ Cloneable but\\ does not define\\ or use clone method } &
-  \makecell{Implementa de classe Clonável,\\ mas não define nem usa\\ o método clone.} \\ 
+  \makecell{Implementa de classe Clonável,\\ mas não define nem usa\\ o método clone.} \\
   \hline \makecell{CN:\\ Class defines clone() but \\ doesn't implement Cloneable } &
-  \makecell{Essa classe define um método clone (),\\ mas a classe não implementa Cloneable.\\ Existem algumas situações em que isso é aceitável\\ (por exemplo, você quer controlar\\ como as subclasses podem se clonar),\\ mas apenas certifique-se de que\\ é isso que você pretendia.} \\ 
+  \makecell{Essa classe define um método clone (),\\ mas a classe não implementa Cloneable.\\ Existem algumas situações em que isso é aceitável\\ (por exemplo, você quer controlar\\ como as subclasses podem se clonar),\\ mas apenas certifique-se de que\\ é isso que você pretendia.} \\
   \hline \makecell{CN:\\ clone method does not \\ call super.clone() } &
-  \makecell{Essa classe não final define\\ um método clone () que não chama super.clone ().\\ Se esta classe ("A") é extendida por\\ uma subclasse ("B"), e a subclasse B\\ chama super.clone (),\\ então é provável que o método clone ()\\ de B retorne um objeto do tipo A,\\ o que viola o contrato padrão para clone ().\\ Se todos os métodos clone () chamarem super.clone (),\\ eles terão a garantia\\ de usar Object.clone (),\\ que sempre retorna um objeto do tipo correto.} \\ 
+  \makecell{Essa classe não final define\\ um método clone () que não chama super.clone ().\\ Se esta classe ("A") é extendida por\\ uma subclasse ("B"), e a subclasse B\\ chama super.clone (),\\ então é provável que o método clone ()\\ de B retorne um objeto do tipo A,\\ o que viola o contrato padrão para clone ().\\ Se todos os métodos clone () chamarem super.clone (),\\ eles terão a garantia\\ de usar Object.clone (),\\ que sempre retorna um objeto do tipo correto.} \\
   \hline \makecell{Eq:\\ Class defines compareTo(...) \\ and uses Object.equals() } &
-  \makecell{Essa classe define um método compareTo (...),\\ mas herda seu método equals () de java.lang.Object.\\ Geralmente, o valor de compareTo\\ deve retornar zero se e somente se igual for true.\\ Se isso for violado, estranho e imprevisto} \\ 
+  \makecell{Essa classe define um método compareTo (...),\\ mas herda seu método equals () de java.lang.Object.\\ Geralmente, o valor de compareTo\\ deve retornar zero se e somente se igual for true.\\ Se isso for violado, estranho e imprevisto} \\
   \hline \makecell{HE:\\ Class defines equals()\\ but not hashCode() } &
-  \makecell{Classe substitui equals (Object),\\ mas não substitui o hashCode ().\\ Portanto, a classe pode violar a invariante\\ de que objetos iguais devem ter códigos de hash iguais.} \\ 
+  \makecell{Classe substitui equals (Object),\\ mas não substitui o hashCode ().\\ Portanto, a classe pode violar a invariante\\ de que objetos iguais devem ter códigos de hash iguais.} \\
   \hline \makecell{HE:\\ Class defines hashCode()\\ but not equals() } &
-  \makecell{Essa classe define um método hashCode (),\\ mas não um método equals ().\\ Portanto, a classe pode violar a invariante\\ de que objetos iguais devem ter\\ códigos de hash iguais.} \\ 
-  [1ex] 
+  \makecell{Essa classe define um método hashCode (),\\ mas não um método equals ().\\ Portanto, a classe pode violar a invariante\\ de que objetos iguais devem ter\\ códigos de hash iguais.} \\
+  [1ex]
   \hline
  \end{tabular}
  \caption{Exemplo de regras implementadas no FINDBUGS\cite{FINDBUGS}.}
  \label{table:FINDBUGS:rules}
 \end{table}
- As principais categorias desta ferramenta são: Exatidão, Má prática, Código desonesto, Corrigidez multissegmentada, Desempenho malicioso, Vulnerabilidade de código, Segurança experimental e internacionalização
-		O FindBugs é outro analisador de código estático muito semelhante ao PMD. A maior diferença entre o PMD e o FindBugs é que o FindBugs funciona no código de bytes, enquanto o PMD trabalha no código-fonte.
+ As principais categorias dessa ferramenta são: Exatidão, Má prática, Código desonesto, Corrigidez multissegmentada, Desempenho malicioso, Vulnerabilidade de código, Segurança experimental e internacionalização. O FindBugs é outro analisador de código estático muito semelhante ao PMD. A maior diferença entre o PMD e o FindBugs é que o FindBugs funciona no código de bytes (compilado), enquanto o PMD trabalha no código-fonte.
 
 
 \subsection{Checkstyle} \label{sec:checkstyle}
-Checkstyle analisa o código-fonte e procura melhoraralinhar o padrão de formatação do código, verifica o código-fonte conforme convenções de codificação como cabeçalhos, importações, espaços em branco etc.
+Checkstyle analisa o código-fonte e procura melhorar e alinhar o padrão de formatação do código, verificando o código-fonte conforme convenções de codificação como cabeçalhos, importações, espaços em branco, etc.
 		Checkstyle é uma ferramenta para analisar estilo e convenções de codificação. Ele não interromperá as exceções de rouge, mas fornecerá feedback sobre como o código é organizado. Checkstyle é útil para garantir que o código Java está seguindo um padrão de formatação de códigos.
-		Algumas pontos que o Checkstyle consegue identificar:
+		Alguns pontos que o Checkstyle consegue identificar:
 
 \begin{itemize}
  \item Falta / javadoc impróprio
- \item Utilização de tabulação e espaço em branco denecessarios.
+ \item Utilização de tabulação e espaço em branco desnecessário.
  \item Utilização de chaves e parênteses.
  \item Comprimento da linha
-\end{itemize} 
+\end{itemize}
 
 \subsection{Fortify} \label{sec:fortify}
-Fortify\cite{FORTIFY} é um conjunto de analisadores de segurança de software que procura violações de regras de codificação específicas de segurança. Esse SCA fornece dados que permite identificar e priorizar violações aonde correções sejam rápidas e precisas.
-O Fortify informações de análise que ajudam a fornecer softwares mais seguros, além de criar códigos de segurança avaliações mais eficientes, consistentes e completas. Seu design permite que você incorpore rapidamente novos regras de segurança específicas de terceiros e de clientes.
+Fortify\cite{FORTIFY} é um conjunto de analisadores de segurança de software que procura violações de regras de codificação específicas de segurança. Esse SCA fornece dados que permitem identificar e priorizar violações as quais correções sejam rápidas e precisas.
+O Fortify informações de análise que ajudam a fornecer softwares mais seguros, além de criar códigos de segurança, avaliações mais eficientes, consistentes e completas. Seu design permite que você incorpore, rapidamente, novos regras de segurança específicas de terceiros e de clientes.
 
-Algumas pontos que o Fortify consegue identificar\cite{OWASP}:
+Alguns pontos que o Fortify consegue identificar\cite{OWASP}:
 
 \begin{itemize}
  \item Mass Assignment: Insecure Binder Configuration
-  \subitem Para facilitar o desenvolvimento e aumentar a produtividade, a maioria das estruturas modernas permite que um objeto seja automaticamente instanciado e preenchido com os parâmetros de solicitação HTTP cujos nomes correspondem a um atributo da classe a ser vinculado. A instanciação automática e a população de objetos aceleram o desenvolvimento, mas podem levar a sérios problemas se implementados sem cautela. Qualquer atributo nas classes vinculadas, ou classes aninhadas, será automaticamente vinculado aos parâmetros de solicitação HTTP. Portanto, os usuários mal-intencionados poderão atribuir um valor a qualquer atributo em classes vinculadas ou aninhadas, mesmo que não sejam expostos ao cliente por meio de formulários da Web ou contratos de API.
-	
+  \subitem Para facilitar o desenvolvimento e aumentar a produtividade, a maioria das estruturas modernas permite que um objeto seja automaticamente instanciado e preenchido com os parâmetros de solicitação HTTP, cujos nomes correspondem a um atributo da classe a ser vinculado. A instanciação automática e a população de objetos aceleram o desenvolvimento, mas podem levar a sérios problemas se implementados sem cautela. Qualquer atributo nas classes vinculadas, ou classes aninhadas, será automaticamente vinculado aos parâmetros de solicitação HTTP. Portanto, os usuários mal-intencionados poderão atribuir um valor a qualquer atributo em classes vinculadas ou aninhadas, mesmo que não sejam expostos ao cliente por meio de formulários da Web ou contratos de API.
+
  \item Log Forging
-  \subitem Os aplicativos geralmente usam arquivos de log para armazenar um historico de eventos ou transacoes para revisão posterior, coleta de estatísticas ou depuração.
- Dependendo da natureza do aplicativo, a tarefa de revisar arquivos de log pode ser executada manualmente conforme necessário ou automatizada com uma ferramenta que seleciona automaticamente os logs para eventos importantes ou informações de tendências.
-A interpretação dos arquivos de log pode ser prejudicada ou mal direcionada se um invasor puder fornecer dados para o aplicativo que é posteriormente registrado na íntegra. No caso mais benigno, um invasor pode inserir entradas falsas no arquivo de log, fornecendo ao aplicativo uma entrada que inclua caracteres apropriados. Se o arquivo de log for processado automaticamente, o invasor poderá tornar o arquivo inutilizável corrompendo o formato do arquivo ou injetando caracteres inesperados.
+  \subitem Os aplicativos geralmente usam arquivos de log para armazenar um histórico de eventos ou transações para revisão posterior, coleta de estatísticas ou depuração.
+ Dependendo da natureza do aplicativo, a tarefa de revisar arquivos de log pode ser executada, manualmente, conforme necessário ou automatizada com uma ferramenta que seleciona automaticamente os logs para eventos importantes ou informações de tendências.
+A interpretação dos arquivos de log pode ser prejudicada ou mal direcionada se um invasor puder fornecer dados para o aplicativo que é posteriormente registrado na íntegra. No caso mais benigno, um invasor pode inserir entradas falsas no arquivo de log, fornecendo ao aplicativo uma entrada que inclua caracteres apropriados. Se o arquivo de log for processado automaticamente, o invasor poderá tornar o arquivo inutilizável, corrompendo o formato do arquivo ou injetando caracteres inesperados.
 
  \item System Information Leak: Internal
-  \subitem Dependendo da configuração do sistema, essas informações podem ser despejadas em um console, gravadas em um arquivo de log ou expostas a um usuário. Em alguns casos, a mensagem de erro informa ao invasor com precisão em que tipo de ataque o sistema está vulnerável. Por exemplo, uma mensagem de erro do banco de dados pode revelar que o aplicativo é vulnerável a um ataque de injeção de SQL. Outras mensagens de erro podem revelar pistas mais oblíquas sobre o sistema. No exemplo acima, a informação que vazou poderia implicar informações sobre o tipo de sistema operacional, os aplicativos instalados no sistema e a quantidade de cuidados que os administradores dedicaram à configuração do programa.
-\end{itemize} 
+  \subitem Dependendo da configuração do sistema, essas informações podem ser despejadas em um console, gravadas em um arquivo de log ou expostas a um usuário. Em alguns casos, a mensagem de erro informa ao invasor, com precisão, em que tipo de ataque o sistema está vulnerável. Por exemplo, uma mensagem de erro do banco de dados pode revelar que o aplicativo é vulnerável a um ataque de injeção de SQL. Outras mensagens de erro podem revelar pistas mais oblíquas sobre o sistema. No exemplo acima, a informação que vazou poderia implicar informações sobre o tipo de sistema operacional, os aplicativos instalados no sistema e a quantidade de cuidados que os administradores dedicaram à configuração do programa.
+\end{itemize}
 
 \section{\textit{Manage code quality}} \label{sec:managecodequality}
 
-Colocar toda a equipe sincronizado em relação a qualidade é bastante difícil. Para centralizar e escalar em uma visão única a qualidade do código, é necessario um local central para visualizar e definir as regras usadas durante a análise de projetos. Esses conjuntos de regras devem ser organizad, aonde os membros da organização podem ver quais regras são aplicadas ao projeto.
-O SonarQube\cite{SONARQUBE} fornece um Quality Gate padrão com foco na definição de requisitos unicos, mas aplicados em todos os projetos.
+Colocar toda a equipe sincronizada em relação a qualidade é bastante difícil. Para centralizar e escalar em uma visão única a qualidade do código, é necessario um local central para visualizar e definir as regras usadas durante a análise de projetos. Esses conjuntos de regras devem ser organizados, na qual os membros da organização podem ver quais regras são aplicadas ao projeto.
+O SonarQube\cite{SONARQUBE} fornece um Quality Gate padrão com foco na definição de requisitos únicos, mas aplicados em todos os projetos.
 
 \subsection{Sonar} \label{sec:sonar}
 
@@ -759,21 +758,21 @@ O SonarQube\cite{SONARQUBE} fornece um Quality Gate padrão com foco na definiç
 \end{figure}
 
 O SonarQube\cite{SONAR} é uma plataforma de código aberto para inspeção contínua da qualidade do código. Usando a análise de código estático, ele tenta detectar bugs, códigos cheiros e vulnerabilidades de segurança. O SonarQube suporta vários idiomas por meio de conjuntos de regras integrados e também pode ser estendido com vários plug-ins, inclusive os citados nesse artigo.
-Principais vantagens e integrações do SonarQube são as seguintes \cite{SONARQUBE_IN_ACTION}:
+As principais vantagens e integrações do SonarQube são as seguintes \cite{SONARQUBE_IN_ACTION}:
 
 \begin{itemize}
- \item SonarQube Plugins - Possuiu varios plugins importantes:
+ \item SonarQube Plugins - Possuiu vários plugins importantes:
   \subitem Findbugs.
 	\subitem Checkstyle.
 	\subitem PMD.
 	\subitem Fortify.
 	\subitem PI test.
- \item SonarQube Scanners - Possível de realizar a analise de varias formas:
+ \item SonarQube Scanners - Possível de realizar a análise de várias formas:
 	\subitem Maven\cite{MAVEN}.
 	\subitem Gradle\cite{GRADLE}.
 	\subitem Jenkins\cite{JENKINS}.
 	\subitem Standalone / Ant\cite{ANT}.
-\end{itemize} 
+\end{itemize}
 
 O SonarQube não compete de forma alguma com nenhuma das ferramentas de análise estática acima, mas complementa e funciona muito bem com essas ferramentas, sendo totalmente operante sem essas mesmas ferramentas de análise estática (Checkstyle, PMD e FindBugs).
 
@@ -812,20 +811,20 @@ Em caso de não conformidade, as mudanças não serão aprovadas para revisão m
 %% https://sonarcloud.io/dashboard?id=net.java.openjdk%3Ajdk7
 %% https://sonarcloud.io/dashboard?id=org.apache%3Atomcat%3A9.x
 %% https://sonarcloud.io/dashboard?id=net.java.openjdk%3Ajdk9
-		
+
 \part{Avaliação da solução proposta} \label{sec:avaliacao}
- Avaliação da solução proposta foi definida em 3 partes:
- 
+ A avaliação da solução proposta foi definida em 3 partes:
+
  \begin{itemize}
- 	\item Planejando uma estratégia e insights.	
+ 	\item Planejando uma estratégia e insights.
  	\item Inspeção contínua.
  	\item Utilizando SonarQube para conduzir revisões de código.
  \end{itemize}
 
 \subsection{Planejando uma estratégia e insights.} \label{sec:sonar-planning}
 
-O planejamento e atualização das estretégias de qualidade de código, foram atualizadas conforme a utilização do sonar e o desenvolvimento das aplicações.
-Ao final de cada Sprint, avaliações das métricas atuais, e inclusão de novas métricas foram realizadas.
+O planejamento e atualização das estretégias de qualidade de código foram atualizadas, conforme a utilização do sonar e o desenvolvimento das aplicações.
+Ao final de cada Sprint, avaliações das métricas atuais e inclusão de novas métricas foram realizadas.
 Sendo a partir do Sprint 0, da utilização do sonar, até a normalização da qualidade do projeto, os objetivos foram definidos em:
 
  \begin{itemize}
@@ -836,8 +835,8 @@ Sendo a partir do Sprint 0, da utilização do sonar, até a normalização da q
 
 \subsubsection{Métricas quantitativas.} \label{sec:sonar-planning-mquantity}
 
-Regras, Quality Profiles e Quality Gates são as chave da plataforma SonarQube \cite{SONARQUBE}, cada plugin no SonarQube executa uma especifica análise de código estático, e nele contém um repositório com as descrições de cada regra, diagnóstico e em muitos casos sugestões de melhoria.
-Violações dessas regras são usadas para determinar e calcular a dívida técnica no projeto e no código, gerando um previa avaliação com um determinado tempo, também calculado, para corrigir esses problemas.
+Regras, Quality Profiles e Quality Gates são as chave da plataforma SonarQube \cite{SONARQUBE}, cada plugin no SonarQube executa uma específica análise de código estático, e nele contém um repositório com as descrições de cada regra, diagnóstico, e em muitos casos, sugestões de melhoria.
+Violações dessas regras são usadas para determinar e calcular a dívida técnica no projeto e no código, gerando um prévia avaliação com um determinado tempo, também calculado, para corrigir esses problemas.
 
 Quality Gate é um indicador de conformidade (ou inconsistência) do projeto com as métricas de código de limite especificadas\cite{SONARQUBE}. Os projetos adicionados ao SonarQube usaram o gate de qualidade, e ao final desse trabalho as seguintes métricas e seus valores foram definidas:
 
@@ -850,11 +849,11 @@ Quality Gate é um indicador de conformidade (ou inconsistência) do projeto com
  	\item Package tangle index (dependências cíclicas) : \textgreater 8.
 	\item Novas issues : 0.
 	\item Novas vulnerabilidades : 0.
-	\item Tolerancia de taxa adicional de dívida técnica em código : \textless 3\%.
+	\item Tolerância de taxa adicional de dívida técnica em código : \textless 3\%.
  \end{itemize}
 
 \subsubsection{Evolução da qualidade.} \label{sec:evolucao-mquantity}
-Foi possivel acompanhar e analisar visualmente a partir dos relatorios a evolução da qualidade:
+Foi possível acompanhar e analisar visualmente a partir dos relatorios a evolução da qualidade:
 
 A partir de uma overview dos projetos :
 \begin{figure}[H]
@@ -874,7 +873,7 @@ A partir de uma overview dos projetos :
 \begin{figure}[H]
 	\centering
 		\includegraphics[scale=0.5]{img/sonar-overview-PMD.png}
-	\caption{Exemplo 02 de historico de atividades}
+	\caption{Exemplo 02 de histórico de atividades}
 	\label{fig:sonar-overview-PMD}
 \end{figure}
 
@@ -883,8 +882,8 @@ A partir de uma overview dos projetos :
 
 \subsection{SonarQube - Revisões de código.} \label{sec:sonar-review}
 
-SonarQube foi adicionado como ferramenta de revisão de código, sendo implementado e executado a cada nova mudança, e adicionado em cada novo "pull-request"', e definido como críterio de aceitação a aderencia as regras definidas.
-Sendo possivel de aliviar e eliminar muitas das revisões com base em conceitos pessoais, ajudando o time a organizar e gerenciar esforços de qualidade de código por meio da confirmação de problemas, comentários, atribuições e ajustes de gravidade. 
+SonarQube foi adicionado como ferramenta de revisão de código, sendo implementado e executado a cada nova mudança, e adicionado em cada novo "pull-request"', e definido como critério de aceitação a aderência às regras definidas.
+Sendo possível de aliviar e eliminar muitas das revisões, com base em conceitos pessoais, ajudando o time a organizar e gerenciar esforços de qualidade de código, por meio da confirmação de problemas, comentários, atribuições e ajustes de gravidade.
 
 \newpage
 \part{Trabalhos futuros} \label{sec:trabalhos_futuros}
@@ -892,36 +891,37 @@ Sendo possivel de aliviar e eliminar muitas das revisões com base em conceitos 
 Alguns trabalhos futuros podem ser realizados para melhorar a avaliação e entendimento das métricas apresentadas:
 
  \begin{itemize}
- 	\item Como  pôde  ser  observado,  houve  poucos  estudos  empíricos e referencias entre alguns príncipios e métricas quantitativas, ou não houve ainda uma métrica sólida e confiavel o suficiente para algumas das questões e regras:
+ 	\item Como  pôde  ser  observado,  houve  poucos  estudos  empíricos e referências entre alguns princípios e métricas quantitativas, ou não houve ainda uma métrica sólida e confiável o suficiente para algumas das questões e regras:
 		\begin{itemize}
-		 \item Polymorphism - Métrica confiavel para avalição do grau de utilização de abstração.
+		 \item Polymorphism - Métrica confiável para avalição do grau de utilização de abstração.
 		 \item  SRP nas classes de testes, classe realizandos diversos contextos de testes.
 		 \item Law of Demeter principles.
 		\end{itemize}
-	\item A conformidade em relação a arquitetura, muitos casos apresenta  o problema de ser implementado não aderentes as definições de arquitetura, aonde  que  em  muitos  casos  a  arquitetura  não  é  refleetida  no  código  fonte.
+	\item A conformidade em relação à arquitetura, muitos casos apresenta  o problema de ser implementado não aderentes às definições de arquitetura, nas quais  em  muitos  casos, a  arquitetura não é refletida no código fonte.
 		\begin{itemize}
-		 \item Utilização de Classes de dominio (Entidades ORM) sendo utilizadas fora da camada de persistencia, sendo propagada e expondo mais informações que o necessario.
-		 \item Sobrecarga de represetações em um unico objeto (XML, JSON, DTO) não foram possiveis de serem quantificadas.
+		 \item Utilização de Classes de domínio (Entidades ORM) sendo utilizadas fora da camada de persistência, sendo propagada e expondo mais informações que o necessário.
+		 \item Sobrecarga de represetações em um único objeto (XML, JSON, DTO) não foram possíveis de serem quantificadas.
 		\end{itemize}
 	\item Divergências  entre  a  Arquitetura  Conceitual  (definida) e a Arquitetura  Concreta  (implementada).
+    \item A necessidade de separação de testes unitário e testes de integração foi um ponto identificado no decorrer do desenvolvimento desse trabalho, tanto para analise de metricas, quanto para um melhor desenvolvimento e sua relação complementar (UT x IT), analisando o problema/anti-pattern conhecido, denominado ice-scream, quando não difeciodo e definido esforço necessario para cada tipo de teste.
 \end{itemize}
 
-Pontos que podem ser avaliados, e gerar uma proposta para definição de métrica quantitativas. 
+Pontos que podem ser avaliados e gerar uma proposta para definição de métrica quantitativas.
 
 \part{Conclusão} \label{sec:conclusao}
 
-Através do presente trabalho, obteve-se maior entendimento em relação à utilização de métricas no desenvolvimento de software.
-Houve um indicio que, a utilização do TDD/BDD, ou de modo geral o test-first, resultada em grades ganhos em relação a qualidade de código:
+Por meio do presente trabalho, obteve-se maior entendimento em relação à utilização de métricas no desenvolvimento de software.
+Houve um indício, de que, a utilização do TDD/BDD, ou de modo geral o test-first resultada em grandes ganhos, em relação a qualidade de código:
 
 \begin{itemize}
-	\item Feedback rápido sobre a funcionalidade em desenvolvimento e em relação ao funcionalidades existentes no sistema	
+	\item Feedback rápido sobre a funcionalidade em desenvolvimento e em relação ao funcionalidades existentes no sistema
 	\item Design com foco funcional (objetivos claro).
 	\item Código mais limpo
 	\item Realizar refatorações se torna um processo mais seguro.
 	\item Segurança na correção de bugs (reproduzir o bug em relação a unidade afetada)
 	\item Maior produtividade já que o desenvolvedor encontra menos bugs e não desperdiça tempo com depuradores
 	\item Código da aplicação mais flexível, já que para escrever testes temos que separar em pequenos "pedaços" o nosso código, para que sejam testáveis, ou seja, nosso código estará menos acoplado.
-	\item Desenvolve um equipe mais confiante, pois um possivel bug, ou impacto/modificação não planjada, já é mostrado pelos testes.
+	\item Desenvolve uma equipe mais confiante, pois um possivel bug, ou impacto/modificação não planjada, já é mostrado pelos testes.
 	\item Possibilidade de integração contínua, com builds automáticos e feedbacks rápidos de problemas.
 	\item Utilização do TDD, facilita e favorece um coverage alto.
 \end{itemize}
@@ -945,13 +945,13 @@ Configuração das regras e a uliização do dashboard Sonar como guia, permite 
 Houve um grande ganho em relação a review, com a utilização do sonar, houve um maior aproveitamente das revisões manuais pelos seguintes motivos.
  \begin{itemize}
 	\item Classes e métodos menor são mais rápidos de revisão.
-  \item Utilização do relatorios de testes unitarios e de integração como criterio de entrega proporcionou um maior controle em relação a confiabilidade do projeto.
-	\item Houve um esforço menor com alteração em relação ao mudança da formatação.
+  \item Utilização do relatórios de testes unitários e de integração como critério de entrega, proporcionou um maior controle em relação a confiabilidade do projeto.
+	\item Houve um esforço menor com alteração em relação à mudança da formatação.
 	\item Time teve um ganho significativo em conhecimento técnico com pouco esforço.
 \end{itemize}
 
-O ponto mais importante na qualidade contínua, incluindo a utilização do SonarQube, é a produção de métricas de uma forma efetiva, criando um repositorio confiavel aonde nao apenas fornece métricas e estatísticas sobre código, mas traduz valores não descritos em valores de negócios reais, como risco e dívida técnica.
-Não apenas abordando os desenvolvedores, mas também os gerentes de projeto e níveis administrativos ainda mais altos, devido ao aspecto de gerenciamento que o mesmo oferece, e sua visibilidade em relação a qualidade com seus relatorios, e principalmente pelas diferentes perspectivas, e de uma perspectiva gerencial, o acesso transparente e contínuo aos dados históricos permite que o gerente, e o time, analise e faça as perguntas certas,  auxiliando na tomada de decisão no decorrer do desenvolvimento de software.
+O ponto mais importante na qualidade contínua, incluindo a utilização do SonarQube, é a produção de métricas de uma forma efetiva, criando um repositório confiável o qual não apenas fornece métricas e estatísticas sobre código, mas traduz valores não descritos em valores de negócios reais, como risco e dívida técnica.
+Não apenas abordando os desenvolvedores, mas também os gerentes de projeto e níveis administrativos ainda mais altos, devido ao aspecto de gerenciamento que o mesmo oferece, e sua visibilidade em relação a qualidade com seus relatórios, e principalmente pelas diferentes perspectivas, e de uma perspectiva gerencial, o acesso transparente e contínuo aos dados históricos permite que o gerente, e o time, analise e faça as perguntas certas,  auxiliando na tomada de decisão no decorrer do desenvolvimento de software.
 
 \newpage
 %http://kb.mit.edu/confluence/pages/viewpage.action?pageId=3907111
